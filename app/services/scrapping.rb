@@ -8,11 +8,6 @@ class Scrapping
   end
 
 
-  def perform
-    scrapping_genre('http://everynoise.com')
-  end
-
-
   # Method that scraps genres and their URL into an hash
   def scrapping_genre(url)
     doc = Nokogiri::HTML(open(url))
@@ -54,6 +49,11 @@ class Scrapping
         temp.save
       end
     end
+  end
+
+
+  def perform
+    scrapping_genre('http://everynoise.com')
   end
 
 end

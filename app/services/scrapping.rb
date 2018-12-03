@@ -33,7 +33,6 @@ class Scrapping
   # from a everynoise genre URL
   def scrapping_artists(url, id)
     doc = Nokogiri::HTML(open(url))
-    @id = id
 
     # Goes through all genre divs
     doc.css("div.genre").each do |div|
@@ -41,12 +40,20 @@ class Scrapping
       if (div.css('a')[0]["href"]).include?("spotify")
         spotify = div.css('a')[0]["href"].tr('spotify:artist:', '')
         name = div.text.tr('»', '')
-      # create an hash with artist name => [spotify_Id, genre]
-        a = Artist.create(name: name, spotify_id: spotify)
-        a.genres << Genre.find(@id)
+
+        # search if Artist already exists in database,
+        a = Artist.find_by spotify_id: spotify
+        if a == nil
+          # if not, create an artist in the db
+          a = Artist.create(name: name, spotify_id: spotify)
+        end
+
+        temp = ArtistGenre.new
+        temp.artist = a
+        temp.genre = Genre.find(id)
+        temp.save
       end
     end
   end
-
 
 end

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
+  get 'artists/show'
+  root 'home#index'
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :artists, only: [:show]
+  resources :likes, only: [:create, :destroy]
 end

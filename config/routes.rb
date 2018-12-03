@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :artists, only: [:show]
   resources :likes, only: [:create, :destroy]
+  resources :home, only: [:index]
 end

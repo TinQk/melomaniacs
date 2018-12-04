@@ -1,0 +1,21 @@
+<div id="header">
+	<ul>
+       
+
+			<% if user_signed_in? %>
+			
+        
+        <li class="login-links" style="float:right;"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <li class="login-links" style="float:right;"><%= link_to "Edit Account", edit_user_registration_path%></li>
+
+      <% else %>
+        <li class="nav-item active" style="float:right;">
+          <a data-toggle="modal" data-target="#signUpModal">Sign Up</a>
+        </li>
+        <li class="nav-item" style="float:right;">
+          <a data-toggle="modal" data-target="#logInModal">Log In</a>
+        </li>
+      <% end %>
+
+    </ul>
+</div>

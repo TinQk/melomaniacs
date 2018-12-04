@@ -9,8 +9,14 @@
   <h3><%= genre.name %></h3>
 <% end %>
 
+
+<!-- Show 5 similar artists -->
 <h2>Artistes similaires</h2>
-<% @similar.each do |i| %>
-  <h3><%= i.name %></h3>
-  <%= image_tag i.images[2]['url'] %><br>
+<% i=0 %>
+<% @similar.each do |a| %>
+  <% if i<5 %>
+    <h3><%= a.name %></h3>
+    <%= image_tag a.images[2]['url'] %><br>
+    <% i+=1 %>
+  <% end %>
 <% end %>

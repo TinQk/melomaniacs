@@ -1,24 +1,16 @@
-<%= form_tag("/home",  :method => "get") do %>
-
-<%= text_field_tag :artist, params[:artist] %>
-
-<%= submit_tag "artist" %>
-
-<% end %>
-
+<h1><%= @artist.name %></h1><br>
 
 <% if @image != nil %>
-<h1><%= @artists.name %></h1><br>
-<%= image_tag @image %><br>
-Genres: <%= @artists.genres[0] %><br>
-Popularity: <%= @artists.popularity %><br>
+  <%= image_tag @image %><br>
+<% end %>
+
+<h2>Genres:</h2>
+<% @artist.genres.each do |genre|  %>
+  <h3><%= genre.name %></h3>
+<% end %>
+
 <h2>Artistes similaires</h2>
 <% @similar.each do |i| %>
-<h3><%= i.name %></h3><br>
-<%= image_tag i.images[2]['url'] %><br>
+  <h3><%= i.name %></h3>
+  <%= image_tag i.images[2]['url'] %><br>
 <% end %>
-<% end %>
-
-
-
-

@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get 'likes/create'
-  get 'likes/destroy'
-  get 'artists/show'
   root 'home#index'
   devise_for :users
   resources :artists, only: [:show]
+  resources :genres, only: [:show]
   resources :likes, only: [:create, :destroy]
 end

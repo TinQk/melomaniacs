@@ -1,2 +1,16 @@
-<h1>Artists#show</h1>
-<p>Find me in app/views/artists/show.html.erb</p>
+<h1><%= @artist.name %></h1><br>
+
+<% if @image != nil %>
+  <%= image_tag @image %><br>
+<% end %>
+
+<h2>Genres:</h2>
+<% @artist.genres.each do |genre|  %>
+  <h3><%= genre.name %></h3>
+<% end %>
+
+<h2>Artistes similaires</h2>
+<% @similar.each do |i| %>
+  <h3><%= i.name %></h3>
+  <%= image_tag i.images[2]['url'] %><br>
+<% end %>

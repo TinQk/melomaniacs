@@ -1,0 +1,42 @@
+.home{
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.home-left{
+  margin-left: 3em;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-left h1{
+  font-family: Helvetica;
+  font-weight: bold;
+  color: #404040;
+  line-height: 1.2em;
+}
+
+.home-left p{
+  font-family: Helvetica;
+  font-weight: lighter;
+  color: #707070;
+  line-height: 1.7em;
+  margin-bottom: 2em;
+  font-size: 0.9em;
+}
+
+.home-right img{
+  height: 35em;
+  position: absolute;
+  bottom: -2.5em;
+  right: -6em;
+}
+
+.home-button-primary{
+  background-color: #3E3BF5;
+  color: #FFF;
+
+}

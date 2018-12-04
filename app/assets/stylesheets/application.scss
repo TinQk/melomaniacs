@@ -11,7 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
 */
-
+@import "bootstrap";
 @import "components/*";
 
 /* BACKGROUND */
@@ -29,4 +29,5 @@ body{
    height: 92%;
    background:rgba(255,255,255,0.98);
    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.16);
+   font-family: helvetica;
 }

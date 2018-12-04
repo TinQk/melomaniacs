@@ -4,9 +4,9 @@
 
 			<% if user_signed_in? %>
 			
-        
         <li class="login-links" style="float:right;"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <li class="login-links" style="float:right;"><%= link_to "Edit Account", edit_user_registration_path%></li>
+        <li class="login-links" style="float:right;"><%= current_user.email %></li>
 
       <% else %>
         <li class="nav-item active" style="float:right;">

@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
+
   </head>
 
   <body>
@@ -19,7 +20,7 @@
     <% unless user_signed_in? %>
       <%= render partial: 'devise/registrations/new' %>
       <%= render partial: 'devise/sessions/new' %>
-    <% end %>
+      <% end %>
     
   </body>
 

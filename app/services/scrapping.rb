@@ -15,7 +15,7 @@ class Scrapping
 
     # To create our genre database + links
     doc.css("div.genre").each do |div|
-      genre = (div.text).tr('»', '')
+      genre = (div.text).tr('»', '').chop
       id = Genre.create(name: genre).id
       link = 'http://everynoise.com/' + (div.css('a')[0]["href"])
      #scraps artists info
@@ -33,8 +33,8 @@ class Scrapping
     doc.css("div.genre").each do |div|
     # Only takes links that include "spotify" to only take artists and not related genres
       if (div.css('a')[0]["href"]).include?("spotify")
-        spotify = div.css('a')[0]["href"].tr('spotify:artist:', '')
-        name = div.text.tr('»', '')
+        spotify = div.css('a')[0]["href"][15..-1]
+        name = div.text.tr('»', '').chop
 
         # search if Artist already exists in database,
         a = Artist.find_by spotify_id: spotify

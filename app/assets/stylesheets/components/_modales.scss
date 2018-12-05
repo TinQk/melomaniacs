@@ -1,0 +1,38 @@
+.input-group:hover {
+	box-shadow: 1px 1px 4px #cecece;
+	transition: 0.2s;
+}
+
+.modal-title {
+  color: #404040;
+  padding-left: 1.2em;
+}
+
+.form.form-control{
+  color: #3E3BF5;
+}
+
+.btn.btn-outline-primary.btn-lg{
+    background-color: #3E3BF5;
+    color: #fff;
+    padding: 0.2em 3em;
+    border-radius: 35px;
+    border: solid #3E3BF5 2px;
+
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+
+.btn.btn-outline-primary.btn-lg:hover{
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.16);
+    background-color: #7de2e3;
+    border: solid #7de2e3 2px;
+    cursor: pointer;
+
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }

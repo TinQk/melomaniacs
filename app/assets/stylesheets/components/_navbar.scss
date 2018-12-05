@@ -3,6 +3,10 @@
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
 }
 
+.my-header .icon {
+    display: none;
+}
+
 #header img{
   height: 3em;
   margin-top: 0.2em;
@@ -13,6 +17,7 @@
 #header img:hover{
   opacity: 0.8;
   cursor: pointer;
+  overflow: hidden;
 }
 
 #header ul{
@@ -41,14 +46,14 @@
   font-size: 0.75em;
   cursor: pointer;
 }
-.navbar-links{
-  height: inherit;
+
+#header .fa{
+  display:none;
 }
 
-.nav-item{
-  height:inherit;
-}
 
-.nav-item-active{
-  height:inherit;
+@media screen and (max-width: 500px) {
+  .navbar-links{
+    display: none;
+  }
 }

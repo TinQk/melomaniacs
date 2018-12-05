@@ -17,6 +17,7 @@
   font-weight: bold;
   color: #404040;
   line-height: 1.2em;
+  z-index: +1;
 }
 
 .home-left p{
@@ -26,6 +27,7 @@
   line-height: 1.7em;
   margin-bottom: 2em;
   font-size: 0.9em;
+  z-index: +1;
 }
 
 .home-left hr{
@@ -35,11 +37,12 @@
 }
 
 .home-right img{
-  height: 35em;
+  height: 100%;
   position: absolute;
   bottom: -1.2em;
   right: -1em;
 }
+
 
 .home-button-primary{
   background-color: #3E3BF5;
@@ -99,4 +102,54 @@
 
 .home-button-secondary:focus {
   outline: none;
+}
+
+//RESPOSIVE
+
+@media (max-width: 850px){
+  .home-right img {
+    display: none;
+  }
+.home-left{
+  max-width: 100%;
+}
+}
+
+@media (max-height: 350px){
+  .home-right img {
+    display: none;
+  }
+}
+
+
+@media (max-width: 500px){
+  h1{
+    font-size: 2em;
+  }
+
+  p{
+    font-size: 0.6em;
+  }
+  .home-button-primary {
+    font-size: 0,8em;
+    padding: 0.2em 1em;
+  }
+  .home-button-secondary {
+    font-size: 0,8em;
+    padding: 0.2em 1em;
+  }
+
+}
+
+@media (max-height: 300px){
+  h1{
+    display: none;
+  }
+
+  p{
+    display :none;
+  }
+  hr{
+    display: none;
+  }
 }

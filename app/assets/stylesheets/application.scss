@@ -32,3 +32,15 @@ body{
    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.16);
    font-family: helvetica;
 }
+
+@media (min-width: 701px) and (max-width: 850px){
+  body{
+    width: 95%;
+  }
+}
+
+@media (max-width: 700px) {
+  body{
+    width: 90%;
+  }
+}

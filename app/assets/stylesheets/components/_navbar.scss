@@ -26,20 +26,23 @@
   display: flex;
 }
 
-#header li{
-  margin-right: 5em;
-  color: #707070;
+
+#header li a button:hover{
+  color: #404040;
   font-weight: normal;
   font-size: 0.75em;
   cursor: pointer;
 }
 
-#header li:hover{
+#header li a button {
   margin-right: 5em;
-  color: #404040;
+  color: #707070;
   font-weight: normal;
   font-size: 0.75em;
   cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  border-style: none;
+  padding: 1em;
 }
 .navbar-links{
   height: inherit;

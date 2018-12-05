@@ -32,3 +32,8 @@ body{
    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.16);
    font-family: helvetica;
 }
+
+.input-group:hover {
+	box-shadow: 1px 1px 4px #cecece;
+	transition: 0.2s;
+}

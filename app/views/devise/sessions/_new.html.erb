@@ -13,16 +13,26 @@
       </div>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="modal-body mx-3">
-        <div class="md-form mb-5">
+        <span class="md-form mb-5">
           <i class="fa fa-envelope prefix grey-text"></i>
-          <%= f.email_field :email %>
-          <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label><br>
-        </div>
+           <label data-error="wrong" data-success="right" for="defaultForm-email"></label>
+           <div class="input-group">
+             <div class="input-group-prepend">
+               <div class="input-group-text">@</div>
+             </div>
+             <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+           </div>
+        </span>
 
         <div class="md-form mb-4">
           <i class="fa fa-lock prefix grey-text"></i>
-           <%= f.password_field :password, autocomplete: "off" %>
-          <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label><br>
+          <label data-error="wrong" data-success="right" for="defaultForm-pass"></label>
+          <div class="input-group">
+             <div class="input-group-prepend">
+               <div class="input-group-text">🎼</div>
+             </div>
+          <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+          </div>
         </div>
         <% if devise_mapping.rememberable? -%>
           <div class="field">
@@ -33,7 +43,7 @@
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-         <%= f.submit "Login", class: 'btn btn-outline-success', onclick: "window.location.href='/';" %>
+         <%= f.submit "Login", class: 'btn btn-outline-primary btn-lg btn-block', onclick: "window.location.href='/';" %>
       </div>
     </div>
     <% end %>

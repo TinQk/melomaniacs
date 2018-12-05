@@ -28,6 +28,12 @@
   font-size: 0.9em;
 }
 
+.home-left hr{
+  width: 90%;
+  margin-right: 10em;
+  margin-top: 0.4em;
+}
+
 .home-right img{
   height: 35em;
   position: absolute;
@@ -61,6 +67,10 @@
   transition: all .4s ease-in-out;
 }
 
+.home-button-primary:focus{
+  outline:none;
+}
+
 .home-button-secondary{
   background-color: rgba(255, 255, 255, 0);
   color: #969696;
@@ -85,4 +95,8 @@
   -o-transition: all .4s ease-in-out;
   -webkit-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
+}
+
+.home-button-secondary:focus {
+  outline: none;
 }

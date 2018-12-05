@@ -1,21 +1,24 @@
+
 <div id="header">
 	<ul>
-       
+		<div>
+			 <li><%= link_to image_tag('logo-row.png'), root_path%></li>
+		 </div>
 
-			<% if user_signed_in? %>
-			
-        
-        <li class="login-links" style="float:right;"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-        <li class="login-links" style="float:right;"><%= link_to "Edit Account", edit_user_registration_path%></li>
+		 <div class='navbar-links'>
+				<% if user_signed_in? %>
 
-      <% else %>
-        <li class="nav-item active" style="float:right;">
-          <a data-toggle="modal" data-target="#signUpModal">Sign Up</a>
-        </li>
-        <li class="nav-item" style="float:right;">
-          <a data-toggle="modal" data-target="#logInModal">Log In</a>
-        </li>
-      <% end %>
+	        <li class="login-links" style="float:right;"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+	        <li class="login-links" style="float:right;"><%= link_to "Edit Account", edit_user_registration_path%></li>
 
+	      <% else %>
+	        <li class="nav-item active" ">
+	          <a data-toggle="modal" data-target="#signUpModal">SIGN UP</a>
+	        </li>
+	        <li class="nav-item" ">
+	          <a data-toggle="modal" data-target="#logInModal">LOG IN</a>
+	        </li>
+	      <% end %>
+			</div>
     </ul>
 </div>

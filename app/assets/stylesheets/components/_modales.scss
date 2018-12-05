@@ -36,3 +36,11 @@
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
   }
+
+.row {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

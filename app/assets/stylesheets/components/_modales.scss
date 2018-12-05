@@ -4,20 +4,26 @@
 }
 
 .modal-title {
-  color: #404040;
+  color: white;
   padding-left: 1.2em;
 }
 
-.form.form-control{
-  color: #3E3BF5;
+.modal-header.text-center{
+  background-image: linear-gradient(to bottom right, #7439C7, #7C3CB2, #9B42A0);
+  color: #fff;
+}
+
+.form-control:focus{
+  outline: none;
 }
 
 .btn.btn-outline-primary.btn-lg{
-    background-color: #3E3BF5;
+    background-color: #7439C7;
     color: #fff;
     padding: 0.2em 3em;
     border-radius: 35px;
-    border: solid #3E3BF5 2px;
+    border: solid #7439C7 2px;
+    font-size: 1em;
 
     moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
@@ -27,8 +33,8 @@
 
 .btn.btn-outline-primary.btn-lg:hover{
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.16);
-    background-color: #7de2e3;
-    border: solid #7de2e3 2px;
+    background-color: #9B42A0;
+    border: solid #9B42A0 2px;
     cursor: pointer;
 
     moz-transition: all .4s ease-in-out;
@@ -37,10 +43,20 @@
     transition: all .4s ease-in-out;
   }
 
+
 .row {
     margin-top: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+.close {
+  color: white;
+}
+
+.remember-me{
+  color: rgb(108, 117, 124);
+
 }

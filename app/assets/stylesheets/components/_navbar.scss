@@ -3,6 +3,10 @@
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
 }
 
+.my-header .icon {
+    display: none;
+}
+
 #header img{
   height: 3em;
   margin-top: 0.2em;
@@ -13,6 +17,7 @@
 #header img:hover{
   opacity: 0.8;
   cursor: pointer;
+  overflow: hidden;
 }
 
 #header ul{
@@ -26,18 +31,31 @@
   display: flex;
 }
 
-#header li{
-  margin-right: 5em;
-  color: #707070;
+
+#header li a button:hover{
+  color: #404040;
   font-weight: normal;
   font-size: 0.75em;
   cursor: pointer;
 }
 
-#header li:hover{
+#header li a button {
   margin-right: 5em;
-  color: #404040;
+  color: #707070;
   font-weight: normal;
   font-size: 0.75em;
   cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  border-style: none;
+  padding: 1em;
+}
+
+.fa{
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar-links{
+    display: none;
+  }
 }

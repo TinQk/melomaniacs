@@ -50,3 +50,11 @@
 .remember-me{
   color: rgb(108, 117, 124);
 }
+
+.row {
+	    margin-top: 150px;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+}

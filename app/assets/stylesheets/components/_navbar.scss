@@ -31,7 +31,7 @@
   display: flex;
 }
 
-#header li{
+#header li a{
   margin-right: 5em;
   color: #707070;
   font-weight: normal;
@@ -39,18 +39,18 @@
   cursor: pointer;
 }
 
-#header li:hover{
+#header li a:hover{
   margin-right: 5em;
   color: #404040;
   font-weight: normal;
   font-size: 0.75em;
   cursor: pointer;
+  text-decoration: none;
 }
 
-#header .fa{
-  display:none;
+.fa{
+  display: none;
 }
-
 
 @media screen and (max-width: 500px) {
   .navbar-links{

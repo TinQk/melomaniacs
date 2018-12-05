@@ -8,15 +8,15 @@
 		 <div class='navbar-links'>
 				<% if user_signed_in? %>
 
-	        <li class="login-links" style="float:right;"><%= button_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-	        <li class="login-links" style="float:right;"><%= button_to "Edit Account", edit_user_registration_path%></li>
+	        <li class="login-links" style="float:right;"><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
+	        <li class="login-links" style="float:right;"><%= link_to "EDIT ACCOUNT", edit_user_registration_path%></li>
 
 	      <% else %>
 	        <li class="nav-item active" ">
-	          <a data-toggle="modal" data-target="#signUpModal">SIGN UP</a>
+	          <a data-toggle="modal" data-target="#signUpModal"><button>SIGN UP</button></a>
 	        </li>
 	        <li class="nav-item" ">
-	          <a data-toggle="modal" data-target="#logInModal">LOG IN</a>
+	          <a data-toggle="modal" data-target="#logInModal"><button>LOG IN</button></a>
 	        </li>
 					<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 						<i class="fa fa-bars"></i>

@@ -67,6 +67,10 @@
   transition: all .4s ease-in-out;
 }
 
+.home-button-primary:focus{
+  outline:none;
+}
+
 .home-button-secondary{
   background-color: rgba(255, 255, 255, 0);
   color: #969696;
@@ -91,4 +95,8 @@
   -o-transition: all .4s ease-in-out;
   -webkit-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
+}
+
+.home-button-secondary:focus {
+  outline: none;
 }

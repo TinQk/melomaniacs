@@ -20,6 +20,7 @@
   overflow: hidden;
 }
 
+
 #header ul{
   list-style-type: none;
   display: flex;
@@ -36,11 +37,31 @@
 #header li a button:hover{
   color: #404040;
   font-weight: normal;
-  font-size: 0.75em;
   cursor: pointer;
 }
 
 #header li a button {
+  color: #707070;
+  font-weight: normal;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  border-style: none;
+}
+
+#header li a button:focus{
+  outline: none;
+}
+
+
+#header li a:hover{
+  color: #404040;
+  font-weight: normal;
+  font-size: 0.75em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#header li a {
   margin-right: 5em;
   color: #707070;
   font-weight: normal;
@@ -51,7 +72,7 @@
   padding: 1em;
 }
 
-#header li a button:focus{
+#header li a:focus{
   outline: none;
 }
 

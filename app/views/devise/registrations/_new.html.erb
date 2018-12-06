@@ -10,7 +10,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body mx-3">
+      <%= image_tag ("logo-column.png"), class:'modal-logo'%>
+      <span class="modal-body mx-3">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                     <%= devise_error_messages! %>
 
@@ -22,7 +23,7 @@
              </div>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email" %>
         </div>
-      </div>
+      </span>
 
         <span class="md-form mb-4">
 
@@ -46,9 +47,7 @@
           <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Password confirmation" %>
 
          </div>
-
         </div>
-
       </div>
       <div class="modal-footer d-flex justify-content-center">
          <%= f.submit "Sign up", class: 'btn btn-outline-primary btn-lg' %>

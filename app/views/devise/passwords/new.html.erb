@@ -4,7 +4,7 @@
 
  <div class="form-gap"></div>
 <div class="container">
-	
+
 	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -17,33 +17,33 @@
                   <h2 class="text-center">Forgot Password?</h2>
                   <p>You can reset your password here.</p>
                   <div class="panel-body">
-    
+
                     <form id="register-form" role="form" autocomplete="off" class="form" method="post">
-    
+
                       <div class="form-group">
                         <div class="input-group">
 
              <div class="input-group-prepend">
                           <div class="input-group-text">@</div>
                       </div>
-                          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email address", class:"form-control" %>
-                          
+                          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
                         </div>
-                      
+
                   </div>
                       <div class="form-group">
                         <%= f.submit "Reset Password", name:"recover-submit", class:"btn btn-lg btn-outline-primary", value:"Reset Password", type:"submit" %>
                       </div>
-                      
-                      <input type="hidden" class="hide" name="token" id="token" value=""> 
+
+                      <input type="hidden" class="hide" name="token" id="token" value="">
                     </form>
-    
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
+
 	</div>
 </div>
 <% end %>

@@ -51,6 +51,11 @@
   padding: 1em;
 }
 
+#header li a button:focus{
+  outline: none;
+}
+
+
 .fa{
   display: none;
 }

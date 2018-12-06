@@ -2,7 +2,7 @@
 <div id="header" class='my-header'>
 	<ul>
 		<div>
-			 <li><%= link_to image_tag('logo-row.png'), root_path%></li>
+			 <li><%= link_to image_tag('logo-row.png'), root_path, class:'logo-header'%></li>
 		 </div>
 
 		 <div class='navbar-links'>
@@ -10,8 +10,7 @@
 
 	       <li class="login-links" style="float:right;"><%= link_to "DISCOVER", root_path%></li>
 	        <li class="login-links" style="float:right;"><%= link_to "PROFILE", edit_user_registration_path%></li>
-					 <li class="login-links" style="float:right;"><%= link_to image_tag('power.png'), destroy_user_session_path, method: :delete %></li>
-
+					 <li class="login-links logo" style="float:right;"><%= link_to image_tag('power.png'), destroy_user_session_path, method: :delete %></li>
 	      <% else %>
 	        <li class="nav-item active" ">
 	          <a data-toggle="modal" data-target="#signUpModal"><button>SIGN UP</button></a>

@@ -9,9 +9,12 @@
 
 #header img{
   height: 2em;
+  margin-bottom: 0.2em;
+}
+
+#header li{
   margin-top: 0.2em;
   margin-bottom: 0.2em;
-  margin-left: -2em;
 }
 
 #header img:hover{
@@ -26,6 +29,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 0;
   z-index: 2;
 }
 
@@ -33,6 +37,9 @@
   display: flex;
 }
 
+.login-links{
+
+}
 
 #header li a button:hover{
   color: #404040;
@@ -62,14 +69,15 @@
 }
 
 #header li a {
-  margin-right: 5em;
+  margin-right: 3em;
   color: #707070;
   font-weight: normal;
   font-size: 0.75em;
   cursor: pointer;
   background: rgba(0, 0, 0, 0);
   border-style: none;
-  padding: 1em;
+  padding: 1em 1em;
+  vertical-align: middle;
 }
 
 #header li a:focus{

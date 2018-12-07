@@ -69,7 +69,7 @@
     <div class='genres-artist'>
       <div class= 'genres-artist-each'>
       <% @artist.genres.each do |genre|  %>
-        <%= button_to (genre.name), genre_path,  class:'genre-button'%>
+        <%= button_to (genre.name), genre_path(genre.id), method: :get,  class:'genre-button'%>
       <% end %>
     </div>
   </div>

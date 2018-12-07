@@ -1,14 +1,25 @@
-<h1><%= @genre.name %></h1><br>
+<div class='genre-show'>
+
+    <h1><%= @genre.name.titleize %></h1>
+    <p class= "likes-text"><%= @genre.artists.count %> artists belong to this genre</p>
 
 
-# Display the 5 first artists of the Genre
+    <h2>Here are 10 of them you might enjoy:</h2>
 
-<h2>famous artists:</h2>
 
-<% i=0 %>
-<% @genre.artists.each do |artist| %>
-  <% if i<5 %>
-    <h3><%= link_to artist.name, artist_path(artist) %></h3>
-    <% i+=1 %>
-  <% end %>
-<% end %>
+   <div class="genre-artists">
+      <% i=0 %>
+      <% @genre.artists.each do |artist| %>
+        <% if i<5 %>
+          <div class="genre-artist">
+              <%= link_to artist.name, artist_path(artist) %>
+              <div class='img-box'>
+                <%= link_to image_tag(artist.image_url[2]['url']), artist_path %>
+              </div>
+          </div>
+          <% i+=1 %>
+        <% end %>
+      <% end %>
+    </div>
+
+</div>

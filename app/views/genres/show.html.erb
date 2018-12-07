@@ -1,0 +1,14 @@
+<h1><%= @genre.name %></h1><br>
+
+
+# Display the 5 first artists of the Genre
+
+<h2>famous artists:</h2>
+
+<% i=0 %>
+<% @genre.artists.each do |artist| %>
+  <% if i<5 %>
+    <h3><%= link_to artist.name, artist_path(artist) %></h3>
+    <% i+=1 %>
+  <% end %>
+<% end %>

@@ -1,0 +1,28 @@
+<div class='home'>
+    <% if user_signed_in? %>
+    <div class= 'home-left-logged'>
+      <h1>Search for Artists </h1>
+    </div>
+    <hr>
+
+    <div class= 'home-right-logged'>
+      <%= image_tag("BasKey-logged.png")%>
+    </div>
+
+    <% else %>
+    <div class= 'home-left'>
+      <h1>Sign up to discover new artists you're sure to love </h1>
+      <hr>
+      <p>Here at melomaniacs, we believe in the power of community to discover new things you’ll end up loving. We provide you with an extensive artists database and the opportunity to express your opinion. Our smart research and recommandation features allow you to find new things you’re sure to love.</p>
+      <div class= "home-buttons">
+        <button class='home-button-primary' data-toggle="modal" data-target="#signUpModal">Sign up</button><button class='home-button-secondary' data-toggle="modal" data-target="#logInModal">Log in</button>
+      </div>
+    </div>
+
+      <div class= 'home-right'>
+        <%= image_tag("BasKey-background.png")%>
+      </div>
+
+    <% end %>
+
+</div>

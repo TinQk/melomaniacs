@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   resources :genres, only: [:show]
   resources :likes, only: [:create, :destroy]
   resources :home, only: [:index]
+  resources :artists do
+  resources :likes
+  end
 end

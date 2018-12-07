@@ -4,17 +4,17 @@
     <p class= "likes-text"><%= @genre.artists.count %> artists belong to this genre</p>
 
 
-    <h2>Here are 10 of them you might enjoy:</h2>
+    <h2 class= "nav-links">Here are 10 of them you might enjoy:</h2>
 
 
    <div class="genre-artists">
       <% i=0 %>
       <% @random_artists.each_with_index do |artist, i| %>
-        <% if i<5 %>
+        <% if i<10 %>
           <div class="genre-artist">
               <%= link_to artist, artist_path(@index[i]) %>
               <div class='img-box'>
-                <%= link_to image_tag(artist.image_url[2]['url']), artist_path %>
+
               </div>
           </div>
           <% i+=1 %>

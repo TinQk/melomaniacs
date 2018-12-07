@@ -20,7 +20,7 @@
 
 .genre-show h2 {
   font-family: Helvetica;
-  font-weight: 500;
+  font-weight: lighter;
   color: #404040;
   font-size: 20px;
   line-height: 57.6px;
@@ -30,10 +30,12 @@
   font-size: 18px;
   text-decoration: none;
 
+
 }
 
 .genre-artist {
     line-height: 1.3em;
+    text-align: center;
 }
 
 .genre-artist a:hover {

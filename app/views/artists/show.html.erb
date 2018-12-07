@@ -10,6 +10,15 @@
 <% end %>
 
 
+
+<% pre_like = @artist.likes.find { |like| like.user_id == current_user.id} %>
+
+<% if pre_like %>
+  <%= button_to 'Unlike', artist_like_path(@artist, pre_like), method: :delete %>
+<% else %>
+  <%= button_to 'Like', artist_likes_path(@artist), method: :post %>
+<% end %>
+<p><%= @artist.likes.count %> <%= (@artist.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 <!-- Show 5 similar artists -->
 <h2>Artistes similaires</h2>
 <% i=0 %>

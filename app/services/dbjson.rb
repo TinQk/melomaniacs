@@ -1,28 +1,34 @@
+# Convertit une table en json pour Algolia et l'enregistre dans le dossier seed
+
+# Pour appeler ce service, effectuer la commande suivante :
+# Dbjson.new(Table).perform
+
 require 'rubygems'
 require 'json'
 
 class Dbjson
 
-  def initialize()
+  # Prend une table en entrée, ex : Artist
+  def initialize(table)
+    @table = table
+    @table_name = table.name.downcase
   end
 
   #
-  def convert_genres_to_json()
-    genres = []
-    Genre.all.each do |genre|
-      genres << genre
+  def convert_to_json()
+    entries = []
+    @table.all.each do |entry|
+      entries << entry
     end
 
-    genres_json = genres.to_json
+    entries_json = entries.to_json
 
-    File.open('genres.json', 'w') do |f|
-      f.write(genres_json)
-    end
+    File.write("db/seed/#{@table_name}", entries_json)
 
   end
 
   def perform()
-    convert_genres_to_json
+    convert_to_json()
   end
 
 end

@@ -5,10 +5,10 @@
     <div class = 'edit-left'>
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false"><%= image_tag ('avatar.png')%></a>
+          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false"><%= image_tag ('avatar.png')%></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true"><%= image_tag ('edit.png')%></a>
+          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true"><%= image_tag ('edit.png')%></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><%= image_tag ('rubbish-bin.png')%></a>
@@ -22,14 +22,46 @@
     <div class="tab-content" id="pills-tabContent">
 
 <!-- PROFILE PAGE -->
-      <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <div class="tab-pane fade  show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class= "profile-tab">
+          <div class= "show-box">
+            <h2>Recently <br>liked</h2>
+            <div class= "show-box-inside">
+              <% if current_user.likes.all == nil then %>
+                You haven't liked anything yet!
+              <% end %>
+              <% array = []%>
+              <% current_user.likes.all.reverse.each_with_index do |like, i|%>
+              <% array << like %>
+              <%= i+1%>. <%= link_to (like.artist.name), artist_path(like.artist.id) %><br>
+              <% if i==4 then break %>
+              <% end %><% end %>
+
+
+            </div>
+          </div>
+
+          <div class= "show-box">
+            <h2>Artists <br>for you</h2>
+            <div class= "show-box-inside">
+              <% RSpotify::authenticate("2fc8c7db0a584ecc97c8789e10b1ba14", "3e31ba14f979474ab69880fafd410829") %>
+              <% array.each_with_index do |like, i| %>
+              <% if RSpotify::Artist.find(like.artist.spotify_id).related_artists.first != nil %>
+              <%= i+1 %>. <%=  link_to (RSpotify::Artist.find(like.artist.spotify_id).related_artists.first.name), artist_path(Artist.find_by(name: RSpotify::Artist.find(like.artist.spotify_id).related_artists.first.name).id) %> <br>
+              <% end %><% end %>
+              <% array = []%>
+
+            </div>
+          </div>
+        </div>
+
       </div>
 
 
 <!-- EDIT ACCOUNT -->
-      <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
         <div class='similar-artist'>
-          <h2>Edit <%= resource_name.to_s.humanize %></h2>
+          <h2>Edit my info</h2>
 
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
               <%= devise_error_messages! %>

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <div class='artist-show'>
 
   <div class='pic-name'>
@@ -9,8 +9,26 @@
     </div>
 
     <h1><%= @artist.name %></h1>
-    <button class='like-button'>LIKE</button>
-  </div>
+    <div class='likes-text'>
+
+      <% if @artist.likes.count == 1 %>
+        <%= @artist.likes.count %> person loves this artist
+      <% else %>
+        <% if @artist.likes.count == 0 %>
+         no one likes this artist yet
+      <% else %>
+         <%= @artist.likes.count %> people love this artist
+      <% end %>
+      <% end %>
+    </div>
+      <% pre_like = @artist.likes.find { |like| like.user_id == current_user.id} %>
+
+      <% if pre_like %>
+        <%= button_to 'UNLIKE', artist_like_path(@artist, pre_like), method: :delete, class:'unlike-button' %>
+      <% else %>
+        <%= button_to 'LIKE', artist_likes_path(@artist), method: :post, class:'like-button' %>
+      <% end %>
+    </div>
 
 
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -59,36 +77,3 @@
 
 </div>
 </div>
-=======
-<h1><%= @artist.name %></h1><br>
-
-<% if @image != nil %>
-  <%= image_tag @image %><br>
-<% end %>
-
-<h2>Genres:</h2>
-<% @artist.genres.each do |genre|  %>
-  <h3><%= genre.name %></h3>
-<% end %>
-
-
-
-<% pre_like = @artist.likes.find { |like| like.user_id == current_user.id} %>
-
-<% if pre_like %>
-  <%= button_to 'Unlike', artist_like_path(@artist, pre_like), method: :delete %>
-<% else %>
-  <%= button_to 'Like', artist_likes_path(@artist), method: :post %>
-<% end %>
-<p><%= @artist.likes.count %> <%= (@artist.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-<!-- Show 5 similar artists -->
-<h2>Artistes similaires</h2>
-<% i=0 %>
-<% @similar.each do |a| %>
-  <% if i<5 %>
-    <h3><%= a.name %></h3>
-    <%= image_tag a.images[2]['url'] %><br>
-    <% i+=1 %>
-  <% end %>
-<% end %>
->>>>>>> e8d745d7118d98e732eb385406a10bdedd839ddf

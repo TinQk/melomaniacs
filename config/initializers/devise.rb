@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '23a669e59d8705d82f3d2c131425057b260f53edc593ec58c18c3915054d39140b137adffb7bb175d48a63566bfe3eaed5a18bb986821016dc6fe7636c61e1d5'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -18,7 +18,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'contact.melomaniacs@gmail.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -117,10 +117,10 @@ Devise.setup do |config|
   # config.pepper = '94a5dce2b7c3c936558f6c6b3152af828eb48f74e99df7874e898f4d2b9ceb9b19cdba2d30f572c658f0c60d48cf1c1e422924b8a3566b94d90382101c8f5c3d'
 
   # Send a notification to the original email when the user's email is changed.
-  # config.send_email_changed_notification = false
+  config.send_email_changed_notification = true
 
   # Send a notification email when the user's password is changed.
-  # config.send_password_change_notification = false
+  config.send_password_change_notification = true
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without

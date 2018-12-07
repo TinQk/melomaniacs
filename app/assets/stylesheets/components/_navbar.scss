@@ -1,0 +1,66 @@
+#header {
+  background: white;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
+}
+
+.my-header .icon {
+    display: none;
+}
+
+#header img{
+  height: 2em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  margin-left: -2em;
+}
+
+#header img:hover{
+  opacity: 0.8;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+#header ul{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-links{
+  display: flex;
+}
+
+
+#header li a button:hover{
+  color: #404040;
+  font-weight: normal;
+  font-size: 0.75em;
+  cursor: pointer;
+}
+
+#header li a button {
+  margin-right: 5em;
+  color: #707070;
+  font-weight: normal;
+  font-size: 0.75em;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  border-style: none;
+  padding: 1em;
+}
+
+#header li a button:focus{
+  outline: none;
+}
+
+
+.fa{
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar-links{
+    display: none;
+  }
+}

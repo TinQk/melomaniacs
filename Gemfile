@@ -6,7 +6,7 @@ ruby '2.5.1'
 gem 'nokogiri'
 gem 'devise'
 gem 'algoliasearch-rails'
-
+gem 'dotenv-rails'
 
 gem 'bootstrap', '~> 4.1.3'
 

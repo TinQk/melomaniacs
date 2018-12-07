@@ -1,21 +1,16 @@
-<html>
+<div class='home'>
 
-<head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/instantsearch.js/"/instantsearch.min.css">
-</head>
-
-<body>
-  <header>
-    <div id="input-container">
-      <input id="search-input" placeholder="Search for genres">
+    <div class= 'home-left'>
+      <h1>Sign up to discover new artists you're sure to love </h1>
+      <hr>
+      <p>Here at melomaniacs, we believe in the power of community to discover new things you’ll end up loving. We provide you with an extensive artists database and the opportunity to express your opinion. Our smart research and recommandation features allow you to find new things you’re sure to love.</p>
+      <div class= "home-buttons">
+        <button class='home-button-primary' data-toggle="modal" data-target="#signUpModal">Sign up</button><button class='home-button-secondary' data-toggle="modal" data-target="#logInModal">Log in</button>
+      </div>
     </div>
-  </header>
-  <main>
-    <div id="hits"></div>
-    <div id="pagination"></div>
-  </main>
-</body>
 
-<script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+    <div class= 'home-right'>
+      <%= image_tag("BasKey-background.png")%>
+    </div>
 
-</html>
+</div>

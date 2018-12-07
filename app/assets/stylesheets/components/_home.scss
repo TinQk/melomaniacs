@@ -4,6 +4,7 @@
   height: 90%;
 }
 
+// IF NOT LOGGED IN
 .home-left{
   margin-left: 3em;
   max-width: 50%;
@@ -103,6 +104,37 @@
 .home-button-secondary:focus {
   outline: none;
 }
+
+// IF logged in
+
+.home-left-logged{
+  margin-left: 3em;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-left-logged h1{
+  font-family: Helvetica;
+  font-weight: bold;
+  color: #404040;
+  line-height: 1.2em;
+  z-index: +1;
+}
+
+
+.home-right-logged img{
+  height:93%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  opacity: 0.5;
+}
+
+
+
 
 //RESPOSIVE
 

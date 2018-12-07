@@ -277,6 +277,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 2.5)
   jquery-rails
+  json
   listen (>= 3.0.5, < 3.2)
   nokogiri
   pg (>= 0.18, < 2.0)

@@ -1,43 +1,93 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class= 'edit-page'>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<!-- NAVBAR LEFT-->
+    <div class = 'edit-left'>
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false"><%= image_tag ('avatar.png')%></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true"><%= image_tag ('edit.png')%></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"><%= image_tag ('rubbish-bin.png')%></a>
+        </li>
+      </ul>
+
+    </div>
+
+
+ <div class = 'edit-right'>
+    <div class="tab-content" id="pills-tabContent">
+
+<!-- PROFILE PAGE -->
+      <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      </div>
+
+
+<!-- EDIT ACCOUNT -->
+      <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <div class='similar-artist'>
+          <h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
+
+              <div class="input-group">
+
+              <div class="input-group-prepend">
+                <div class="input-group-text">✉️</div>
+             </div>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+
+              <div class="input-group">
+
+              <div class="input-group-prepend">
+                <div class="input-group-text">🔑</div>
+             </div>
+                <%= f.password_field :password, autocomplete: "new-password", placeholder: "new password" %>
+              </div>
+
+              <div class="input-group">
+
+              <div class="input-group-prepend">
+                <div class="input-group-text">🔑</div>
+             </div>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "new password, again" %>
+              </div>
+
+              <div class="input-group">
+
+              <div class="input-group-prepend">
+                <div class="input-group-text">🔐</div>
+             </div>
+                <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "current password" %>
+              </div>
+
+             <div class="form-group">
+              <div class="actions">
+                <%= f.submit "Update", class:"submit"%>
+              </div></div>
+            <% end %>
+          </div>
+          </div>
+
+
+
+<!-- DELETE ACOUNT -->
+      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <div class='genres-artist'>
+          <h2>Cancel my account</h2>
+          <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'submit' %></p>
+        </div>
+      </div>
+
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

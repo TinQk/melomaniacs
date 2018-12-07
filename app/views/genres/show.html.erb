@@ -5,10 +5,12 @@
 
 <h2>famous artists:</h2>
 
-<% i=0 %>
-<% @genre.artists.each do |artist| %>
-  <% if i<5 %>
-    <h3><%= link_to artist.name, artist_path(artist) %></h3>
-    <% i+=1 %>
-  <% end %>
+
+
+
+<% @random_artists.each_with_index do |artist, i| %>
+  
+    <h3><%= link_to artist, artist_path(@index[i]) %></h3>
+  
+
 <% end %>

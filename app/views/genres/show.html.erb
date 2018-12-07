@@ -9,10 +9,10 @@
 
    <div class="genre-artists">
       <% i=0 %>
-      <% @genre.artists.each do |artist| %>
+      <% @random_artists.each_with_index do |artist, i| %>
         <% if i<5 %>
           <div class="genre-artist">
-              <%= link_to artist.name, artist_path(artist) %>
+              <%= link_to artist, artist_path(@index[i]) %>
               <div class='img-box'>
                 <%= link_to image_tag(artist.image_url[2]['url']), artist_path %>
               </div>

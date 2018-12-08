@@ -43,10 +43,11 @@
 
 
             <script type="text/javascript">
+
               $(document).ready(function() {
                 var hitTemplate = '<div class="hit-instant-search">' +
 
-                  '<div class="name"><a href="/genres/{{{objectID}}}">{{{_highlightResult.name.value}}}</a></div>'
+                  '<div class="name"><a href="/genres/{{{id}}}">{{{_highlightResult.name.value}}}</a></div>'
 
                 '</div>';
 
@@ -55,7 +56,7 @@
                 var search = instantsearch({
                   appId: '<%= ENV['ALGOLIASEARCH_APPLICATION_ID'] %>',
                   apiKey: '<%= ENV['ALGOLIASEARCH_API_KEY_SEARCH'] %>',
-                  indexName: '<%= Genre.index_name %>',
+                  indexName: 'artist',
                   urlSync: true
                 });
 
@@ -95,6 +96,7 @@
                   })
                 );
                 */
+
 
                 search.start();
               });

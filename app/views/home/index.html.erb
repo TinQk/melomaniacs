@@ -27,7 +27,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
-                  <input type="text" id="search-input" class="form-control" placeholder="Search for artists or genres" />
+                  <input type="text" id="search-input" class="form-control" placeholder="Search for artists" />
                 </div>
               </div>
 
@@ -44,10 +44,11 @@
 
             <script type="text/javascript">
 
+
               $(document).ready(function() {
                 var hitTemplate = '<div class="hit-instant-search">' +
 
-                  '<div class="name"><a href="/genres/{{{id}}}">{{{_highlightResult.name.value}}}</a></div>'
+                  '<div class="name"><a href="/artists/{{{id}}}">{{{_highlightResult.name.value}}}</a></div>'
 
                 '</div>';
 

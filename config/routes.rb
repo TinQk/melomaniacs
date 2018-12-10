@@ -6,5 +6,4 @@ Rails.application.routes.draw do
   end
   resources :genres, only: [:show]
   resources :home, only: [:index]
-  
 end

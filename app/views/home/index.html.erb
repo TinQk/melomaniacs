@@ -14,21 +14,22 @@
     <div class='home'>
 
 
-        <div class= 'home-left'>
 
           <% if user_signed_in? %>
 
-            <h2>Instant-search example</h2>
+          <div class= 'home-right-logged'>
+            <%= image_tag("BasKey-Récupéré.png")%>
+          </div>
 
+          <div class= 'home-left-logged'>
 
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-                  <input type="text" id="search-input" class="form-control" placeholder="Search for artists" />
-                </div>
+            <div class='container'>
+
+                <div class="col-sm-16 col-sm-offset-3">
+                  <input type="text" id="search-input"  placeholder="Search for artists" />
+          
               </div>
 
-              <div class="row">
                 <div class="col-sm-3" id="facets">
                   <div id="genres"></div>
                 </div>
@@ -36,9 +37,6 @@
               </div>
             </div>
 
-            <div class= 'home-right-logged'>
-              <%= image_tag("BasKey-Récupéré.png")%>
-            </div>
 
 
             <script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
@@ -106,7 +104,7 @@
             </script>
 
           <% else %>
-
+         <div class= 'home-left'>
             <h1>Sign up to discover new artists you're sure to love </h1>
             <hr>
             <p>Here at melomaniacs, we believe in the power of community to discover new things you’ll end up loving. We provide you with an extensive artists database and the opportunity to express your opinion. Our smart research and recommandation features allow you to find new things you’re sure to love.</p>
@@ -114,13 +112,14 @@
               <button class='home-button-primary' data-toggle="modal" data-target="#signUpModal">Sign up</button><button class='home-button-secondary' data-toggle="modal" data-target="#logInModal">Log in</button>
             </div>
 
+          </div>
+
+          <div class= 'home-right'>
+            <%= image_tag("BasKey-background.png")%>
+          </div>
+
           <% end %>
 
-        </div>
-
-        <div class= 'home-right'>
-          <%= image_tag("BasKey-background.png")%>
-        </div>
 
 
     </div>

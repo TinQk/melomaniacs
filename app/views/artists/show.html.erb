@@ -55,8 +55,10 @@
       <% @similar.each do |a| %>
         <% if i<5 %>
           <div class= 'artist-card'>
-          <%= link_to image_tag(a.images[2]['url']), artist_path %>
-          <p><%= link_to (a.name), artist_path %></p>
+          <% if a.images != [] %>
+            <%= link_to image_tag(a.images[2]['url']), artist_path(@all.find_by(spotify_id: a.id).id) %>
+          <% end %>
+        <p><%= link_to (a.name), artist_path(@all.find_by(spotify_id: a.id).id) %></p>
           </div>
           <% i+=1 %>
         <% end %>
@@ -69,7 +71,7 @@
     <div class='genres-artist'>
       <div class= 'genres-artist-each'>
       <% @artist.genres.each do |genre|  %>
-        <%= button_to (genre.name), genre_path,  class:'genre-button'%>
+        <%= button_to (genre.name), genre_path(genre.id), method: :get,  class:'genre-button'%>
       <% end %>
     </div>
   </div>

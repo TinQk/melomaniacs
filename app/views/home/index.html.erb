@@ -1,28 +1,130 @@
-<div class='home'>
-    <% if user_signed_in? %>
-    <div class= 'home-left-logged'>
-      <h1>Search for Artists </h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoliaSearch Example<%= " | #{yield(:title)}" if content_for?(:title) %></title>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <div class='home'>
+
+
+        <div class= 'home-left'>
+
+          <% if user_signed_in? %>
+
+            <h2>Instant-search example</h2>
+
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                  <input type="text" id="search-input" class="form-control" placeholder="Search for artists" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-3" id="facets">
+                  <div id="genres"></div>
+                </div>
+                <div class="col-sm-9" id="hits"></div>
+              </div>
+            </div>
+
+            <div class= 'home-right-logged'>
+              <%= image_tag("BasKey-Récupéré.png")%>
+            </div>
+
+
+            <script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+
+
+            <script type="text/javascript">
+
+
+              $(document).ready(function() {
+                var hitTemplate = '<div class="hit-instant-search">' +
+
+                  '<div class="name"><a href="/artists/{{{id}}}">{{{_highlightResult.name.value}}}</a></div>'
+
+                '</div>';
+
+
+
+                var search = instantsearch({
+                  appId: '<%= ENV['ALGOLIASEARCH_APPLICATION_ID'] %>',
+                  apiKey: '<%= ENV['ALGOLIASEARCH_API_KEY_SEARCH'] %>',
+                  indexName: 'artist',
+                  urlSync: true
+                });
+
+                search.addWidget(
+                  instantsearch.widgets.searchBox({
+                    container: '#search-input',
+                    autofocus: true,
+                    poweredBy: true
+                  })
+                );
+
+                search.addWidget(
+                  instantsearch.widgets.hits({
+                    container: '#hits',
+                    templates: {
+                      empty: 'No results',
+                      item: hitTemplate
+                    },
+                    hitsPerPage: 10
+                  })
+                );
+
+                /* liste pour autocompletion
+                search.addWidget(
+                  instantsearch.widgets.refinementList({
+                    container: '#genres',
+                    attributeName: 'genre',
+                    limit: 10,
+                    templates: {
+                      header: 'Genres'
+                    },
+                    cssClasses: {
+                      root: 'list-group',
+                      item: 'list-group-item',
+                      count: 'badge pull-right'
+                    }
+                  })
+                );
+                */
+
+
+                search.start();
+              });
+            </script>
+
+          <% else %>
+
+            <h1>Sign up to discover new artists you're sure to love </h1>
+            <hr>
+            <p>Here at melomaniacs, we believe in the power of community to discover new things you’ll end up loving. We provide you with an extensive artists database and the opportunity to express your opinion. Our smart research and recommandation features allow you to find new things you’re sure to love.</p>
+            <div class= "home-buttons">
+              <button class='home-button-primary' data-toggle="modal" data-target="#signUpModal">Sign up</button><button class='home-button-secondary' data-toggle="modal" data-target="#logInModal">Log in</button>
+            </div>
+
+          <% end %>
+
+        </div>
+
+        <div class= 'home-right'>
+          <%= image_tag("BasKey-background.png")%>
+        </div>
+
+
     </div>
-    <hr>
 
-    <div class= 'home-right-logged'>
-      <%= image_tag("BasKey-Récupéré.png")%>
-    </div>
+  </body>
 
-    <% else %>
-    <div class= 'home-left'>
-      <h1>Sign up to discover new artists you're sure to love </h1>
-      <hr>
-      <p>Here at melomaniacs, we believe in the power of community to discover new things you’ll end up loving. We provide you with an extensive artists database and the opportunity to express your opinion. Our smart research and recommandation features allow you to find new things you’re sure to love.</p>
-      <div class= "home-buttons">
-        <button class='home-button-primary' data-toggle="modal" data-target="#signUpModal">Sign up</button><button class='home-button-secondary' data-toggle="modal" data-target="#logInModal">Log in</button>
-      </div>
-    </div>
-
-      <div class= 'home-right'>
-        <%= image_tag("BasKey-background.png")%>
-      </div>
-
-    <% end %>
-
-</div>
+</html>

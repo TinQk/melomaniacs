@@ -15,9 +15,9 @@ Devise.setup do |config|
   # config.parent_controller = 'DeviseController'
 
   # CUSTOM FAILURE
-    config.warden do |manager|
-      manager.failure_app = CustomFailure
-    end
+  #  config.warden do |manager|
+  #    manager.failure_app = CustomFailure
+  #  end
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,

@@ -30,6 +30,7 @@
 
 .pic-name img{
   height: 5em;
+  width: 5em;
   align-items: center;
   justify-content: center;
   margin-bottom: 0.5em;
@@ -105,11 +106,6 @@
   color: #753AC6;
 }
 
-.genre-artists {
-  max-width: 100px;
-
-}
-
 .genre-button{
   background-color: rgba(255, 255, 255, 0);
   color: #969696;
@@ -118,6 +114,7 @@
   border-radius: 21px;
   border: solid #969696 2px;
   font-weight: lighter;
+
   moz-transition: all .4s ease-in-out;
   -o-transition: all .4s ease-in-out;
   -webkit-transition: all .4s ease-in-out;
@@ -247,10 +244,8 @@
 }
 }}
 
-#pills-tabContent #pills-contact{
-  max-width: 50%;
-  display: flex;
-  flex-wrap: row wrap;
+#pills-tabContent {
+  max-width: 100%;
 }
 
 .likes-text{

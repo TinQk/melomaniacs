@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   before_action :find_artist
   before_action :find_like, only: [:destroy]
-  
+
   def create
   	if already_liked?
       flash[:notice] = "You can't like more than once"
@@ -33,6 +33,5 @@ class LikesController < ApplicationController
     Like.where(user_id: current_user.id, artist_id:
     params[:artist_id]).exists?
   end
+
 end
-
-

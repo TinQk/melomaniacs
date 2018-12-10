@@ -43,20 +43,26 @@
     transition: all .4s ease-in-out;
   }
 
-
-.row {
-    margin-top: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
 .close {
   color: white;
 }
 
 .remember-me{
   color: rgb(108, 117, 124);
+}
 
+.row {
+	    margin-top: 150px;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+}
+
+.modal-logo{
+	width: 50%;
+	height: auto;
+	margin-bottom: -2em;
+	margin: auto;
+	margin-top: 2em;
 }

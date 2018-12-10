@@ -7,16 +7,22 @@
     <h2 class= "nav-links">Here are 10 of them you might enjoy:</h2>
 
 
+
    <div class="genre-artists">
       <% i=0 %>
         <% if i<10 %>
-            <% @random_artists.each_with_index do |artist, i| %>
+          <% @random_artists.each_with_index do |artist, i| %>
             <div class="genre-card">
-               <%= link_to image_tag("#{@cover[i]}"), artist_path, class: "img-genre" %>
-               <%= link_to artist, artist_path(@index[i]) %>
+              <% if @cover[i] != nil %> 
+                <%= link_to image_tag("#{@cover[i]}"), artist_path, class: "img-genre" %>
+              <% else %>
+                <%= image_tag("user.png")%>
+              <% end %>
+              <%= link_to artist, artist_path(@index[i]) %>
             </div>
           <% end %>
           <% i+=1 %>
         <% end %>
     </div>
 </div>
+

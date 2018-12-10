@@ -4,6 +4,8 @@
     <div class='img-box'>
       <% if @image != nil %>
         <%= image_tag @image %>
+      <% else %>
+        <%= image_tag("user.png")%>
       <% end %>
     </div>
 
@@ -54,13 +56,17 @@
       <div class='similar-artist-each'>
       <% @similar.each do |a| %>
         <% if i<5 %>
+        	<% if Artist.find_by(spotify_id: a.id) != nil %>
           <div class= 'artist-card'>
           <% if a.images != [] %>
-            <%= link_to image_tag(a.images[2]['url']), artist_path(@all.find_by(spotify_id: a.id).id) %>
+             <%= link_to image_tag(a.images[2]['url']), artist_path(@all.find_by(spotify_id: a.id).id) %>
+          <% else %>
+            <%= image_tag("user.png")%>
           <% end %>
-        <p><%= link_to (a.name), artist_path(@all.find_by(spotify_id: a.id).id) %></p>
+          <p><%= link_to (a.name), artist_path(@all.find_by(spotify_id: a.id).id) %></p>
           </div>
           <% i+=1 %>
+          <% end %>
         <% end %>
       <% end %>
       </div>
@@ -71,7 +77,7 @@
     <div class='genres-artist'>
       <div class= 'genres-artist-each'>
       <% @artist.genres.each do |genre|  %>
-        <%= button_to (genre.name), genre_path(genre.id), method: :get,  class:'genre-button'%>
+        <%= link_to (genre.name), genre_path(@genres.find_by(name: genre.name).id),  class:'genre-button'%>
       <% end %>
     </div>
   </div>

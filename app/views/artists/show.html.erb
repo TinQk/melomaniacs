@@ -59,11 +59,10 @@
         	<% if Artist.find_by(spotify_id: a.id) != nil %>
           <div class= 'artist-card'>
           <% if a.images != [] %>
-            <%= link_to image_tag(a.images[2]['url']), artist_path %>
+             <%= link_to image_tag(a.images[2]['url']), artist_path(@all.find_by(spotify_id: a.id).id) %>
           <% else %>
             <%= image_tag("user.png")%>
           <% end %>
-
           <p><%= link_to (a.name), artist_path(@all.find_by(spotify_id: a.id).id) %></p>
           </div>
           <% i+=1 %>

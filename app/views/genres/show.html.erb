@@ -1,18 +1,28 @@
-<h1><%= @genre.name %></h1><br>
+<div class='genre-show'>
+
+    <h1><%= @genre.name.titleize %></h1>
+    <p class= "likes-text"><%= @genre.artists.count %> artists belong to this genre</p>
 
 
-# Display the 5 first artists of the Genre
-
-<h2>famous artists:</h2>
+    <h2 class= "nav-links">Here are 10 of them you might enjoy:</h2>
 
 
 
+   <div class="genre-artists">
+      <% i=0 %>
+        <% if i<10 %>
+          <% @random_artists.each_with_index do |artist, i| %>
+            <div class="genre-card">
+              <% if @cover[i] != nil %> 
+                <%= link_to image_tag("#{@cover[i]}"), artist_path, class: "img-genre" %>
+              <% else %>
+                <%= image_tag("user.png")%>
+              <% end %>
+              <%= link_to artist, artist_path(@index[i]) %>
+            </div>
+          <% end %>
+          <% i+=1 %>
+        <% end %>
+    </div>
+</div>
 
-<% @random_artists.each_with_index do |artist, i| %>
-  <% if @cover[i] != nil %> 
-    <%= link_to image_tag("#{@cover[i]}"), artist_path %>
-  <% else %>
-    <%= image_tag("user.png")%>
-  <% end %>
-  <h3><%= link_to artist, artist_path(@index[i]) %></h3>
-<% end %>

@@ -9,8 +9,8 @@
 
 
 <% @random_artists.each_with_index do |artist, i| %>
-  
-    <h3><%= link_to artist, artist_path(@index[i]) %></h3>
+   <%= link_to image_tag("#{@cover[i]}"), artist_path %>
+  <h3><%= link_to artist, artist_path(@index[i]) %></h3>
   
 
 <% end %>

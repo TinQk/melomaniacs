@@ -55,8 +55,8 @@
 
 
                 var search = instantsearch({
-                  appId: '<%= ENV['ALGOLIASEARCH_APPLICATION_ID'] %>',
-                  apiKey: '<%= ENV['ALGOLIASEARCH_API_KEY_SEARCH'] %>',
+                  appId: '<%= Rails.application.credentials.algoliasearch_application_id %>',
+                  apiKey: '<%= Rails.application.credentials.algoliasearch_api_key_search %>',
                   indexName: 'artist',
                   urlSync: true
                 });

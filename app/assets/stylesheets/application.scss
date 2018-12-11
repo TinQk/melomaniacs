@@ -20,14 +20,15 @@ html {
   height: 100%;
   width: 100%;
   background-image: linear-gradient(to bottom right, #7439C7, #7C3CB2, #9B42A0, #CB4C7A, #E15280);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 body{
-   position: absolute;
-   margin: 1.5em;
-
-   width: 96%;
-   height: 92%;
+   margin: 1.3em;
+   height: 93%;
+   width: 100%;
    background:rgba(255,255,255,0.98);
    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.16);
    font-family: Helvetica;

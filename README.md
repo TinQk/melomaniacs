@@ -5,7 +5,7 @@ Melomaniacs is an app designed for music-lovers. You can access an extensive dat
 ###
 
 ## 🎹 TEAM  
-This app was created as a final project for Ruby on rails bootcamp, The Hacking Project. Just like all good RPGs, the team behind this masterpiece has its **Front-end-Fighter** ([Marie-Charlotte Le Morvan](https://github.com/Spelmo)), **DB-Wizard** ([Quentin Potié](https://github.com/TinQk)), **Front-end-Cleric** ([Andrea Palma](https://github.com/AndreaPlm)) and **API-Thief** ([Charles Belpois](https://github.com/charles-mahaco)).
+This app was created as a final project for Ruby on rails bootcamp, The Hacking Project. Just like in all good RPGs, the team behind this masterpiece has its **Front-end-Fighter** ([Marie-Charlotte Le Morvan](https://github.com/Spelmo)), **DB-Wizard** ([Quentin Potié](https://github.com/TinQk)), **Front-end-Cleric** ([Andrea Palma](https://github.com/AndreaPlm)) and **API-Thief** ([Charles Belpois](https://github.com/charles-mahaco)).
 
 ## 🎶 UNDER THE HOOD
 This app is more complex than it seems. Here are all the things you'll find among this messy code.

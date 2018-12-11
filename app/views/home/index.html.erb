@@ -117,18 +117,17 @@
 
             <!-- third tab when signed in-->
 
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <div class="tab-pane fade" class="contact-tab" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
               <div class= "show-box">
-                <h2>Recently <br>liked</h2>
+                <h2>Most <br>liked</h2>
                 <div class= "show-box-inside">
                   <% if Like.all == nil then %>
-                    No likes yet... Be the first!
-                  <% end %>
-                  <% Artist.all.sort_by{|a| a.likes.count}.reverse.each_with_index do |artist, i| %>
-                  <%= artist.likes.count%> likes : <%= link_to (artist.name), artist_path(artist.id) %><br>
-                  <% if i==4 then break %>
-                  <% end %><% end %>
-
+                     No likes yet... Be the first!
+                   <% end %>
+                  blabla
+                  blabla
+                  blabla
+                  
                 </div>
               </div>
             </div>
@@ -149,7 +148,7 @@
               </li>
             </ul>
 
-
+            <!--when not logged-->
 
           <% else %>
          <div class= 'home-left'>

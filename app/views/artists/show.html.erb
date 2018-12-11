@@ -77,7 +77,7 @@
     <div class='genres-artist'>
       <div class= 'genres-artist-each'>
       <% @artist.genres.each do |genre|  %>
-        <%= link_to (genre.name), genre_path(@genres.find_by(name: genre.name).id),  class:'genre-button'%>
+        <%= link_to (genre.name), genre_path(@genres.find_by(name: genre.name).id-4),  class:'genre-button'%>
       <% end %>
     </div>
   </div>

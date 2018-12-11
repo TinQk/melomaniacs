@@ -21,87 +21,135 @@
             <%= image_tag("BasKey-Récupéré.png")%>
           </div>
 
-          <div class= 'home-left-logged'>
+          <div class="tab-content" id="pills-tabContent">
 
-            <div class='container'>
-              <div class="row">
-                <div class="col-sm-16 col-sm-offset-3">
-                  <input type="text" id="search-input"  placeholder="Search for artists" />
+            <!-- first tab when signed in-->
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <div class= 'home-left-logged'>
+
+                <div class='container'>
+                  <div class="row">
+                    <div class="col-sm-16 col-sm-offset-3">
+                      <input type="text" id="search-input"  placeholder="Search for artists" />
+                    </div>
+                  </div>
+
+                    <div class="col-sm-3" id="facets">
+                      <div id="genres"></div>
+                    </div>
+                    <div class="col-sm-9" id="hits"></div>
+                  </div>
+                </div>
+
+
+
+                <script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+
+
+                <script type="text/javascript">
+
+
+                  $(document).ready(function() {
+                    var hitTemplate = '<div class="hit-instant-search">' +
+
+                      '<div class="name"><a href="/artists/{{{id}}}">{{{_highlightResult.name.value}}}</a></div>'
+
+                    '</div>';
+
+
+
+                    var search = instantsearch({
+                      appId: '<%= ENV['ALGOLIASEARCH_APPLICATION_ID'] %>',
+                      apiKey: '<%= ENV['ALGOLIASEARCH_API_KEY_SEARCH'] %>',
+                      indexName: 'artist',
+                      urlSync: true
+                    });
+
+                    search.addWidget(
+                      instantsearch.widgets.searchBox({
+                        container: '#search-input',
+                        autofocus: true,
+                        poweredBy: true
+                      })
+                    );
+
+                    search.addWidget(
+                      instantsearch.widgets.hits({
+                        container: '#hits',
+                        templates: {
+                          empty: 'No results',
+                          item: hitTemplate
+                        },
+                        hitsPerPage: 10
+                      })
+                    );
+
+                    /* liste pour autocompletion
+                    search.addWidget(
+                      instantsearch.widgets.refinementList({
+                        container: '#genres',
+                        attributeName: 'genre',
+                        limit: 10,
+                        templates: {
+                          header: 'Genres'
+                        },
+                        cssClasses: {
+                          root: 'list-group',
+                          item: 'list-group-item',
+                          count: 'badge pull-right'
+                        }
+                      })
+                    );
+                    */
+
+
+                    search.start();
+                  });
+                </script>
+
+            </div>
+
+            <!-- second tab when signed in-->
+
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+            </div>
+
+            <!-- third tab when signed in-->
+
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+              <div class= "show-box">
+                <h2>Recently <br>liked</h2>
+                <div class= "show-box-inside">
+                  <% if Like.all == nil then %>
+                    No likes yet... Be the first!
+                  <% end %>
+                  <% Artist.all.sort_by{|a| a.likes.count}.reverse.each_with_index do |artist, i| %>
+                  <%= artist.likes.count%> likes : <%= link_to (artist.name), artist_path(artist.id) %><br>
+                  <% if i==4 then break %>
+                  <% end %><% end %>
+
                 </div>
               </div>
-
-                <div class="col-sm-3" id="facets">
-                  <div id="genres"></div>
-                </div>
-                <div class="col-sm-9" id="hits"></div>
-              </div>
+            </div>
             </div>
 
 
+            <!-- tabs-->
 
-            <script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
-
-
-            <script type="text/javascript">
-
-
-              $(document).ready(function() {
-                var hitTemplate = '<div class="hit-instant-search">' +
-
-                  '<div class="name"><a href="/artists/{{{id}}}">{{{_highlightResult.name.value}}}</a></div>'
-
-                '</div>';
-
-
-
-                var search = instantsearch({
-                  appId: '<%= ENV['ALGOLIASEARCH_APPLICATION_ID'] %>',
-                  apiKey: '<%= ENV['ALGOLIASEARCH_API_KEY_SEARCH'] %>',
-                  indexName: 'artist',
-                  urlSync: true
-                });
-
-                search.addWidget(
-                  instantsearch.widgets.searchBox({
-                    container: '#search-input',
-                    autofocus: true,
-                    poweredBy: true
-                  })
-                );
-
-                search.addWidget(
-                  instantsearch.widgets.hits({
-                    container: '#hits',
-                    templates: {
-                      empty: 'No results',
-                      item: hitTemplate
-                    },
-                    hitsPerPage: 10
-                  })
-                );
-
-                /* liste pour autocompletion
-                search.addWidget(
-                  instantsearch.widgets.refinementList({
-                    container: '#genres',
-                    attributeName: 'genre',
-                    limit: 10,
-                    templates: {
-                      header: 'Genres'
-                    },
-                    cssClasses: {
-                      root: 'list-group',
-                      item: 'list-group-item',
-                      count: 'badge pull-right'
-                    }
-                  })
-                );
-                */
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">SEARCH ARTISTS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">SEARCH GENRES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">DISCOVER</a>
+              </li>
+            </ul>
 
 
-                search.start();
-              });
-            </script>
 
           <% else %>
          <div class= 'home-left'>

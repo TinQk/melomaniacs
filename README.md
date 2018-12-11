@@ -1,11 +1,11 @@
-# ![Melomaniacs](https://github.com/TinQk/melomaniacs/tree/development/app/assets/images/logo-column.png "Melomaniacs")
+# <div style="text-align:center;"><img src="https://github.com/TinQk/melomaniacs/blob/development/app/assets/images/logo-column.png" alt="MELOMANIACS" width="450"/></div>
 
 Melomaniacs is an app designed for music-lovers. You can access an extensive database of artists, give your opinion on them and discover new artists curated for you, everyday.
 
 ###
 
 ## 🎹 TEAM  
-This app was created as a final project for Ruby on rails bootcamp, The Hacking Project. Just like all good RPGs, the team behind this masterpiece has its **CSS-Fighter** ([Marie-Charlotte Le Morvan](https://github.com/Spelmo)), **DB-Wizard** ([Quentin Potié](https://github.com/TinQk)), **Front-end-Cleric** ([Andrea Palma](https://github.com/AndreaPlm)) and **API-Thief** ([Charles Belpois](https://github.com/charles-mahaco)).
+This app was created as a final project for Ruby on rails bootcamp, The Hacking Project. Just like all good RPGs, the team behind this masterpiece has its **Front-end-Fighter** ([Marie-Charlotte Le Morvan](https://github.com/Spelmo)), **DB-Wizard** ([Quentin Potié](https://github.com/TinQk)), **Front-end-Cleric** ([Andrea Palma](https://github.com/AndreaPlm)) and **API-Thief** ([Charles Belpois](https://github.com/charles-mahaco)).
 
 ## 🎶 UNDER THE HOOD
 This app is more complex than it seems. Here are all the things you'll find among this messy code.

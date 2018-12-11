@@ -6,7 +6,7 @@ class GenresController < ApplicationController
   	@random_artists = []
   	@index = []
     @cover = []
-@genre = Genre.all[params[:id].to_i]
+    @genre = Genre.find(params[:id])
     @popular = Genre.all[params[:id].to_i].artists.sort_by{ |t| t.popularity }.reverse
   	@artists = Artist.all
   	RSpotify::authenticate("2fc8c7db0a584ecc97c8789e10b1ba14", "3e31ba14f979474ab69880fafd410829")

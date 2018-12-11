@@ -46,7 +46,71 @@
 
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+  	<div class='similar-artist-each'>
+  	<% @albums.each do |i| %>
+  	  <% if i.album_type == "album" %>
+       <center>ALBUMS</center>
+       <% break %>
+     <% end %>
+    <% end %>
+    
+  	<% @albums.each_with_index do |album, i| %>
+  	   <% if album.name != @albums[i-1].name && album.album_type == "album" %>
+  	  
+  	     <div class= 'artist-card'>
+  	     <% if album.images != [] %>
+  	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}" %>
+  	     <% else %>
+  	       <%= image_tag("user.png")%>
+  	     <% end %>
+  	   <%= link_to album.name, "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
+  	   </div>
+  	   <% end %>
+  	<% end %>
+  		<% @albums.each do |i| %>
+  	  <% if i.album_type == "single" %>
+       <center>SINGLES</center>
+       <% break %>
+     <% end %>
+    <% end %>
+  			 
+  	<% @albums.each_with_index do |album, i| %>
+  	   <% if album.name != @albums[i-1].name && album.album_type == "single" %>
+  	  
+  	     <div class= 'artist-card'>
+  	     <% if album.images != [] %>
+  	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}" %>
+  	     <% else %>
+  	       <%= image_tag("user.png")%>
+  	     <% end %>
+  	   <%= link_to album.name, "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
+  	   </div>
+  	   <% end %>
+  	<% end %>
 
+  	<% @albums.each do |i| %>
+  	  <% if i.album_type == "compilation" %>
+        <center>COMPILATIONS</center>
+        <% break %>
+      <% end %>
+    <% end %>
+  			 
+  	<% @albums.each_with_index do |album, i| %>
+  	   <% if album.name != @albums[i-1].name && album.album_type == "compilations" %>
+  	  
+  	     <div class= 'artist-card'>
+  	     <% if album.images != [] %>
+  	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}" %>
+  	     <% else %>
+  	       <%= image_tag("user.png")%>
+  	     <% end %>
+  	   <%= link_to album.name, "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
+  	   </div>
+  	   <% end %>
+  	<% end %>
+
+
+  </div>
   </div>
 
   <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -77,7 +141,7 @@
     <div class='genres-artist'>
       <div class= 'genres-artist-each'>
       <% @artist.genres.each do |genre|  %>
-        <%= link_to (genre.name), genre_path(@genres.find_by(name: genre.name).id-4),  class:'genre-button'%>
+        <%= link_to (genre.name), genre_path(genre.id),  class:'genre-button'%>
       <% end %>
     </div>
   </div>

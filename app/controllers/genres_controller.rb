@@ -6,17 +6,16 @@ class GenresController < ApplicationController
   	@random_artists = []
   	@index = []
     @cover = []
+    @genre = Genre.find(params[:id])
+    @popular = Genre.all[params[:id].to_i].artists.sort_by{ |t| t.popularity }.reverse
   	@artists = Artist.all
   	RSpotify::authenticate("2fc8c7db0a584ecc97c8789e10b1ba14", "3e31ba14f979474ab69880fafd410829")
-    @genre = Genre.find(params[:id])
-    10.times do
-    	x = rand(0..@genre.artists.count-2)
-    	@random_artists << @genre.artists[x].name
-    	@index << @genre.artists[x].id
-    	if RSpotify::Artist.find("#{@genre.artists[x].spotify_id}").images != []
-    	  @cover << RSpotify::Artist.find("#{@genre.artists[x].spotify_id}").images[1]['url']
-    	end
-    	
+    
+    10.times do |i|
+      if RSpotify::Artist.find("#{@popular[i].spotify_id}").images != []
+        @cover << RSpotify::Artist.find("#{@popular[i].spotify_id}").images[0]['url']
+      end
     end
+
   end
 end

@@ -1,4 +1,4 @@
-# <div style="text-align:center;"><img src="https://github.com/TinQk/melomaniacs/blob/development/app/assets/images/logo-column.png" alt="MELOMANIACS" width="450"/></div>
+# <p align=center><img src="https://github.com/TinQk/melomaniacs/blob/development/app/assets/images/logo-column.png" alt="MELOMANIACS" width="450"/></p>
 
 Melomaniacs is an app designed for music-lovers. You can access an extensive database of artists, give your opinion on them and discover new artists curated for you, everyday.
 

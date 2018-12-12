@@ -11,7 +11,9 @@ class GenresController < ApplicationController
   	RSpotify::authenticate(Rails.application.credentials.spotify_client_id, Rails.application.credentials.spotify_client_secret)
 
     10.times do |i|
-      if RSpotify::Artist.find("#{@popular[i].spotify_id}").images != []
+      if RSpotify::Artist.find("#{@popular[i].spotify_id}").images == []
+        @cover << nil
+      else
         @cover << RSpotify::Artist.find("#{@popular[i].spotify_id}").images[0]['url']
       end
     end
@@ -19,13 +21,8 @@ class GenresController < ApplicationController
       Artist.find(artist.id).genres.each do |genre|
         @reco << genre.id
       end
-      puts @reco
     end
-    freq = @reco.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-    @reco.max_by { |v| freq[v] }
-    10.times do |i|
-      puts Genre.find(@reco[i]).name
-    end
+    @freq = @reco.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
   end
-  
+
 end

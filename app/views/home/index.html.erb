@@ -1,7 +1,4 @@
     <div class='home'>
-
-
-
           <% if user_signed_in? %>
 
           <div class= 'home-right-logged'>
@@ -17,25 +14,36 @@
                 <div class='container'>
                   <div class="row">
                     <div class="col-sm-16 col-sm-offset-3">
-                      <input type="text" id="search-input"  placeholder="Search for artists" />
+                      <input type="text" id="search-input-artists"  placeholder="Search for artists" />
+                    </div>
+                  </div>
+
+                    <div class="col-sm-3" id="facets">
+                      <div id="artists"></div>
+                    </div>
+                    <div class="col-sm-9" id="artists-hits"></div>
+                  </div>
+                </div>
+            </div>
+
+            <!-- second tab when signed in-->
+
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+              <div class= 'home-left-logged'>
+
+                <div class='container'>
+                  <div class="row">
+                    <div class="col-sm-16 col-sm-offset-3">
+                      <input type="text" id="search-input-genres"  placeholder="Search for genres" />
                     </div>
                   </div>
 
                     <div class="col-sm-3" id="facets">
                       <div id="genres"></div>
                     </div>
-                    <div class="col-sm-9" id="hits"></div>
+                    <div class="col-sm-9" id="genres-hits"></div>
                   </div>
                 </div>
-
-
-
-            
-            </div>
-
-            <!-- second tab when signed in-->
-
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
             </div>
 

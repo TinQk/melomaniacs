@@ -1,6 +1,6 @@
-    <div class='home'>
-          <% if user_signed_in? %>
 
+          <% if user_signed_in? %>
+    <div class='home-logged'>
           <div class= 'home-right-logged'>
             <%= image_tag("BasKey-Récupéré.png")%>
           </div>
@@ -79,10 +79,12 @@
                 <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">DISCOVER</a>
               </li>
             </ul>
+        </div>
 
             <!--when not logged-->
 
           <% else %>
+      <div class= "home">
          <div class= 'home-left'>
             <h1>Sign up to discover new artists you're sure to love </h1>
             <hr>
@@ -100,7 +102,3 @@
           <% end %>
 
     </div>
-
-  </body>
-
-</html>

@@ -1,8 +1,26 @@
+
+
 .home{
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   height: 90%;
+  flex-direction: column;
+  font-family: Helvetica;
+  overflow: auto;
+  flex-wrap: wrap;
+
 }
+
+.home-logged{
+  display: flex;
+  justify-content: center;
+  height: 90%;
+  font-family: Helvetica;
+  overflow: auto;
+  flex-wrap: wrap;
+
+}
+
 
 // IF NOT LOGGED IN
 .home-left{
@@ -11,6 +29,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  float: left;
+
 }
 
 .home-left h1{
@@ -38,10 +58,10 @@
 }
 
 .home-right img{
-  height:95%;
+  height:85%;
   position: absolute;
-  bottom: -1.2em;
-  right: -0.9em;
+  bottom: -0.1em;
+  right: -0.1em;
 }
 
 
@@ -107,7 +127,7 @@
 
 // IF logged in
 
-.home{
+.home-logged{
 .nav-pills {
 .nav-link.active,
 .show > .nav-link {
@@ -164,22 +184,13 @@
   max-height: 100%;
 }
 
-.home #pills-tab{
+.home-logged #pills-tab{
   z-index: 3;
   font-size: 0.8em;
   position: absolute;
   bottom: 15px;
 }
 
-.home{
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: Helvetica;
-  overflow: auto;
-  flex-wrap: wrap;
-}
 
 .home-left-logged{
   max-width: 100%;
@@ -246,7 +257,7 @@ textarea:focus, input:focus{
 
 
 
-.home.contact-tab{
+.home-logged.contact-tab{
   display: flex;
   justify-content: center;
   align-items: center;

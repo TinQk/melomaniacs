@@ -24,7 +24,6 @@ class Dbjson
     entries_json = entries.to_json(:only => [:id, :name, :popularity])
 
     File.write("db/json/#{@table_name}.json", entries_json)
-
   end
 
   def perform()

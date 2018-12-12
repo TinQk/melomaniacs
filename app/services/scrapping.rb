@@ -7,7 +7,6 @@ class Scrapping
   def initialize()
   end
 
-
   # Method that scraps genres and their URL into an hash
   def scrapping_genre(url)
     doc = Nokogiri::HTML(open(url))
@@ -18,11 +17,10 @@ class Scrapping
       genre = (div.text).tr('»', '').chop
       id = Genre.create(name: genre).id
       link = 'http://everynoise.com/' + (div.css('a')[0]["href"])
-     #scraps artists info
+      #scraps artists info
       scrapping_artists(link, id)
     end
   end
-
 
   # Method that creates a database of artists with their spotify_Id and genres
   # from a everynoise genre URL
@@ -50,7 +48,6 @@ class Scrapping
       end
     end
   end
-
 
   def perform
     scrapping_genre('http://everynoise.com')

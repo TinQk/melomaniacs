@@ -1,10 +1,17 @@
 #header {
   background: white;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
+  height: 7%;
+  display: flex;
+  align-items: center;
 }
 
 .my-header .icon {
     display: none;
+}
+
+.logo-header{
+  float: left;
 }
 
 #header img{
@@ -18,7 +25,7 @@
 }
 
 #header img:hover{
-  opacity: 0.8;
+  opacity: 0.6;
   cursor: pointer;
   overflow: hidden;
 }
@@ -26,21 +33,20 @@
 
 #header ul{
   list-style-type: none;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 0;
   z-index: 2;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .navbar-links{
   display: flex;
+  flex-direction: row;
 }
-
-.login-links{
-
-}
-
 
 #header li a button:hover{
   color: #404040;
@@ -54,6 +60,8 @@
   cursor: pointer;
   background: rgba(0, 0, 0, 0);
   border-style: none;
+  height: 2em;
+  margin-bottom: 0.2em;
 }
 
 #header li a button:focus{
@@ -70,7 +78,7 @@
 }
 
 #header li a {
-  margin-right: 3em;
+  margin-right: 2em;
   color: #707070;
   font-weight: normal;
   font-size: 0.75em;
@@ -90,6 +98,12 @@
 }
 
 @media screen and (max-width: 500px) {
+  .navbar-links{
+    display: none;
+  }
+}
+
+@media screen and (min-heigth: 500px) {
   .navbar-links{
     display: none;
   }

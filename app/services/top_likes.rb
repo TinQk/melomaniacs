@@ -1,5 +1,3 @@
-$newarr=[]
-
 class TopLikes
   def initialize
   end

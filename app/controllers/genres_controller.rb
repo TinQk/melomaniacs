@@ -1,7 +1,6 @@
 class GenresController < ApplicationController
   before_action :authenticate_user!
 
-
   def show
   	@reco = []
     @cover = []
@@ -25,4 +24,5 @@ class GenresController < ApplicationController
     end
     @freq = @reco.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
   end
+
 end

@@ -21,5 +21,16 @@
          
         <% end %>
     </div>
+    
+    <h2 class= "nav-links">Other genres you might like:</h2>
+    <% 10.times do |i| %>
+      <% if Genre.find(@reco[i]).name != @genre.name %>
+
+      
+        <%= link_to Genre.find(@reco[i]).name, genre_path(@reco[i]), class:'genre-button' %>
+      <% end %>
+    
+    <% end %>
+  
 </div>
 

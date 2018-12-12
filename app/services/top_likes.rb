@@ -6,7 +6,8 @@ class TopLikes
     array = []
     array = Artist.all.sort_by{|a| a.likes.count}.reverse
     10.times do |i|
-    $newarr << array[i]
+      $newarr << array[i]
+    end
     return $newarr
   end
 end

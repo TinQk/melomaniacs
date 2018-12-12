@@ -3,7 +3,7 @@
   <div class='pic-name'>
     <div class='img-box'>
       <% if @image != nil %>
-        <%= image_tag @image %>
+        <%= link_to image_tag(@image), artist_path(@artist.id) %>
       <% else %>
         <%= image_tag("user.png")%>
       <% end %>
@@ -129,9 +129,9 @@
         	<% if Artist.find_by(spotify_id: a.id) != nil %>
           <div class= 'artist-card'>
           <% if a.images != [] %>
-             <%= link_to image_tag(a.images[2]['url']), artist_path(@all.find_by(spotify_id: a.id).id) %>
+            <%= link_to image_tag(a.images[2]['url']), artist_path(@all.find_by(spotify_id: a.id).id) %>
           <% else %>
-            <%= image_tag("user.png")%>
+            <%= link_to image_tag("user.png"), artist_path(@all.find_by(spotify_id: a.id).id) %>
           <% end %>
           <p><%= link_to (a.name), artist_path(@all.find_by(spotify_id: a.id).id) %></p>
           </div>
@@ -147,7 +147,7 @@
     <div class='genres-artist'>
       <div class= 'genres-artist-each'>
       <% @artist.genres.each do |genre|  %>
-        <%= link_to (genre.name), genre_path(genre.id),  class:'genre-button'%>
+        <button class='transparent-button'><%= link_to (genre.name), genre_path(genre.id),  class:'genre-button'%></button>
       <% end %>
     </div>
   </div>

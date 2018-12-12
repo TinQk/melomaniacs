@@ -29,9 +29,9 @@
       <% else %>
         <%= button_to 'LIKE', artist_likes_path(@artist), method: :post, class:'like-button' %>
       <% end %>
-    </div>
 
 
+<div class='tab'>
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
   <li class="nav-item">
     <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">ALBUMS</a>
@@ -43,21 +43,22 @@
     <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">GENRES</a>
   </li>
 </ul>
+</div>
 
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-  	<div class='similar-artist-each'>
+  	<div class='similar-artist-each-albums'>
   	<% @albums.each do |i| %>
   	  <% if i.album_type == "album" %>
-       <center>ALBUMS</center>
+       <h3>ALBUMS</h3>
        <% break %>
      <% end %>
     <% end %>
-    
+
   	<% @albums.each_with_index do |album, i| %>
   	   <% if album.name != @albums[i-1].name && album.album_type == "album" %>
-  	  
-  	     <div class= 'artist-card'>
+
+  	     <div class= 'album-card'>
   	     <% if album.images != [] %>
   	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}" %>
   	     <% else %>
@@ -67,17 +68,20 @@
   	   </div>
   	   <% end %>
   	<% end %>
+    </div>
+
+    <div class='similar-artist-each'>
   		<% @albums.each do |i| %>
   	  <% if i.album_type == "single" %>
-       <center>SINGLES</center>
+       <h3>SINGLES</h3>
        <% break %>
      <% end %>
     <% end %>
-  			 
+
   	<% @albums.each_with_index do |album, i| %>
   	   <% if album.name != @albums[i-1].name && album.album_type == "single" %>
-  	  
-  	     <div class= 'artist-card'>
+
+  	     <div class= 'album-card'>
   	     <% if album.images != [] %>
   	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}" %>
   	     <% else %>
@@ -87,18 +91,20 @@
   	   </div>
   	   <% end %>
   	<% end %>
+    </div>
 
+  <div class='similar-artist-each'>
   	<% @albums.each do |i| %>
   	  <% if i.album_type == "compilation" %>
-        <center>COMPILATIONS</center>
+        <h3>COMPILATIONS</h3>
         <% break %>
       <% end %>
     <% end %>
-  			 
+
   	<% @albums.each_with_index do |album, i| %>
   	   <% if album.name != @albums[i-1].name && album.album_type == "compilations" %>
-  	  
-  	     <div class= 'artist-card'>
+
+  	     <div class= 'album-card'>
   	     <% if album.images != [] %>
   	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}" %>
   	     <% else %>
@@ -108,9 +114,9 @@
   	   </div>
   	   <% end %>
   	<% end %>
+    </div>
 
 
-  </div>
   </div>
 
   <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -146,5 +152,7 @@
     </div>
   </div>
 
+</div>
+</div>
 </div>
 </div>

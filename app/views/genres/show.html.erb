@@ -2,35 +2,44 @@
 
     <h1><%= @genre.name.titleize %></h1>
     <p class= "likes-text"><%= @genre.artists.count %> artists belong to this genre</p>
+    <hr>
 
 
-    <h2 class= "nav-links">Here are 10 of them you might enjoy:</h2>
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">TOP ARTISTS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">SIMILAR GENRES</a>
+      </li>
+    </ul>
 
+    <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="genre-artists">
+          <% 10.times do |i|%>
+                <div class="genre-card">
+                  <% if @cover[i] != nil %>
+                    <%= link_to image_tag("#{@cover[i]}"), artist_path(@popular[i].id), class: "img-genre" %>
+                  <% else %>
+                    <%= image_tag("user.png")%>
+                  <% end %>
+                  <%= link_to @popular[i].name, artist_path(@popular[i].id) %>
+                </div>
+            <% end %>
+        </div>
+      </div>
 
-    <div class="genre-artists">
-      <% 10.times do |i|%>
-            <div class="genre-card">
-              <% if @cover[i] != nil %> 
-                <%= link_to image_tag("#{@cover[i]}"), artist_path(@popular[i].id), class: "img-genre" %>
-              <% else %>
-                <%= image_tag("user.png")%>
-              <% end %>
-              <%= link_to @popular[i].name, artist_path(@popular[i].id) %>
-            </div>
-          
-         
-        <% end %>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <div class='similar-artist'>
+          <% 10.times do |i| %>
+            <% if Genre.find(@reco[i]).name != @genre.name %>
+
+              <%= link_to Genre.find(@reco[i]).name, genre_path(@reco[i]), class:'genre-button' %>
+            <% end %>
+
+          <% end %>
+      </div>
     </div>
-    
-    <h2 class= "nav-links">Other genres you might like:</h2>
-    <% 10.times do |i| %>
-      <% if Genre.find(@reco[i]).name != @genre.name %>
 
-      
-        <%= link_to Genre.find(@reco[i]).name, genre_path(@reco[i]), class:'genre-button' %>
-      <% end %>
-    
-    <% end %>
-  
 </div>
-

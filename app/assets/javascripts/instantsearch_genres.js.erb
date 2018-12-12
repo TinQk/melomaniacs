@@ -1,8 +1,10 @@
+
+
 $(document).ready(function() {
 
   var hitTemplate = '<div class="hit-instant-search">' +
 
-    '<div class="name"><a href="/artists/{{{id}}}">{{{_highlightResult.name.value}}}</a></div>'
+    '<div class="name"><a href="/genres/{{{id}}}">{{{_highlightResult.name.value}}}</a></div>'
 
   '</div>';
 
@@ -11,13 +13,13 @@ $(document).ready(function() {
   var search = instantsearch({
     appId: '<%= Rails.application.credentials.algoliasearch_application_id %>',
     apiKey: '<%= Rails.application.credentials.algoliasearch_api_key_search %>',
-    indexName: 'artist',
+    indexName: 'genre',
     urlSync: true
   });
 
   search.addWidget(
     instantsearch.widgets.searchBox({
-      container: '#search-input-artists',
+      container: '#search-input-genres',
       autofocus: true,
       poweredBy: false
     })
@@ -25,7 +27,7 @@ $(document).ready(function() {
 
   search.addWidget(
     instantsearch.widgets.hits({
-      container: '#artists-hits',
+      container: '#genres-hits',
       templates: {
         empty: 'No results',
         item: hitTemplate

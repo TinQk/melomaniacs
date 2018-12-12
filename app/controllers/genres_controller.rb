@@ -1,7 +1,6 @@
 class GenresController < ApplicationController
   before_action :authenticate_user!
 
-
   def show
   	@reco = []
     @cover = []
@@ -23,13 +22,10 @@ class GenresController < ApplicationController
       puts @reco
     end
     freq = @reco.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-    puts freq
     @reco.max_by { |v| freq[v] }
     10.times do |i|
       puts Genre.find(@reco[i]).name
     end
-
-
-
   end
+  
 end

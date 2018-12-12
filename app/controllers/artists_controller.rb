@@ -2,7 +2,6 @@ class ArtistsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-
     @artist = Artist.find(params[:id])
     @all = Artist.all
     @genres = Genre.all
@@ -11,7 +10,6 @@ class ArtistsController < ApplicationController
       RSpotify::authenticate(Rails.application.credentials.spotify_client_id, Rails.application.credentials.spotify_client_secret)
       @artist_spotify = RSpotify::Artist.find("#{@artist.spotify_id}")
       @albums = @artist_spotify.albums
-      puts @albums
       if @artist_spotify.images != []
         @image = @artist_spotify.images[0]['url']
       end

@@ -198,7 +198,7 @@
   opacity: 0.5;
 }
 
-#search-input{
+#search-input-artists, #search-input-genres {
   width: 15em;
   border: solid rgba(255, 255, 255, 0);
   background: rgba(255, 255, 255, 0);
@@ -220,7 +220,7 @@
 }
 
 
-#hits.col-sm-9{
+#artists-hits.col-sm-9, #genres-hits.col-sm-9{
   font-family: Helvetica;
   font-weight: lighter;
   color: #707070;

@@ -70,7 +70,7 @@
   	<% end %>
     </div>
 
-    <div class='similar-artist-each'>
+    <div class='similar-artist-each-albums'>
   		<% @albums.each do |i| %>
   	  <% if i.album_type == "single" %>
        <h3>SINGLES</h3>
@@ -93,7 +93,7 @@
   	<% end %>
     </div>
 
-  <div class='similar-artist-each'>
+  <div class='similar-artist-each-albums'>
   	<% @albums.each do |i| %>
   	  <% if i.album_type == "compilation" %>
         <h3>COMPILATIONS</h3>

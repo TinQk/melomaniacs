@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlgoliaSearch Example<%= " | #{yield(:title)}" if content_for?(:title) %></title>
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <%= csrf_meta_tags %>
-  </head>
-
-  <body>
-
     <div class='home'>
 
 
@@ -23,6 +10,8 @@
 
           <div class= 'home-left-logged'>
 
+            <!-- Artist Search Bar -->
+
             <div class='container'>
               <div class="row">
                 <div class="col-sm-16 col-sm-offset-3">
@@ -30,78 +19,15 @@
                 </div>
               </div>
 
+              <!-- Results -->
+
                 <div class="col-sm-3" id="facets">
-                  <div id="genres"></div>
+                  <div id="artists"></div>
                 </div>
                 <div class="col-sm-9" id="hits"></div>
               </div>
             </div>
 
-
-
-            <script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
-
-
-            <script type="text/javascript">
-
-
-              $(document).ready(function() {
-                var hitTemplate = '<div class="hit-instant-search">' +
-
-                  '<div class="name"><a href="/artists/{{{id}}}">{{{_highlightResult.name.value}}}</a></div>'
-
-                '</div>';
-
-
-
-                var search = instantsearch({
-                  appId: '<%= Rails.application.credentials.algoliasearch_application_id %>',
-                  apiKey: '<%= Rails.application.credentials.algoliasearch_api_key_search %>',
-                  indexName: 'artist',
-                  urlSync: true
-                });
-
-                search.addWidget(
-                  instantsearch.widgets.searchBox({
-                    container: '#search-input',
-                    autofocus: true,
-                    poweredBy: true
-                  })
-                );
-
-                search.addWidget(
-                  instantsearch.widgets.hits({
-                    container: '#hits',
-                    templates: {
-                      empty: 'No results',
-                      item: hitTemplate
-                    },
-                    hitsPerPage: 10
-                  })
-                );
-
-                /* liste pour autocompletion
-                search.addWidget(
-                  instantsearch.widgets.refinementList({
-                    container: '#genres',
-                    attributeName: 'genre',
-                    limit: 10,
-                    templates: {
-                      header: 'Genres'
-                    },
-                    cssClasses: {
-                      root: 'list-group',
-                      item: 'list-group-item',
-                      count: 'badge pull-right'
-                    }
-                  })
-                );
-                */
-
-
-                search.start();
-              });
-            </script>
 
           <% else %>
          <div class= 'home-left'>
@@ -119,8 +45,6 @@
           </div>
 
           <% end %>
-
-
 
     </div>
 

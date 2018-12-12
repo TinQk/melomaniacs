@@ -1,0 +1,57 @@
+$(document).ready(function() {
+
+  var hitTemplate = '<div class="hit-instant-search">' +
+
+    '<div class="name"><a href="/artists/{{{id}}}">{{{_highlightResult.name.value}}}</a></div>'
+
+  '</div>';
+
+
+
+  var search = instantsearch({
+    appId: '<%= Rails.application.credentials.algoliasearch_application_id %>',
+    apiKey: '<%= Rails.application.credentials.algoliasearch_api_key_search %>',
+    indexName: 'artist',
+    urlSync: true
+  });
+
+  search.addWidget(
+    instantsearch.widgets.searchBox({
+      container: '#search-input',
+      autofocus: true,
+      poweredBy: true
+    })
+  );
+
+  search.addWidget(
+    instantsearch.widgets.hits({
+      container: '#hits',
+      templates: {
+        empty: 'No results',
+        item: hitTemplate
+      },
+      hitsPerPage: 10
+    })
+  );
+
+  /* liste pour autocompletion
+  search.addWidget(
+    instantsearch.widgets.refinementList({
+      container: '#genres',
+      attributeName: 'genre',
+      limit: 10,
+      templates: {
+        header: 'Genres'
+      },
+      cssClasses: {
+        root: 'list-group',
+        item: 'list-group-item',
+        count: 'badge pull-right'
+      }
+    })
+  );
+  */
+
+
+  search.start();
+});

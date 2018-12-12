@@ -2,13 +2,13 @@ class ArtistsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    RSpotify::authenticate(Rails.application.credentials.spotify_client_id, Rails.application.credentials.spotify_client_secret)
+
     @artist = Artist.find(params[:id])
     @all = Artist.all
     @genres = Genre.all
 
-
     if @artist.spotify_id != nil
+      RSpotify::authenticate(Rails.application.credentials.spotify_client_id, Rails.application.credentials.spotify_client_secret)
       @artist_spotify = RSpotify::Artist.find("#{@artist.spotify_id}")
       @albums = @artist_spotify.albums
       puts @albums

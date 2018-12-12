@@ -8,9 +8,8 @@
 		 <div class='navbar-links'>
 				<% if user_signed_in? %>
 
-	       <li class="login-links" style="float:right;"><%= link_to "HOME", root_path(@root, anchor: 'pills-contact'), onclick: "window.location.href='/'" %></li>
-	        <li class="login-links" style="float:right;"><%= link_to "PROFILE", edit_user_registration_path%></li>
-					 <li class="login-links logo" style="float:right;"><%= link_to image_tag('power.png'), destroy_user_session_path, method: :delete %></li>
+				   <li class="login-links logo" style="float:right;"><%= link_to image_tag('usernav.png'), edit_user_registration_path %></li>
+					 <li class="login-links logo" style="float:right;"><%= link_to image_tag('search.png'), root_path %></li>
 	      <% else %>
 	        <li class="nav-item active" ">
 	          <a data-toggle="modal" data-target="#signUpModal"><button>SIGN UP</button></a>

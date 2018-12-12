@@ -56,13 +56,13 @@
     <% end %>
 
   	<% @albums.each_with_index do |album, i| %>
-  	   <% if album.name != @albums[i-1].name && album.album_type == "album" %>
+  	   <% if album.name.downcase != @albums[i-1].name.downcase && album.album_type == "album" %>
 
   	     <div class= 'album-card'>
   	     <% if album.images != [] %>
-  	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}" %>
+  	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
   	     <% else %>
-  	       <%= image_tag("user.png")%>
+  	       <%= link_to image_tag("user.png"), "https://open.spotify.com/album/#{album.id}", target:"_blank"%>
   	     <% end %>
   	   <%= link_to album.name, "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
   	   </div>
@@ -79,13 +79,13 @@
     <% end %>
 
   	<% @albums.each_with_index do |album, i| %>
-  	   <% if album.name != @albums[i-1].name && album.album_type == "single" %>
+  	   <% if album.name.downcase != @albums[i-1].name.downcase && album.album_type == "single" %>
 
   	     <div class= 'album-card'>
   	     <% if album.images != [] %>
-  	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}" %>
+  	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
   	     <% else %>
-  	       <%= image_tag("user.png")%>
+  	       <%= link_to image_tag("user.png"), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
   	     <% end %>
   	   <%= link_to album.name, "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
   	   </div>
@@ -102,13 +102,13 @@
     <% end %>
 
   	<% @albums.each_with_index do |album, i| %>
-  	   <% if album.name != @albums[i-1].name && album.album_type == "compilations" %>
+  	   <% if album.name.downcase != @albums[i-1].name.downcase && album.album_type == "compilation" %>
 
   	     <div class= 'album-card'>
   	     <% if album.images != [] %>
-  	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}" %>
+  	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
   	     <% else %>
-  	       <%= image_tag("user.png")%>
+  	       <%= link_to image_tag("user.png"), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
   	     <% end %>
   	   <%= link_to album.name, "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
   	   </div>
@@ -131,7 +131,7 @@
           <% if a.images != [] %>
              <%= link_to image_tag(a.images[2]['url']), artist_path(@all.find_by(spotify_id: a.id).id) %>
           <% else %>
-            <%= image_tag("user.png")%>
+            <%= link_to image_tag("user.png"), artist_path(@all.find_by(spotify_id: a.id).id) %>
           <% end %>
           <p><%= link_to (a.name), artist_path(@all.find_by(spotify_id: a.id).id) %></p>
           </div>

@@ -11,7 +11,6 @@ class ArtistsController < ApplicationController
     if @artist.spotify_id != nil
       @artist_spotify = RSpotify::Artist.find("#{@artist.spotify_id}")
       @albums = @artist_spotify.albums
-      puts @albums
       if @artist_spotify.images != []
         @image = @artist_spotify.images[0]['url']  
       end

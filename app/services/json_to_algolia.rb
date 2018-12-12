@@ -1,9 +1,9 @@
+# Crée un nouvel index sur Algolia et le rempli avec un JSON créé par le service Dbjson
+# Ex : JsonToAlgolia.new(Genre).perform
+
 require 'rubygems'
 require 'algoliasearch-rails'
 require 'json'
-
-# Crée un nouvel index sur Algolia et le rempli avec un JSON créé par le service Dbjson
-# Ex : JsonToAlgolia.new(Genre).perform
 
 class JsonToAlgolia
 

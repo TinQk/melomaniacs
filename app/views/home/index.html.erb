@@ -55,11 +55,19 @@
                 <div class= "show-box-inside">
                   <% if Like.all == nil then %>
                      No likes yet... Be the first!
-                   <% end %>
-                  blabla
-                  blabla
-                  blabla
-                  <%= current_user.username %>
+                  <% end %>
+                  <% @url.size.times do |i| %>
+                    <div class= 'artist-card'>
+                    <% if @url[i].images != [] %>
+                      <%= link_to image_tag(@url[i].images[0]['url']), artist_path(Artist.find(Toplike.all[i].id).id) %>
+                    <% else %>
+                      <%= link_to image_tag("user.png"), artist_path(Artist.find(Toplike.all[i].id).id) %>
+                    <% end %>
+                    <%= link_to Artist.find(Toplike.all[i].id).name, artist_path(Artist.find(Toplike.all[i].id).id) %>
+                    <%= Artist.find(Toplike.all[i].id).likes.count %> Likes
+                  </div>
+                  <% end %>
+
 
                 </div>
               </div>

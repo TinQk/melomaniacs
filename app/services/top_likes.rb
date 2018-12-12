@@ -1,4 +1,3 @@
-$newarr=[]
 
 class TopLikes
   def initialize
@@ -7,8 +6,12 @@ class TopLikes
   def get_top
     array = []
     array = Artist.all.sort_by{|a| a.likes.count}.reverse
+    Toplike.delete_all
     10.times do |i|
-    $newarr << array[i]
-    return $newarr
+    
+    top = Toplike.new
+    top.id = array[i].id
+    top.save
   end
+end
 end

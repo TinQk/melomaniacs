@@ -21,9 +21,9 @@ class Dbjson
       entries << entry
     end
 
-    entries_json = entries.to_json(:only => [:id, :name])
+    entries_json = entries.to_json(:only => [:id, :name, :popularity])
 
-    File.write("db/seed/#{@table_name}.json", entries_json)
+    File.write("db/json/#{@table_name}.json", entries_json)
 
   end
 

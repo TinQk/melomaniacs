@@ -9,8 +9,8 @@ class GenresController < ApplicationController
     @popular = @genre.artists.sort_by{ |t| t[:popularity]}.reverse
   	@artists = Artist.all
 
-  	RSpotify::authenticate("2fc8c7db0a584ecc97c8789e10b1ba14", "3e31ba14f979474ab69880fafd410829")
-    
+  	RSpotify::authenticate(Rails.application.credentials.spotify_client_id, Rails.application.credentials.spotify_client_secret)
+
     10.times do |i|
       if RSpotify::Artist.find("#{@popular[i].spotify_id}").images != []
         @cover << RSpotify::Artist.find("#{@popular[i].spotify_id}").images[0]['url']
@@ -28,7 +28,7 @@ class GenresController < ApplicationController
     10.times do |i|
       puts Genre.find(@reco[i]).name
     end
-    
+
 
 
   end

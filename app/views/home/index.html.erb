@@ -1,107 +1,86 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlgoliaSearch Example<%= " | #{yield(:title)}" if content_for?(:title) %></title>
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <%= csrf_meta_tags %>
-  </head>
-
-  <body>
-
     <div class='home'>
-
-
-
           <% if user_signed_in? %>
 
           <div class= 'home-right-logged'>
             <%= image_tag("BasKey-Récupéré.png")%>
           </div>
 
-          <div class= 'home-left-logged'>
+          <div class="tab-content" id="pills-tabContent">
 
-            <div class='container'>
-              <div class="row">
-                <div class="col-sm-16 col-sm-offset-3">
-                  <input type="text" id="search-input"  placeholder="Search for artists" />
+            <!-- first tab when signed in-->
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <div class= 'home-left-logged'>
+
+                <div class='container'>
+                  <div class="row">
+                    <div class="col-sm-16 col-sm-offset-3">
+                      <input type="text" id="search-input-artists"  placeholder="Search for artists" />
+                    </div>
+                  </div>
+
+                    <div class="col-sm-3" id="facets">
+                      <div id="artists"></div>
+                    </div>
+                    <div class="col-sm-9" id="artists-hits"></div>
+                  </div>
+                </div>
+            </div>
+
+            <!-- second tab when signed in-->
+
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+              <div class= 'home-left-logged'>
+
+                <div class='container'>
+                  <div class="row">
+                    <div class="col-sm-16 col-sm-offset-3">
+                      <input type="text" id="search-input-genres"  placeholder="Search for genres" />
+                    </div>
+                  </div>
+
+                    <div class="col-sm-3" id="facets">
+                      <div id="genres"></div>
+                    </div>
+                    <div class="col-sm-9" id="genres-hits"></div>
+                  </div>
+                </div>
+
+            </div>
+
+            <!-- third tab when signed in-->
+
+            <div class="tab-pane fade" class="contact-tab" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+              <div class= "show-box">
+                <h2>Most <br>liked</h2>
+                <div class= "show-box-inside">
+                  <% if Like.all == nil then %>
+                     No likes yet... Be the first!
+                   <% end %>
+                  blabla
+                  blabla
+                  blabla
+
                 </div>
               </div>
-
-                <div class="col-sm-3" id="facets">
-                  <div id="genres"></div>
-                </div>
-                <div class="col-sm-9" id="hits"></div>
-              </div>
+            </div>
             </div>
 
 
+            <!-- tabs-->
 
-            <script src="//cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">SEARCH ARTISTS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">SEARCH GENRES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">DISCOVER</a>
+              </li>
+            </ul>
 
-
-            <script type="text/javascript">
-
-
-              $(document).ready(function() {
-                var hitTemplate = '<div class="hit-instant-search">' +
-
-                  '<div class="name"><a href="/artists/{{{id}}}">{{{_highlightResult.name.value}}}</a></div>'
-
-                '</div>';
-
-
-
-                var search = instantsearch({
-                  appId: '<%= Rails.application.credentials.algoliasearch_application_id %>',
-                  apiKey: '<%= Rails.application.credentials.algoliasearch_api_key_search %>',
-                  indexName: 'artist',
-                  urlSync: true
-                });
-
-                search.addWidget(
-                  instantsearch.widgets.searchBox({
-                    container: '#search-input',
-                    autofocus: true,
-                    poweredBy: true
-                  })
-                );
-
-                search.addWidget(
-                  instantsearch.widgets.hits({
-                    container: '#hits',
-                    templates: {
-                      empty: 'No results',
-                      item: hitTemplate
-                    },
-                    hitsPerPage: 10
-                  })
-                );
-
-                /* liste pour autocompletion
-                search.addWidget(
-                  instantsearch.widgets.refinementList({
-                    container: '#genres',
-                    attributeName: 'genre',
-                    limit: 10,
-                    templates: {
-                      header: 'Genres'
-                    },
-                    cssClasses: {
-                      root: 'list-group',
-                      item: 'list-group-item',
-                      count: 'badge pull-right'
-                    }
-                  })
-                );
-                */
-
-
-                search.start();
-              });
-            </script>
+            <!--when not logged-->
 
           <% else %>
          <div class= 'home-left'>
@@ -119,8 +98,6 @@
           </div>
 
           <% end %>
-
-
 
     </div>
 

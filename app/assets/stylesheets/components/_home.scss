@@ -107,6 +107,80 @@
 
 // IF logged in
 
+.home{
+.nav-pills {
+.nav-link.active,
+.show > .nav-link {
+  background-color: rgba(255, 255, 255, 0);
+  color: #404040;
+  moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+}
+
+.nav-pills {
+.nav-link.active,
+.show > .nav-link a{
+  padding:0;
+  margin-right:1em;
+  margin-left: 1em;
+  padding-top: 0,5em;
+  background-color: rgba(255, 255, 255, 0);
+  color: #404040;
+  border-radius: 0%;
+  border-bottom: solid #753AC6 3px;
+  padding-bottom: 5px;
+
+  moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+}
+
+.nav-pills {
+.nav-link,
+.show > .nav-link a{
+  padding:0;
+  margin-right:1em;
+  margin-left: 1em;
+  padding-top: 0,5em;
+  background-color: rgba(255, 255, 255, 0);
+  color: #707070;
+  border-radius: 0%;
+  padding-bottom: 5px;
+
+  moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+}}
+
+#pills-tabContent {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.home #pills-tab{
+  z-index: 3;
+  font-size: 0.8em;
+  position: absolute;
+  bottom: 15px;
+}
+
+.home{
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Helvetica;
+  overflow: auto;
+  flex-wrap: wrap;
+}
+
 .home-left-logged{
   max-width: 100%;
   display: flex;
@@ -124,7 +198,7 @@
   opacity: 0.5;
 }
 
-#search-input{
+#search-input-artists, #search-input-genres {
   width: 15em;
   border: solid rgba(255, 255, 255, 0);
   background: rgba(255, 255, 255, 0);
@@ -146,14 +220,14 @@
 }
 
 
-#hits.col-sm-9{
+#artists-hits.col-sm-9, #genres-hits.col-sm-9{
   font-family: Helvetica;
   font-weight: lighter;
   color: #707070;
   text-align: center;
   position: relative;
   overflow: hidden;
-  height: 190px;
+  height: 120px;
 
   a{
     color: #909090;
@@ -170,6 +244,52 @@ textarea:focus, input:focus{
     outline: none;
 }
 
+
+
+.home.contact-tab{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .show-box{
+    background: #FFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.10);
+
+    margin: 1em 2em;
+    text-align: center;
+    height: 390px;
+    min-width: 230px;
+    max-width: 300px;
+    overflow: hidden;
+
+    h2{
+      font-family: helvetica;
+      font-weight: bold;
+      font-size: 1.6em;
+      color: #404040;
+      padding: 1em;
+    }
+
+    .show-box-inside{
+      background-image: linear-gradient(to bottom right, #753AC6, #753AC6, #8A3FAA);
+      padding: 2em;
+      color: #fff;
+      font-weight: bold;
+      text-align: left;
+      line-height: 2.2em;
+      height: 100%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+
+
+      a{
+        color: #fff;
+        font-weight: 500;
+      }
+      }
+    }
+  }
 
 //RESPOSIVE
 

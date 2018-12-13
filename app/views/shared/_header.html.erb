@@ -8,9 +8,9 @@
 		 <div class='navbar-links'>
 				<% if user_signed_in? %>
 
-					 <li class="login-links logo" style="float:right;"><%= link_to image_tag('search.png'), root_path, onclick: "window.location.href='/'" %></li>
-					  <li class="login-links logo" style="float:right;"><%= link_to image_tag('compass.png'), discover_path %></li>
-					 <li class="login-links logo" style="float:right;"><%= link_to image_tag('usernav.png'), edit_user_registration_path %></li>
+					 <li class="login-links" style="float:right;"><a href="/" class= "search" onclick= "window.location.href='/'">Search</a><%= link_to image_tag('search.png'), root_path, onclick: "window.location.href='/'", class: "icon-link"%></li>
+					 <li class="login-links" style="float:right;"><a href="/discover" class="discover">Discover</a><%= link_to image_tag('compass.png'), discover_path,  class: "icon-link" %></li>
+					 <li class="login-links" style="float:right;"><%= link_to image_tag('usernav.png'), edit_user_registration_path %></li>
 
 	      <% else %>
 	        <li class="nav-item">

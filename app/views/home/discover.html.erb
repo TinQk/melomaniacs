@@ -1,19 +1,6 @@
 <div class='discover-page'>
 
     <div class= "show-box">
-    <h2>Last <br>Comments</h2>
-    <div class= "show-box-inside">
-    <% Comment.all.reverse.each_with_index do |comment, i|%>
-      <%= i+1%>.  <%= comment.content %><br>
-        on <%= link_to Artist.find(comment.artist_id).name, artist_path(comment.artist_id) %><br>
-        <% break if i == 4 %>
-      <% end %>
-
-
-    </div>
-  </div>
-
-    <div class= "show-box">
     <h2>Most <br>liked</h2>
     <div class= "show-box-inside">
       
@@ -45,7 +32,7 @@
   <div class= "show-box">
     <h2>Artists <br>for you</h2>
     <div class= "show-box-inside">
-      <% reco = [] %>
+      
       <% RSpotify::authenticate(Rails.application.credentials.spotify_client_id, Rails.application.credentials.spotify_client_secret) %>
       <% array.each_with_index do |like, i| %>
       <% artist = RSpotify::Artist.find(like.artist.spotify_id).related_artists.first.name %>

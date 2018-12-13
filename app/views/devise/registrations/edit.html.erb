@@ -17,7 +17,6 @@
 
     </div>
 
-    <%= button_to "LOG OUT", destroy_user_session_path, method: :delete %>
 
 
  <div class = 'edit-right'>
@@ -26,37 +25,33 @@
 <!-- PROFILE PAGE -->
       <div class="tab-pane fade  show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
         <div class= "profile-tab">
-          <div class= "show-box">
-            <h2>Recently <br>liked</h2>
-            <div class= "show-box-inside">
-              <% if current_user.likes.all == nil then %>
-                You haven't liked anything yet!
-              <% end %>
-              <% array = []%>
-              <% current_user.likes.all.reverse.each_with_index do |like, i|%>
-              <% array << like %>
-              <%= i+1%>. <%= link_to (like.artist.name), artist_path(like.artist.id) %><br>
-              <% if i==4 then break %>
-              <% end %><% end %>
 
 
+            <div class= "show-box">
+              <h2>Your <br>info</h2>
+              <div class= "show-box-inside">
+              USERNAME <br> <span class= 'light-text'><%= current_user.username%></span><br><br>
+              EMAIL <br> <span class= 'light-text'><%= current_user.email%></span><br><br><br>
+              <%= button_to "LOG OUT", destroy_user_session_path, method: :delete, class: 'log-out-button'%>
+
+              </div>
             </div>
-          </div>
 
-          <div class= "show-box">
-            <h2>Artists <br>for you</h2>
-            <div class= "show-box-inside">
-              <% RSpotify::authenticate("2fc8c7db0a584ecc97c8789e10b1ba14", "3e31ba14f979474ab69880fafd410829") %>
-              <% array.each_with_index do |like, i| %>
-              <% if RSpotify::Artist.find(like.artist.spotify_id).related_artists.first != nil %>
-              <%= i+1 %>. <%=  link_to (RSpotify::Artist.find(like.artist.spotify_id).related_artists.first.name), artist_path(Artist.find_by(name: RSpotify::Artist.find(like.artist.spotify_id).related_artists.first.name).id) %> <br>
-              <% end %><% end %>
-              <% array = []%>
-
+            <div class= "show-box">
+              <h2>Recently <br>liked</h2>
+              <div class= "show-box-inside">
+                <% if current_user.likes.all == nil then %>
+                  You haven't liked anything yet!
+                <% end %>
+                <% array = []%>
+                <% current_user.likes.all.reverse.each_with_index do |like, i|%>
+                <% array << like %>
+                <%= i+1%>. <%= link_to (like.artist.name), artist_path(like.artist.id) %><br><br>
+                <% if i==4 then break %>
+                <% end %><% end %>
+              </div>
             </div>
-          </div>
         </div>
-
       </div>
 
 

@@ -156,3 +156,20 @@
 </div>
 </div>
 </div>
+
+
+<br>
+<%= link_to "Add comment", new_artist_comment_path(@artist.id), class:"btn btn-success"%>
+<br>
+
+<% @comments.each do |comment| %>
+<hr>
+  <p>"<%= comment.content %>"</p>
+  <em>commented by <%= comment.user.username %></em>
+  <div class="col-lg-2">
+    <%if current_user == comment.user %>
+      <%= link_to "edit", edit_artist_comment_path(@artist.id, comment.id), class:"btn btn-link"%>
+      <%= link_to 'delete', artist_comment_path(@artist.id, comment.id), class:"btn btn-danger", data: {confirm: "Are you sure ?"}, method: :delete %>
+    <%end%>
+  </div>
+<% end %>

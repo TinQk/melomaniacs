@@ -97,14 +97,14 @@
   display: none;
 }
 
-@media screen and (max-width: 500px) {
-  .navbar-links{
+@media screen and (max-width: 520px) {
+  .search, .discover{
     display: none;
   }
 }
 
-@media screen and (min-heigth: 500px) {
-  .navbar-links{
+@media screen and (min-heigth: 520px) {
+  .search, .discover{
     display: none;
   }
 }

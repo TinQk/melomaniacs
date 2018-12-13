@@ -1,0 +1,2 @@
+class Toplike < ApplicationRecord
+end

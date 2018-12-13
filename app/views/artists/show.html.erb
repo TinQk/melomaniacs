@@ -147,7 +147,7 @@
     <div class='genres-artist'>
       <div class= 'genres-artist-each'>
       <% @artist.genres.each do |genre|  %>
-        <button class='transparent-button'><%= link_to (genre.name), genre_path(genre.id),  class:'genre-button'%></button>
+        <%= button_to (genre.name), genre_path(genre.id), method: :get, class:'genre-button'%>
       <% end %>
     </div>
   </div>

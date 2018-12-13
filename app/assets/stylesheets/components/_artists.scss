@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   font-family: 'Work Sans', sans-serif;
-  overflow: hidden;
+  overflow: auto;
   flex-wrap: nowrap;
 }
 
@@ -114,6 +114,13 @@
   color: #753AC6;
 }
 
+.genres-artist-each {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
 #pills-contact {
   margin: auto;
   width: auto;
@@ -131,14 +138,16 @@
   border-radius: 21px;
   border: solid #969696 1.5px;
   font-weight: 300;
-  line-height: 3em;
+  line-height: 1.5em;
   word-break: normal;
+  max-height: 2em;
 
   moz-transition: all .4s ease-in-out;
   -o-transition: all .4s ease-in-out;
   -webkit-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
   margin-bottom: 25px;
+
 }
 
 .genre-button:hover{
@@ -187,7 +196,7 @@
   justify-content: space-between;
   width: 600px;
   margin-top: 1em;
-  overflow: auto;
+
 }
 
 .artist-card{

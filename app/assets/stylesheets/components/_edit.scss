@@ -71,7 +71,9 @@
 
     .input-group-text{
       background: #f1f2f4;
-  }}
+  }
+}
+
   h2{
     padding-bottom: 0.5em;
   }
@@ -109,8 +111,12 @@
 .edit-right{
   width:90%;
 }
+
 .tab-content{
   width:90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 .tab-pane{
   float: left;
@@ -118,7 +124,8 @@
 
 #pills-home{
   width:100%;
-}}
+}
+}
 
   .profile-tab{
     display: flex;
@@ -151,11 +158,46 @@
         color: #fff;
         font-weight: bold;
         text-align: left;
-        line-height: 2.2em;
+        line-height: 1.5em;
         height: 100%;
         overflow-y: auto;
         overflow-x: hidden;
 
+        .light-text{
+          font-weight: 300;
+        }
+
+        .log-out-button{
+          color: #7439C7;
+          background-color: white;
+          border-radius: 25px;
+          padding: 0em 1em 0em 1em;
+          font-weight: 500;
+
+          moz-transition: all .4s ease-in-out;
+          -o-transition: all .4s ease-in-out;
+          -webkit-transition: all .4s ease-in-out;
+          transition: all .4s ease-in-out;
+        }
+
+        .log-out-button:hover{
+          font-size: 1.1em;
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+          cursor: pointer;
+
+          moz-transition: all .4s ease-in-out;
+          -o-transition: all .4s ease-in-out;
+          -webkit-transition: all .4s ease-in-out;
+          transition: all .4s ease-in-out;
+        }
+
+        .log-out-button:focus{
+          outline:none;
+        }
+
+        .button_to{
+          text-align: center;
+        }
 
         a{
           color: #fff;

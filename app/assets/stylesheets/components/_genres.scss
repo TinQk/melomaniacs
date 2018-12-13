@@ -5,6 +5,7 @@
   align-items: center;
   font-family: 'Work Sans', sans-serif;
   overflow: auto;
+  flex-wrap: nowrap;
 }
 
 
@@ -26,50 +27,67 @@
   line-height: 57.6px;
 }
 
-.genre-artists {
-  display: flex;
-  flex-flow: row wrap;
-  overflow: auto;
-  max-width: 100%;
-  justify-content: space-around;
-}
-
-
-
-.genre-artist {
-    line-height: 1.3em;
-    text-align: center;
-
-}
-
-.genre-artist a:hover {
-
-}
-
-.genre-card {
-  display: flex;
-  flex-direction: column;
+.genre-artist{
+  margin-top: 2em;
+  line-height: 1.3em;
   text-align: center;
-  margin: 0.5em;
-  max-width: 6em;
+  padding-right: 10%;
+  padding-left: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.genre-card:hover {
-  opacity: 0.8;
-}
+.tab-pane{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.genre-card img {
-  height: 5em;
-  width: 5em;
-  margin-bottom: 0.5em;
-  border-radius: 100%;
-}
 
-.genre-card a {
-  font-weight: 500;
-  text-decoration: none;
-  color: #404040;
-}
+    .genre-artists {
+      display: flex;
+      flex-flow: row wrap;
+      overflow: hidden;
+      padding-left: 20%;
+      padding-right: 20%;
+      justify-content: space-around;
+      margin-top: 2em;
+    }
+
+    .genre-artist a:hover {
+
+    }
+
+    .genre-card {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      margin: 0.5em;
+      max-width: 6em;
+
+      img {
+        height: 5em;
+        width: 5em;
+        margin-bottom: 0.5em;
+        border-radius: 100%;
+      }
+
+       a {
+        font-weight: 500;
+        text-decoration: none;
+        color: #404040;
+
+        img{
+          object-fit: cover;
+        }
+      }
+    }
+
+    .genre-card:hover {
+      opacity: 0.8;
+    }
+  }
 
 
 .genre-show{
@@ -127,4 +145,21 @@
 #pills-tabContent {
   max-width: 100%;
   max-height: 100%;
+}
+
+
+.genre-show{
+    #pills-home{
+      margin: auto;
+    }
+
+    #pills-profile{
+      display:block;
+    }
+}
+
+.transparent-button{
+  background: rgba(255, 255, 255, 0);
+  border: none;
+  padding: 0;
 }

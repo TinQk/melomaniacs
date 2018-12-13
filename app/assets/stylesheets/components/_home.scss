@@ -13,7 +13,8 @@
 
 .home-logged{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
   height: 90%;
   font-family: Helvetica;
   overflow: auto;
@@ -143,15 +144,11 @@
 .nav-pills {
 .nav-link.active,
 .show > .nav-link a{
-  padding:0;
-  margin-right:1em;
-  margin-left: 1em;
-  padding-top: 0,5em;
   background-color: rgba(255, 255, 255, 0);
   color: #404040;
   border-radius: 0%;
-  border-bottom: solid #753AC6 3px;
-  padding-bottom: 5px;
+  border-right: solid #753AC6 3px;
+  padding-right: 5px;
 
   moz-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
@@ -164,9 +161,7 @@
 .nav-link,
 .show > .nav-link a{
   padding:0;
-  margin-right:1em;
-  margin-left: 1em;
-  padding-top: 0,5em;
+  margin: 2em;
   background-color: rgba(255, 255, 255, 0);
   color: #707070;
   border-radius: 0%;
@@ -184,11 +179,16 @@
   max-height: 100%;
 }
 
+.tab-img{
+  height: 1.5em;
+  margin-right: 0.5em;
+}
+
 .home-logged #pills-tab{
   z-index: 3;
   font-size: 0.8em;
-  position: absolute;
-  bottom: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -210,20 +210,23 @@
 }
 
 #search-input-artists, #search-input-genres {
-  width: 15em;
+  width: auto;
   border: solid rgba(255, 255, 255, 0);
   background: rgba(255, 255, 255, 0);
   position: relative;
   font-family: 'Work Sans', sans-serif;
   font-weight: bold;
   color: #404040;
-  font-size: 2.5em;
+  font-size: 3.5em;
   text-align: center;
+  border-bottom: solid #7439C7;
+
 }
 
 ::placeholder{
   color: #7439C7;
   opacity: 1;
+
 }
 
 .ais-search-box--powered-by{

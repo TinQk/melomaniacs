@@ -9,4 +9,7 @@ class HomeController < ApplicationController
 	  end
 	  
 	end
+
+	def discover
+	end
 end

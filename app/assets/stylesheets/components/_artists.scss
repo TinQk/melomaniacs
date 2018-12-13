@@ -128,9 +128,8 @@
   text-align: center;
   height: 100%;
   line-height: 1.5em;
-
-
 }
+
 
 .genre-button{
   background-color: rgba(255, 255, 255, 0);
@@ -180,6 +179,8 @@
   color: #753AC6;
 }
 
+
+
 .similar-artist-each{
   display: flex;
   align-items: flex-start;
@@ -187,8 +188,8 @@
   width: 600px;
   margin-top: 1em;
   overflow: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .similar-artist-each-albums{
@@ -334,6 +335,7 @@
   max-width: 100%;
   max-height: 100%;
   position: relative;
+
 }
 
 .tab{

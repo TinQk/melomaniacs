@@ -1,6 +1,7 @@
 <div class='artist-show'>
 
   <div class='pic-name'>
+
     <div class='img-box'>
       <% if @image != nil %>
         <%= link_to image_tag(@image), artist_path(@artist.id) %>
@@ -10,8 +11,8 @@
     </div>
 
     <h1><%= @artist.name %></h1>
-    <div class='likes-text'>
 
+    <div class='likes-text'>
       <% if @artist.likes.count == 1 %>
         <%= @artist.likes.count %> person loves this artist
       <% else %>
@@ -22,154 +23,162 @@
       <% end %>
       <% end %>
     </div>
-      <% pre_like = @artist.likes.find { |like| like.user_id == current_user.id} %>
 
-      <% if pre_like %>
-        <%= button_to 'UNLIKE', artist_like_path(@artist, pre_like), method: :delete, class:'unlike-button' %>
-      <% else %>
-        <%= button_to 'LIKE', artist_likes_path(@artist), method: :post, class:'like-button' %>
-      <% end %>
+    <% pre_like = @artist.likes.find { |like| like.user_id == current_user.id} %>
 
-
-<div class='tab'>
-<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">ALBUMS</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">SIMILAR ARTISTS</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">GENRES</a>
-  </li>
-</ul>
-</div>
-
-<div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-  	<div class='similar-artist-each-albums'>
-  	<% @albums.each do |i| %>
-  	  <% if i.album_type == "album" %>
-       <h3>ALBUMS</h3>
-       <% break %>
-     <% end %>
+    <% if pre_like %>
+      <%= button_to 'UNLIKE', artist_like_path(@artist, pre_like), method: :delete, class:'unlike-button' %>
+    <% else %>
+      <%= button_to 'LIKE', artist_likes_path(@artist), method: :post, class:'like-button' %>
     <% end %>
 
-  	<% @albums.each_with_index do |album, i| %>
-  	   <% if album.name.downcase != @albums[i-1].name.downcase && album.album_type == "album" %>
-
-  	     <div class= 'album-card'>
-  	     <% if album.images != [] %>
-  	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
-  	     <% else %>
-  	       <%= link_to image_tag("user.png"), "https://open.spotify.com/album/#{album.id}", target:"_blank"%>
-  	     <% end %>
-  	   <%= link_to album.name, "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
-  	   </div>
-  	   <% end %>
-  	<% end %>
+    <!-- TABS -->
+    <div class='tab'>
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">ALBUMS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">SIMILAR ARTISTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">GENRES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-comment-tab" data-toggle="pill" href="#pills-comment" role="tab" aria-controls="pills-comment" aria-selected="false">COMMENTS</a>
+        </li>
+      </ul>
     </div>
 
-    <div class='similar-artist-each-albums'>
-  		<% @albums.each do |i| %>
-  	  <% if i.album_type == "single" %>
-       <h3>SINGLES</h3>
-       <% break %>
-     <% end %>
-    <% end %>
+    <!-- TAB ALBUMS -->
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
-  	<% @albums.each_with_index do |album, i| %>
-  	   <% if album.name.downcase != @albums[i-1].name.downcase && album.album_type == "single" %>
-
-  	     <div class= 'album-card'>
-  	     <% if album.images != [] %>
-  	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
-  	     <% else %>
-  	       <%= link_to image_tag("user.png"), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
-  	     <% end %>
-  	   <%= link_to album.name, "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
-  	   </div>
-  	   <% end %>
-  	<% end %>
-    </div>
-
-  <div class='similar-artist-each-albums'>
-  	<% @albums.each do |i| %>
-  	  <% if i.album_type == "compilation" %>
-        <h3>COMPILATIONS</h3>
-        <% break %>
-      <% end %>
-    <% end %>
-
-  	<% @albums.each_with_index do |album, i| %>
-  	   <% if album.name.downcase != @albums[i-1].name.downcase && album.album_type == "compilation" %>
-
-  	     <div class= 'album-card'>
-  	     <% if album.images != [] %>
-  	       <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
-  	     <% else %>
-  	       <%= link_to image_tag("user.png"), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
-  	     <% end %>
-  	   <%= link_to album.name, "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
-  	   </div>
-  	   <% end %>
-  	<% end %>
-    </div>
-
-
-  </div>
-
-  <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-    <div class='similar-artist'>
-      <!-- Show 5 similar artists -->
-      <% i=0 %>
-      <div class='similar-artist-each'>
-      <% @similar.each do |a| %>
-        <% if i<5 %>
-        	<% if Artist.find_by(spotify_id: a.id) != nil %>
-          <div class= 'artist-card'>
-          <% if a.images != [] %>
-             <%= link_to image_tag(a.images[0]['url']), artist_path(@all.find_by(spotify_id: a.id).id) %>
-          <% else %>
-            <%= link_to image_tag("user.png"), artist_path(@all.find_by(spotify_id: a.id).id) %>
+        <!-- ALBUM TYPE : ALBUM -->
+        <div class='similar-artist-each-albums'>
+        	<% @albums.each do |i| %>
+        	  <% if i.album_type == "album" %>
+              <h3>ALBUMS</h3>
+              <% break %>
+            <% end %>
           <% end %>
-          <p><%= link_to (a.name), artist_path(@all.find_by(spotify_id: a.id).id) %></p>
-          </div>
-          <% i+=1 %>
+
+        	<% @albums.each_with_index do |album, i| %>
+        	  <% if album.name.downcase != @albums[i-1].name.downcase && album.album_type == "album" %>
+      	      <div class= 'album-card'>
+      	      <% if album.images != [] %>
+      	        <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
+      	      <% else %>
+      	        <%= link_to image_tag("user.png"), "https://open.spotify.com/album/#{album.id}", target:"_blank"%>
+      	      <% end %>
+        	    <%= link_to album.name, "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
+        	    </div>
+      	    <% end %>
+        	<% end %>
+        </div>
+
+        <!-- ALBUM TYPE : SINGLE -->
+        <div class='similar-artist-each-albums'>
+      		<% @albums.each do |i| %>
+        	  <% if i.album_type == "single" %>
+              <h3>SINGLES</h3>
+              <% break %>
+            <% end %>
           <% end %>
-        <% end %>
-      <% end %>
+
+        	<% @albums.each_with_index do |album, i| %>
+        	  <% if album.name.downcase != @albums[i-1].name.downcase && album.album_type == "single" %>
+        	    <div class= 'album-card'>
+        	      <% if album.images != [] %>
+        	        <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
+        	      <% else %>
+        	        <%= link_to image_tag("user.png"), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
+        	      <% end %>
+        	      <%= link_to album.name, "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
+        	    </div>
+        	  <% end %>
+        	<% end %>
+        </div>
+
+        <!-- ALBUM TYPE : COMPILATION -->
+        <div class='similar-artist-each-albums'>
+        	<% @albums.each do |i| %>
+        	  <% if i.album_type == "compilation" %>
+              <h3>COMPILATIONS</h3>
+              <% break %>
+            <% end %>
+          <% end %>
+
+        	<% @albums.each_with_index do |album, i| %>
+        	  <% if album.name.downcase != @albums[i-1].name.downcase && album.album_type == "compilation" %>
+        	    <div class= 'album-card'>
+        	      <% if album.images != [] %>
+                  <%= link_to image_tag(album.images[0]['url']), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
+      	        <% else %>
+        	        <%= link_to image_tag("user.png"), "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
+        	      <% end %>
+        	      <%= link_to album.name, "https://open.spotify.com/album/#{album.id}", target:"_blank" %>
+        	    </div>
+        	  <% end %>
+        	<% end %>
+        </div>
+      </div>
+
+    <!-- TAB SIMILAR ARTISTS -->
+    <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <div class='similar-artist'>
+        <!-- Show 5 similar artists -->
+        <div class='similar-artist-each'>
+          <% @similar.each_with_index do |a, i| %>
+            <% if i<5 %>
+            	<% if Artist.find_by(spotify_id: a.id) != nil %>
+                <div class= 'artist-card'>
+                  <% if a.images != [] %>
+                    <%= link_to image_tag(a.images[0]['url']), artist_path(@all.find_by(spotify_id: a.id).id) %>
+                  <% else %>
+                    <%= link_to image_tag("user.png"), artist_path(@all.find_by(spotify_id: a.id).id) %>
+                  <% end %>
+                  <p><%= link_to (a.name), artist_path(@all.find_by(spotify_id: a.id).id) %></p>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
+
+    <!-- TAB GENRES -->
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+      <div class='genres-artist'>
+        <div class= 'genres-artist-each'>
+          <% @artist.genres.each do |genre|  %>
+            <button class='transparent-button'><%= link_to (genre.name), genre_path(genre.id),  class:'genre-button'%></button>
+          <% end %>
+        </div>
+      </div>
     </div>
 
-  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-    <div class='genres-artist'>
-      <div class= 'genres-artist-each'>
-      <% @artist.genres.each do |genre|  %>
-        <button class='transparent-button'><%= link_to (genre.name), genre_path(genre.id),  class:'genre-button'%></button>
-      <% end %>
+    <!-- TAB COMMENTS -->
+
+    <div class="tab-pane fade" id="pills-comment" role="tabpanel" aria-labelledby="pills-comment-tab">
+      <div class='comments-artist'>
+        <div class= 'comments-artist-each'>
+
+          <%= link_to "Add comment", new_artist_comment_path(@artist.id), class:"btn btn-link"%>
+
+          <% @comments.each do |comment| %>
+          <hr>
+            <p>"<%= comment.content %>" <em>- commented by <%= comment.user.username %></em></p>
+            <div>
+              <%if current_user == comment.user %>
+                <%= link_to "edit", edit_artist_comment_path(@artist.id, comment.id), class:"btn btn-link"%>
+                <%= link_to 'delete', artist_comment_path(@artist.id, comment.id), class:"btn btn-link", data: {confirm: "Are you sure ?"}, method: :delete %>
+              <%end%>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
+
   </div>
-
 </div>
-</div>
-</div>
-</div>
-
-
-<br>
-<%= link_to "Add comment", new_artist_comment_path(@artist.id), class:"btn btn-success"%>
-<br>
-
-<% @comments.each do |comment| %>
-<hr>
-  <p>"<%= comment.content %>"</p>
-  <em>commented by <%= comment.user.username %></em>
-  <div class="col-lg-2">
-    <%if current_user == comment.user %>
-      <%= link_to "edit", edit_artist_comment_path(@artist.id, comment.id), class:"btn btn-link"%>
-      <%= link_to 'delete', artist_comment_path(@artist.id, comment.id), class:"btn btn-danger", data: {confirm: "Are you sure ?"}, method: :delete %>
-    <%end%>
-  </div>
-<% end %>

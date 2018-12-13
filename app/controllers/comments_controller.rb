@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     result = comment_params
     comment = Comment.create(result)
     redirect_to(artist_path(params[:artist_id]))
+    #redirect_back(fallback_location: root_path)
   end
 
   def edit

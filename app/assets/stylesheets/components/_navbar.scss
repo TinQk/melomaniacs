@@ -1,7 +1,7 @@
 #header {
   background: white;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
-  height: 7%;
+  height: 9%;
   display: flex;
   align-items: center;
 }
@@ -30,7 +30,6 @@
 }
 
 #header img:hover{
-  opacity: 0.6;
   cursor: pointer;
   overflow: hidden;
 }
@@ -102,7 +101,12 @@
 }
 
 .icon-link img {
-  margin-right: 1em ;
+  margin-right: 3em ;
+  opacity: 0.6;
+}
+
+.icon-link img:hover {
+  opacity: 0.8;
 }
 
 #header li a:focus{

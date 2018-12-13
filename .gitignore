@@ -26,4 +26,11 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# Ignore jsons created by services
+/db/json/*
+
+# Ignore DB file
+melomaniacs.sql
+
+# Dotenv for dev
 /.env

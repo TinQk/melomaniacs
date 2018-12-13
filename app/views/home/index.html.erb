@@ -58,6 +58,9 @@
              </div>
 
         </div>
+        <div class='footer-phrase'>
+          <%= link_to image_tag('search.png'), root_path, onclick: "window.location.href='/'", class: "icon-link"%> <%= link_to 'Search', root_path, onclick: "window.location.href='/'", class: "link-text"%> for genres and artists and like your favorites to find inspiration and recomendations under <%= link_to image_tag('compass.png'), discover_path,  class: "icon-link" %><%= link_to ' Discover.', discover_path,  class: "link-text" %>
+        </div>
         </div>
 
             <!--when not logged-->
@@ -67,7 +70,7 @@
          <div class= 'home-left'>
             <h1>Sign up to discover new artists you're sure to love </h1>
             <hr>
-            <p>Here at melomaniacs, we believe in the power of <strong>community</strong> to discover new things you’ll end up loving. We provide you with an <strong>extensive artists database</strong> and the opportunity to <strong>express your opinion</strong>. Our <strong>smart research and recommandation features</strong> allow you to find new things you’re sure to love.</p>
+            <p>Here at melomaniacs, we believe in the power of <strong>community</strong> to discover new things you’ll end up loving. We provide you with an <strong>extensive artists database</strong> and the opportunity to <strong>express your opinion</strong>. Our <strong>smart research and recomendation features</strong> allow you to find new things you’re sure to love.</p>
             <div class= "home-buttons">
               <button class='home-button-primary' data-toggle="modal" data-target="#signUpModal">Sign up</button><button class='home-button-secondary' data-toggle="modal" data-target="#logInModal">Log in</button>
             </div>

@@ -174,7 +174,25 @@
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
 }
-}}
+}
+  .footer-phrase{
+    color: #6d1daf;
+    font-size: 0.8em;
+    text-align: center;
+
+    .link-text{
+      color: #707070;
+    }
+
+    img{
+      width: 1em;
+      margin-right: 0.1em;
+      margin-left: 0.3em;
+      margin-bottom: 0.2em;
+      opacity: 0.8;
+    }
+  }
+}
 
 #pills-tabContent {
   max-width: 100%;

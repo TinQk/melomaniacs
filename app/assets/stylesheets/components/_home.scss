@@ -5,7 +5,7 @@
   justify-content: center;
   height: 90%;
   flex-direction: column;
-  font-family: Helvetica;
+  font-family: 'Work Sans', sans-serif;
   overflow: auto;
   flex-wrap: wrap;
 
@@ -34,16 +34,16 @@
 }
 
 .home-left h1{
-  font-family: Helvetica;
-  font-weight: bold;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 650;
   color: #404040;
   line-height: 1.2em;
   z-index: +1;
 }
 
 .home-left p{
-  font-family: Helvetica;
-  font-weight: lighter;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
   color: #707070;
   line-height: 1.7em;
   margin-bottom: 2em;
@@ -214,7 +214,7 @@
   border: solid rgba(255, 255, 255, 0);
   background: rgba(255, 255, 255, 0);
   position: relative;
-  font-family: Helvetica;
+  font-family: 'Work Sans', sans-serif;
   font-weight: bold;
   color: #404040;
   font-size: 2.5em;
@@ -232,7 +232,7 @@
 
 
 #artists-hits.col-sm-9, #genres-hits.col-sm-9{
-  font-family: Helvetica;
+  font-family: 'Work Sans', sans-serif;
   font-weight: lighter;
   color: #707070;
   text-align: center;
@@ -275,7 +275,7 @@ textarea:focus, input:focus{
     overflow: hidden;
 
     h2{
-      font-family: helvetica;
+      font-family: 'Work Sans', sans-serif;
       font-weight: bold;
       font-size: 1.6em;
       color: #404040;

@@ -1,28 +1,25 @@
 <div class='discover-page'>
-    
-    
-    <div class= "show-box">
-        
+
+  <div class= "show-box">
+
     <h2>Last <br>Comments</h2>
     <div class= "show-box-inside">
-        <% Comment.all.reverse.each_with_index do |comment, i|%>
-            <%= i+1%>.  <%= comment.content %><br>
-            on <%= link_to Artist.find(comment.artist_id).name, artist_path(comment.artist_id) %><br>
-            <% break if i == 4 %>
-          <% end %>
+      <% Comment.all.reverse.each_with_index do |comment, i|%>
+        <%= i+1%>.  <%= comment.content %><br>
+        on <%= link_to Artist.find(comment.artist_id).name, artist_path(comment.artist_id) %><br>
+        <% break if i == 4 %>
+      <% end %>
     </div>
   </div>
 
-
-    <div class= "show-box">
+  <div class= "show-box">
     <h2>Most <br>liked</h2>
     <div class= "show-box-inside">
-      
       <% if Like.all == nil then %>
-         No likes yet... Be the first!
+        No likes yet... Be the first!
       <% end %>
-      <% @url.size.times do |i| %>         
-          <%= i+1 %>. <%= link_to Artist.find(Toplike.all[i].id).name, artist_path(Artist.find(Toplike.all[i].id).id) %><br>
+      <% @url.size.times do |i| %>
+        <%= i+1 %>. <%= link_to Artist.find(Toplike.all[i].id).name, artist_path(Artist.find(Toplike.all[i].id).id) %><br>
       <% end %>
     </div>
   </div>
@@ -35,8 +32,8 @@
       <% end %>
       <% array = []%>
       <% current_user.likes.all.reverse.each_with_index do |like, i|%>
-      <% array << like %>
-      <%= i+1%>. <%= link_to (like.artist.name), artist_path(like.artist.id) %><br>
+        <% array << like %>
+        <%= i+1%>. <%= link_to (like.artist.name), artist_path(like.artist.id) %><br>
       <% if i==9 then break %>
       <% end %><% end %>
     <% reco = [] %>
@@ -46,7 +43,7 @@
   <div class= "show-box">
     <h2>Artists <br>for you</h2>
     <div class= "show-box-inside">
-      
+
       <% RSpotify::authenticate(Rails.application.credentials.spotify_client_id, Rails.application.credentials.spotify_client_secret) %>
       <% array.each_with_index do |like, i| %>
       <% artist = RSpotify::Artist.find(like.artist.spotify_id).related_artists.first.name %>

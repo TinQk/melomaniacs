@@ -61,8 +61,8 @@
 .home-right img{
   height:85%;
   position: absolute;
-  bottom: -0.1em;
-  right: -0.1em;
+  bottom: 0.5em;
+  right: 0.5em;
 }
 
 
@@ -133,6 +133,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding-bottom: 6em;
   }
 
 .nav-pills {
@@ -193,7 +194,7 @@
   z-index: 3;
   font-size: 0.8em;
   position: fixed;
-  top: 15em;
+  top: 10em;
 }
 
 
@@ -225,12 +226,21 @@
   font-size: 3.5em;
   text-align: center;
   border-bottom: solid #7439C7;
+  margin-bottom: 0.5em;
 
 }
 
+
+.hit-instant-search {
+  // border: solid 2px #7439C7;
+
+}
+
+
 ::placeholder{
   color: #7439C7;
-  opacity: 1;
+  opacity: 0.5;
+
 
 }
 

@@ -1,0 +1,110 @@
+#header {
+  background: white;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
+  height: 7%;
+  display: flex;
+  align-items: center;
+}
+
+.my-header .icon {
+    display: none;
+}
+
+.logo-header{
+  float: left;
+}
+
+#header img{
+  height: 2em;
+  margin-bottom: 0.2em;
+}
+
+#header li{
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+#header img:hover{
+  opacity: 0.6;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+
+#header ul{
+  list-style-type: none;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0;
+  z-index: 2;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.navbar-links{
+  display: flex;
+  flex-direction: row;
+}
+
+#header li a button:hover{
+  color: #404040;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+#header li a button {
+  color: #707070;
+  font-weight: normal;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  border-style: none;
+  height: 2em;
+  margin-bottom: 0.2em;
+}
+
+#header li a button:focus{
+  outline: none;
+}
+
+
+#header li a:hover{
+  color: #404040;
+  font-weight: normal;
+  font-size: 0.75em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#header li a {
+  margin-right: 2em;
+  color: #707070;
+  font-weight: normal;
+  font-size: 0.75em;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  border-style: none;
+  padding: 1em 1em;
+  vertical-align: middle;
+}
+
+#header li a:focus{
+  outline: none;
+}
+
+.fa{
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar-links{
+    display: none;
+  }
+}
+
+@media screen and (min-heigth: 500px) {
+  .navbar-links{
+    display: none;
+  }
+}

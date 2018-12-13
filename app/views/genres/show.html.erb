@@ -1,14 +1,44 @@
-<h1><%= @genre.name %></h1><br>
+<div class='genre-show'>
+
+    <h1><%= @genre.name.titleize %></h1>
+    <p class= "likes-text"><%= @genre.artists.count %> artists belong to this genre</p>
+    <hr>
 
 
-# Display the 5 first artists of the Genre
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">HOT ARTISTS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">SIMILAR GENRES</a>
+      </li>
+    </ul>
 
-<h2>famous artists:</h2>
+    <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="genre-artists">
+          <% 10.times do |i|%>
+                <div class="genre-card">
+                  <% if @cover[i] != nil %>
+                    <%= link_to image_tag("#{@cover[i]}"), artist_path(@popular[i].id), class: "img-genre" %>
+                  <% else %>
+                   <%= link_to image_tag("user.png"), artist_path(@popular[i].id), class: "img-genre" %>
+                  <% end %>
+                  <%= link_to @popular[i].name, artist_path(@popular[i].id) %>
+                </div>
+            <% end %>
+        </div>
+      </div>
 
-<% i=0 %>
-<% @genre.artists.each do |artist| %>
-  <% if i<5 %>
-    <h3><%= link_to artist.name, artist_path(artist) %></h3>
-    <% i+=1 %>
-  <% end %>
-<% end %>
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <div class='genre-artist'>
+          <% @freq.size.times do |i| %>
+            <% if Genre.find(@freq.keys[i]).name != @genre.name && i < 11 %>
+              <%= button_to Genre.find(@freq.keys[i]).name, genre_path(@freq.keys[i]), method: :get, class:'genre-button' %>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+
+</div>
+</div>

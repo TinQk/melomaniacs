@@ -1,0 +1,32 @@
+h2, .field, .actions {
+  text-align: center;
+}
+
+
+.actions input {
+  background-color: #7439C7;
+  color: #fff;
+  padding: 0.2em 3em;
+  border-radius: 35px;
+  border: solid #7439C7 2px;
+  font-size: 1em;
+  moz-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  cursor: pointer;
+}
+
+
+.actions input:hover {
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.16);
+  background-color: #9B42A0;
+  border: solid #9B42A0 2px;
+  cursor: pointer;
+  moz-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+
+.shared-links {
+  text-align: center;
+  margin: 0 auto;
+}

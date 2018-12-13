@@ -1,17 +1,23 @@
 class ArtistsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
-
     @artist = Artist.find(params[:id])
-
-    RSpotify::authenticate("2fc8c7db0a584ecc97c8789e10b1ba14", "3e31ba14f979474ab69880fafd410829")
-    if @artist.spotify_id != nil
-      @artist_spotify = RSpotify::Artist.find('6X66Odq1u17bBzTdYsL7Y7')
-      @image = @artist_spotify.images[0]['url']
-      @similar = @artist_spotify.related_artists
-    end
-
+    @all = Artist.all
+    @genres = Genre.all
     @likes = @artist.likes.count
+    @comments = @artist.comments.order(:created_at)
 
+    # If we have artist's spotify id in Database
+    if @artist.spotify_id != nil
+      RSpotify::authenticate(Rails.application.credentials.spotify_client_id, Rails.application.credentials.spotify_client_secret)
+      @artist_spotify = RSpotify::Artist.find("#{@artist.spotify_id}")
+      @albums = @artist_spotify.albums
+      @similar = @artist_spotify.related_artists
+      if @artist_spotify.images != []
+        @image = @artist_spotify.images[0]['url']
+      end
+    end
   end
 
 end

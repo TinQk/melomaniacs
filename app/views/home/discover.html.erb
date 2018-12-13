@@ -1,0 +1,44 @@
+<div class='discover-page'>
+    <div class= "show-box">
+    <h2>Most <br>liked</h2>
+    <div class= "show-box-inside">
+      
+      <% if Like.all == nil then %>
+         No likes yet... Be the first!
+      <% end %>
+      <% @url.size.times do |i| %>         
+          <%= i+1 %>. <%= link_to Artist.find(Toplike.all[i].id).name, artist_path(Artist.find(Toplike.all[i].id).id) %><br>
+      <% end %>
+    </div>
+  </div>
+
+  <div class= "show-box">
+    <h2>Recently <br>liked</h2>
+    <div class= "show-box-inside">
+      <% if current_user.likes.all == nil then %>
+        You haven't liked anything yet!
+      <% end %>
+      <% array = []%>
+      <% current_user.likes.all.reverse.each_with_index do |like, i|%>
+      <% array << like %>
+      <%= i+1%>. <%= link_to (like.artist.name), artist_path(like.artist.id) %><br>
+      <% if i==9 then break %>
+      <% end %><% end %>
+
+    </div>
+  </div>
+
+  <div class= "show-box">
+    <h2>Artists <br>for you</h2>
+    <div class= "show-box-inside">
+      <% RSpotify::authenticate(Rails.application.credentials.spotify_client_id, Rails.application.credentials.spotify_client_secret) %>
+      <% array.each_with_index do |like, i| %>
+      <% if RSpotify::Artist.find(like.artist.spotify_id).related_artists.first != nil %>
+      <%= i+1 %>. <%=  link_to (RSpotify::Artist.find(like.artist.spotify_id).related_artists.first.name), artist_path(Artist.find_by(name: RSpotify::Artist.find(like.artist.spotify_id).related_artists.first.name).id) %> <br>
+      <% if i==4 then break %>
+      <% end %><% end %><% end %>
+      <% array = []%>
+
+    </div>
+  </div>
+</div>

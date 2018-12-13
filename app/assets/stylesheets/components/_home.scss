@@ -13,8 +13,8 @@
 
 .home-logged{
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: center;
   height: 90%;
   font-family: Helvetica;
   overflow: auto;
@@ -129,11 +129,18 @@
 // IF logged in
 
 .home-logged{
+ .container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
 .nav-pills {
 .nav-link.active,
 .show > .nav-link {
   background-color: rgba(255, 255, 255, 0);
   color: #404040;
+
   moz-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   -webkit-transition: all .3s ease-in-out;
@@ -146,9 +153,7 @@
 .show > .nav-link a{
   background-color: rgba(255, 255, 255, 0);
   color: #404040;
-  border-radius: 0%;
-  border-right: solid #753AC6 3px;
-  padding-right: 5px;
+  border-bottom: solid #753AC6 3px;
 
   moz-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
@@ -187,8 +192,8 @@
 .home-logged #pills-tab{
   z-index: 3;
   font-size: 0.8em;
-  display: flex;
-  flex-direction: column;
+  position: fixed;
+  top: 15em;
 }
 
 
@@ -259,51 +264,6 @@ textarea:focus, input:focus{
 }
 
 
-
-.home-logged.contact-tab{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-
-  .show-box{
-    background: #FFF;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.10);
-
-    margin: 1em 2em;
-    text-align: center;
-    height: 390px;
-    min-width: 230px;
-    max-width: 300px;
-    overflow: hidden;
-
-    h2{
-      font-family: 'Work Sans', sans-serif;
-      font-weight: bold;
-      font-size: 1.6em;
-      color: #404040;
-      padding: 1em;
-    }
-
-    .show-box-inside{
-      background-image: linear-gradient(to bottom right, #753AC6, #753AC6, #8A3FAA);
-      padding: 2em;
-      color: #fff;
-      font-weight: bold;
-      text-align: left;
-      line-height: 2.2em;
-      height: 100%;
-      overflow-y: auto;
-      overflow-x: hidden;
-
-
-      a{
-        color: #fff;
-        font-weight: 500;
-      }
-      }
-    }
-  }
 
 //RESPOSIVE
 

@@ -1,34 +1,20 @@
 <div class='discover-page'>
-
-    <div class= "show-box">
-    <h2>Last <br>Comments</h2>
+  <div class= "show-box">
+  <h2>Most liked <br>artists</h2>
     <div class= "show-box-inside">
-    <% Comment.all.reverse.each_with_index do |comment, i|%>
-      <%= i+1%>.  <%= comment.content %><br>
-        on <%= link_to Artist.find(comment.artist_id).name, artist_path(comment.artist_id) %><br>
-        <% break if i == 4 %>
-      <% end %>
 
-
-    </div>
-  </div>
-
-    <div class= "show-box">
-    <h2>Most <br>liked</h2>
-    <div class= "show-box-inside">
-      
       <% if Like.all == nil then %>
          No likes yet... Be the first!
       <% end %>
-      <% @url.size.times do |i| %>         
+      <% @url.size.times do |i| %>
           <%= i+1 %>. <%= link_to Artist.find(Toplike.all[i].id).name, artist_path(Artist.find(Toplike.all[i].id).id) %><br>
       <% end %>
     </div>
   </div>
 
   <div class= "show-box">
-    <h2>Recently <br>liked</h2>
-    <div class= "show-box-inside">
+    <h2>Your <br>likes</h2>
+    <div class= "show-box-inside-pink">
       <% if current_user.likes.all == nil then %>
         You haven't liked anything yet!
       <% end %>
@@ -60,4 +46,18 @@
       <% reco = [] %>
     </div>
   </div>
+
+  <div class= "show-box-comment">
+  <h2>Last <br>Comments</h2>
+    <div class= "show-box-inside">
+    <% Comment.all.reverse.each_with_index do |comment, i|%>
+       <div class= 'comment'>
+         <p>"<%= comment.content %>"</p>
+        </div>
+        on <%= link_to Artist.find(comment.artist_id).name, artist_path(comment.artist_id) %><br><br>
+        <% break if i == 4 %>
+      <% end %>
+    </div>
+  </div>
+
 </div>

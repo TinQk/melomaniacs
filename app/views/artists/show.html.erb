@@ -36,10 +36,10 @@
     <div class='tab'>
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">ALBUMS</a>
+          <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">SIMILAR ARTISTS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">SIMILAR ARTISTS</a>
+          <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">ALBUMS</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">GENRES</a>
@@ -164,17 +164,21 @@
       <div class='comments-artist'>
         <div class= 'comments-artist-each'>
 
-          <%= link_to "Add comment", new_artist_comment_path(@artist.id), class:"btn btn-link"%>
+          <%= button_to "Add comment", new_artist_comment_path(@artist.id), method: :get, class:"comment-button"%>
 
           <% @comments.each do |comment| %>
-          <hr>
-            <p>"<%= comment.content %>" <em>- commented by <%= comment.user.username %></em></p>
-            <div>
-              <%if current_user == comment.user %>
-                <%= link_to "edit", edit_artist_comment_path(@artist.id, comment.id), class:"btn btn-link"%>
-                <%= link_to 'delete', artist_comment_path(@artist.id, comment.id), class:"btn btn-link", data: {confirm: "Are you sure ?"}, method: :delete %>
-              <%end%>
+          <div class='up-comment'>
+            <span><%= comment.user.username %></span><span><%= comment.created_at.strftime('%D') %></span>
+          </div>
+          <div class= 'comment'>
+            <p>"<%= comment.content %>"</p>
             </div>
+            <div class='comments-link'>
+              <%if current_user == comment.user %>
+                <%= link_to image_tag('edit.png'), edit_artist_comment_path(@artist.id, comment.id), class:"btn btn-link"%>
+                <%= link_to image_tag('rubbish-bin.png'), artist_comment_path(@artist.id, comment.id), class:"btn btn-link", data: {confirm: "Are you sure ?"}, method: :delete %>
+              <%end%>
+            </div><br>
           <% end %>
         </div>
       </div>

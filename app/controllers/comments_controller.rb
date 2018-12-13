@@ -9,13 +9,9 @@ class CommentsController < ApplicationController
     result = comment_params
     comment = Comment.create(result)
     redirect_to(artist_path(params[:artist_id]))
-    #redirect_back(fallback_location: root_path)
   end
 
   def edit
-    unless @current_user
-      redirect_to(root_path)
-    end
     @comment = Comment.find(params[:id])
   end
 
@@ -28,7 +24,7 @@ class CommentsController < ApplicationController
   def destroy
     comment = Comment.find(params[:id])
     comment.destroy
-    redirect_to(artist_path(params[:artist_id]))
+    redirect_back(fallback_location: root_path)
   end
 
   private
@@ -37,7 +33,6 @@ class CommentsController < ApplicationController
     result = params.require(:comment).permit(:content)
     result[:user_id] = current_user.id
     result[:artist_id] = params[:artist_id]
-    puts result
     return result
   end
 end

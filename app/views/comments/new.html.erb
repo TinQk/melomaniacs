@@ -1,10 +1,12 @@
-<h2>Création d'un commentaire</h2>
-<%= form_for @comment, :url => artist_comments_path do |f|%>
-  <div class="form-group col-md-6">
-    <label>Commentaire</label>
-    <%= f.text_area :content, size: "20x3", class: "form-control", placeholder: "Saisissez ici votre commentaire" %>
-  </div>
-  <div class="form-group col-md-12">
-    <button type="submit" class="btn btn-primary">Commenter</button>
-  </div>
-<%end%>
+<div class="new-comment">
+
+  <h2>Add a comment</h2>
+
+  <%= form_for @comment, :url => artist_comments_path do |f|%>
+    <%= f.text_area :content, size: "20x3", class: "form-control", placeholder: "Comment here!" %>
+
+    <button type="submit" class="submit">Comment</button>
+
+  <%end%>
+
+</div>

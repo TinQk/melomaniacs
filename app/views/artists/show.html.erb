@@ -3,7 +3,7 @@
   <div class='pic-name'>
     <div class='img-box'>
       <% if @image != nil %>
-        <%= image_tag @image %>
+        <%= link_to image_tag(@image), artist_path(@artist.id) %>
       <% else %>
         <%= image_tag("user.png")%>
       <% end %>
@@ -147,7 +147,7 @@
     <div class='genres-artist'>
       <div class= 'genres-artist-each'>
       <% @artist.genres.each do |genre|  %>
-        <%= link_to (genre.name), genre_path(genre.id),  class:'genre-button'%>
+        <button class='transparent-button'><%= link_to (genre.name), genre_path(genre.id),  class:'genre-button'%></button>
       <% end %>
     </div>
   </div>

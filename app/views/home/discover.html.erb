@@ -25,8 +25,8 @@
   </div>
 
   <div class= "show-box">
-    <h2>Recently <br>liked</h2>
-    <div class= "show-box-inside">
+    <h2>Your <br>likes</h2>
+    <div class= "show-box-inside-pink">
       <% if current_user.likes.all == nil then %>
         You haven't liked anything yet!
       <% end %>
@@ -58,4 +58,18 @@
       <% reco = [] %>
     </div>
   </div>
+
+  <div class= "show-box-comment">
+  <h2>Last <br>Comments</h2>
+    <div class= "show-box-inside">
+    <% Comment.all.reverse.each_with_index do |comment, i|%>
+       <div class= 'comment'>
+         <p>"<%= comment.content %>"</p>
+        </div>
+        on <%= link_to Artist.find(comment.artist_id).name, artist_path(comment.artist_id) %><br><br>
+        <% break if i == 4 %>
+      <% end %>
+    </div>
+  </div>
+
 </div>

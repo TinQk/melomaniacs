@@ -10,4 +10,7 @@ class HomeController < ApplicationController
 	  end
 	  puts @url
 	end
+
+	def discover
+	end
 end

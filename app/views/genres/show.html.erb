@@ -34,7 +34,7 @@
       <div class='genre-artist'>
           <% @freq.size.times do |i| %>
             <% if Genre.find(@freq.keys[i]).name != @genre.name && i < 11 %>
-              <button class='transparent-button'><%= link_to Genre.find(@freq.keys[i]).name, genre_path(@freq.keys[i]), class:'genre-button' %></button>
+              <%= button_to Genre.find(@freq.keys[i]).name, genre_path(@freq.keys[i]), method: :get, class:'genre-button' %>
             <% end %>
           <% end %>
       </div>

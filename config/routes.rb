@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
   resources :genres, only: [:show]
   resources :home, only: [:index]
+  get '/discover', to: 'home#discover'
 end

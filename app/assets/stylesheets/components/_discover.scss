@@ -1,0 +1,80 @@
+.discover-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .show-box{
+    background: #FFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.10);
+
+    margin: 1em 2em;
+    text-align: center;
+    height: 390px;
+    min-width: 230px;
+    max-width: 300px;
+    overflow: hidden;
+
+    h2{
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.6em;
+      color: #404040;
+      padding: 1em;
+    }
+
+    .show-box-inside{
+      background-image: linear-gradient(to bottom right, #753AC6, #753AC6, #8A3FAA);
+      padding: 2em;
+      color: #fff;
+      font-weight: bold;
+      text-align: left;
+      line-height: 1.5em;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .light-text{
+        font-weight: 300;
+      }
+
+      .log-out-button{
+        color: #7439C7;
+        background-color: white;
+        border-radius: 25px;
+        padding: 0em 1em 0em 1em;
+        font-weight: 500;
+
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+      }
+
+      .log-out-button:hover{
+        font-size: 1.1em;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+      }
+
+      .log-out-button:focus{
+        outline:none;
+      }
+
+      .button_to{
+        text-align: center;
+      }
+
+      a{
+        color: #fff;
+        font-weight: 400;
+
+      }
+    }
+  }
+}

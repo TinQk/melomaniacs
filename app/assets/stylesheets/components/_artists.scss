@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   font-family: 'Work Sans', sans-serif;
-  overflow: hidden;
+  overflow: auto;
   flex-wrap: nowrap;
 }
 
@@ -114,14 +114,22 @@
   color: #753AC6;
 }
 
+.genres-artist-each {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
 #pills-contact {
   margin: auto;
   width: auto;
   text-align: center;
   height: 100%;
   line-height: 1.5em;
-
 }
+
 
 .genre-button{
   background-color: rgba(255, 255, 255, 0);
@@ -133,6 +141,8 @@
   font-weight: 300;
   line-height: 3em;
   word-break: normal;
+  max-height: 3em;
+  line-height: 1.5em;
 
   moz-transition: all .4s ease-in-out;
   -o-transition: all .4s ease-in-out;
@@ -169,6 +179,8 @@
   color: #753AC6;
 }
 
+
+
 .similar-artist-each{
   display: flex;
   align-items: flex-start;
@@ -176,8 +188,8 @@
   width: 600px;
   margin-top: 1em;
   overflow: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .similar-artist-each-albums{
@@ -323,7 +335,7 @@
   max-width: 100%;
   max-height: 100%;
   position: relative;
-  overflow: auto;
+
 }
 
 .tab{

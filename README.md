@@ -24,7 +24,7 @@ This app is more complex than it seems. Here are all the things you'll find amon
 
 ## 💿 HOW TO USE
 * Access the production version of this app here: *Spoiler alert: It looks like a million bucks*<br>
-🔥🔥 https://melomaniacs-dev.herokuapp.com/  🔥🔥
+🔥🔥 https://melomaniacs.herokuapp.com/  🔥🔥
 
 * If you want to run it locally, `$ git clone` this repository, `bundle install`, `rails db:create`, `rails db:migrate` and run the db scrapper `Rails.new.perform` in your console. All that's left is running your server with `rails server`. You can then access it on localhost:3000 with your web browser.
  

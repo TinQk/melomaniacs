@@ -35,6 +35,8 @@ class CommentsController < ApplicationController
   def comment_params
     result = params.require(:comment).permit(:content)
     result[:user_id] = current_user.id
+    result[:artist_id] = params[:artist_id]
+    puts result
     return result
   end
 end

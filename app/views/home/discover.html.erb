@@ -1,4 +1,6 @@
 <div class='discover-page'>
+
+
     <div class= "show-box">
     <h2>Most <br>liked</h2>
     <div class= "show-box-inside">
@@ -31,14 +33,19 @@
   <div class= "show-box">
     <h2>Artists <br>for you</h2>
     <div class= "show-box-inside">
+      <% reco = [] %>
       <% RSpotify::authenticate(Rails.application.credentials.spotify_client_id, Rails.application.credentials.spotify_client_secret) %>
       <% array.each_with_index do |like, i| %>
-      <% if RSpotify::Artist.find(like.artist.spotify_id).related_artists.first != nil %>
-      <%= i+1 %>. <%=  link_to (RSpotify::Artist.find(like.artist.spotify_id).related_artists.first.name), artist_path(Artist.find_by(name: RSpotify::Artist.find(like.artist.spotify_id).related_artists.first.name).id) %> <br>
-      <% if i==4 then break %>
+      <% artist = RSpotify::Artist.find(like.artist.spotify_id).related_artists.first.name %>
+      <% if artist != nil && reco.include?(artist) == false %>
+      <% reco << artist %>
+      <% if Artist.find_by(name: artist) != nil %>
+        <%= i+1 %>. <%=  link_to (artist), artist_path(Artist.find_by(name: artist).id) %> <br>
+      <% end %>
+      <% if i==9 then break %>
       <% end %><% end %><% end %>
       <% array = []%>
-
+      <% reco = [] %>
     </div>
   </div>
 </div>

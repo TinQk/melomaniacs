@@ -164,17 +164,21 @@
       <div class='comments-artist'>
         <div class= 'comments-artist-each'>
 
-          <%= link_to "Add comment", new_artist_comment_path(@artist.id), class:"btn btn-link"%>
+          <%= button_to "Add comment", new_artist_comment_path(@artist.id), method: :get, class:"comment-button"%>
 
           <% @comments.each do |comment| %>
-          <hr>
-            <p>"<%= comment.content %>" <em>- commented by <%= comment.user.username %></em></p>
-            <div>
-              <%if current_user == comment.user %>
-                <%= link_to "edit", edit_artist_comment_path(@artist.id, comment.id), class:"btn btn-link"%>
-                <%= link_to 'delete', artist_comment_path(@artist.id, comment.id), class:"btn btn-link", data: {confirm: "Are you sure ?"}, method: :delete %>
-              <%end%>
+          <div class='up-comment'>
+            <span><%= comment.user.username %></span><span><%= comment.created_at.strftime('%D') %></span>
+          </div>
+          <div class= 'comment'>
+            <p>"<%= comment.content %>"</p>
             </div>
+            <div class='comments-link'>
+              <%if current_user == comment.user %>
+                <%= link_to image_tag('edit.png'), edit_artist_comment_path(@artist.id, comment.id), class:"btn btn-link"%>
+                <%= link_to image_tag('rubbish-bin.png'), artist_comment_path(@artist.id, comment.id), class:"btn btn-link", data: {confirm: "Are you sure ?"}, method: :delete %>
+              <%end%>
+            </div><br>
           <% end %>
         </div>
       </div>

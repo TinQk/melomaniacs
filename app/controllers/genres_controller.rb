@@ -9,12 +9,13 @@ class GenresController < ApplicationController
   	@artists = Artist.all
 
   	RSpotify::authenticate(Rails.application.credentials.spotify_client_id, Rails.application.credentials.spotify_client_secret)
-
+    
     10.times do |i|
-      if RSpotify::Artist.find("#{@popular[i].spotify_id}").images == []
+      @image = RSpotify::Artist.find("#{@popular[i].spotify_id}")
+      if @image.images == []
         @cover << nil
       else
-        @cover << RSpotify::Artist.find("#{@popular[i].spotify_id}").images[0]['url']
+        @cover << @image.images[0]['url']
       end
     end
     @genre.artists.each do |artist|

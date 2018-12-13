@@ -6,7 +6,8 @@ class ArtistsController < ApplicationController
     @all = Artist.all
     @genres = Genre.all
     @likes = @artist.likes.count
-    
+    @comments = @artist.comments.order(:created_at)
+
     # If we have artist's spotify id in Database
     if @artist.spotify_id != nil
       RSpotify::authenticate(Rails.application.credentials.spotify_client_id, Rails.application.credentials.spotify_client_secret)

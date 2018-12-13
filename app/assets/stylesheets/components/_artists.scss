@@ -126,13 +126,14 @@
 .genre-button{
   background-color: rgba(255, 255, 255, 0);
   color: #969696;
-  padding: 0.2em 1em;
+  // padding: 0.2em 1em;
   margin: 0.5em 0.5em;
   border-radius: 21px;
   border: solid #969696 1.5px;
   font-weight: 300;
   line-height: 3em;
   word-break: normal;
+  height: auto;
 
   moz-transition: all .4s ease-in-out;
   -o-transition: all .4s ease-in-out;

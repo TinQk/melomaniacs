@@ -27,10 +27,14 @@
 }
 
 .genre-artist{
+  margin-top: 2em;
   line-height: 1.3em;
   text-align: center;
   padding-right: 10%;
   padding-left: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .tab-pane{

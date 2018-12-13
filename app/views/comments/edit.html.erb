@@ -1,0 +1,10 @@
+<h2>Editer le commentaire </h2>
+<%= form_for @comment, :url => artist_comment_path do |f|%>
+  <div class="form-group col-md-6">
+    <label>Commentaire</label>
+    <%= f.text_area :content, size: "20x3", class: "form-control"%>
+  </div>
+  <div class="form-group col-md-12">
+    <button type="submit" class="btn btn-primary">Editer le commentaire</button>
+  </div>
+<%end%>

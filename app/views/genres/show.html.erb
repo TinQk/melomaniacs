@@ -22,7 +22,7 @@
                   <% if @cover[i] != nil %>
                     <%= link_to image_tag("#{@cover[i]}"), artist_path(@popular[i].id), class: "img-genre" %>
                   <% else %>
-                    <%= link_to image_tag("user.png"), artist_path(@popular[i].id)%>
+                   <%= link_to image_tag("user.png"), artist_path(@popular[i].id), class: "img-genre" %>
                   <% end %>
                   <%= link_to @popular[i].name, artist_path(@popular[i].id) %>
                 </div>
@@ -31,15 +31,14 @@
       </div>
 
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-      <div class='similar-artist'>
+      <div class='genre-artist'>
           <% @freq.size.times do |i| %>
             <% if Genre.find(@freq.keys[i]).name != @genre.name && i < 11 %>
-
-              <%= link_to Genre.find(@freq.keys[i]).name, genre_path(@freq.keys[i]), class:'genre-button' %>
+              <button class='transparent-button'><%= link_to Genre.find(@freq.keys[i]).name, genre_path(@freq.keys[i]), class:'genre-button' %></button>
             <% end %>
-
           <% end %>
       </div>
     </div>
 
+</div>
 </div>

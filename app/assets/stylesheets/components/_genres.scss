@@ -5,6 +5,7 @@
   align-items: center;
   font-family: 'Work Sans', sans-serif;
   overflow: auto;
+  flex-wrap: nowrap;
 }
 
 
@@ -35,6 +36,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  overflow: hidden;
 }
 
 .tab-pane{
@@ -42,13 +44,15 @@
   justify-content: center;
   align-items: center;
 
+
     .genre-artists {
       display: flex;
       flex-flow: row wrap;
-      overflow: auto;
+      overflow: hidden;
       padding-left: 20%;
       padding-right: 20%;
       justify-content: space-around;
+      margin-top: 2em;
     }
 
     .genre-artist a:hover {

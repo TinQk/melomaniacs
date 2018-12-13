@@ -55,55 +55,6 @@
                 </div>
                </div>
 
-            <!-- third tab when signed in-->
-
-            <div class="tab-pane fade" class="contact-tab" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-              <div class= "show-box">
-                <h2>Most <br>liked</h2>
-                <div class= "show-box-inside">
-                  <% if Like.all == nil then %>
-                     No likes yet... Be the first!
-                   <% end %>
-                  blabla
-                  blabla
-                  blabla
-                  <%= current_user.username %>
-
-                </div>
-              </div>
-
-              <div class= "show-box">
-                <h2>Recently <br>liked</h2>
-                <div class= "show-box-inside">
-                  <% if current_user.likes.all == nil then %>
-                    You haven't liked anything yet!
-                  <% end %>
-                  <% array = []%>
-                  <% current_user.likes.all.reverse.each_with_index do |like, i|%>
-                  <% array << like %>
-                  <%= i+1%>. <%= link_to (like.artist.name), artist_path(like.artist.id) %><br>
-                  <% if i==4 then break %>
-                  <% end %><% end %>
-
-
-                </div>
-              </div>
-
-              <div class= "show-box">
-                <h2>Artists <br>for you</h2>
-                <div class= "show-box-inside">
-                  <% RSpotify::authenticate("2fc8c7db0a584ecc97c8789e10b1ba14", "3e31ba14f979474ab69880fafd410829") %>
-                  <% array.each_with_index do |like, i| %>
-                  <% if RSpotify::Artist.find(like.artist.spotify_id).related_artists.first != nil %>
-                  <%= i+1 %>. <%=  link_to (RSpotify::Artist.find(like.artist.spotify_id).related_artists.first.name), artist_path(Artist.find_by(name: RSpotify::Artist.find(like.artist.spotify_id).related_artists.first.name).id) %> <br>
-                  <% end %><% end %>
-                  <% array = []%>
-
-                </div>
-              </div>
-            </div>
-            </div>
-
 
         </div>
 

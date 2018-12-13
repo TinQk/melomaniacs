@@ -66,6 +66,7 @@
 }
 
 
+
 .home-button-primary{
   background-color: #3E3BF5;
   color: #fff;
@@ -223,10 +224,22 @@
   font-family: 'Work Sans', sans-serif;
   font-weight: bold;
   color: #404040;
-  font-size: 3.5em;
+  font-size: 3em;
   text-align: center;
   border-bottom: solid #7439C7;
   margin-bottom: 0.5em;
+
+}
+
+#search-input-artists:focus, #search-input-genres:focus {
+  transition: transform 0.5s ease;
+  transform: scale(1.1, 1.1);
+
+}
+
+#search-input-artists:not(:focus), #search-input-genres:not(:focus) {
+  transition: transform 0.5s ease;
+  transform: scale(1, 1);
 
 }
 

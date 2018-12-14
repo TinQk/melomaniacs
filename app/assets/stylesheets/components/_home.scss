@@ -129,7 +129,7 @@
 
 .home-logged{
  .container{
-    padding-bottom: 6em;
+  //  padding-bottom: 6em;
   }
 
 .nav-pills {
@@ -209,13 +209,17 @@
   margin-right: 0.5em;
 }
 
-.home-logged #pills-tab{
+.home-logged #pills-tab {
   z-index: 3;
   font-size: 0.8em;
-  position: fixed;
-  top: 10em;
+//  position: fixed;
+  top: 3em;
 }
 
+
+.home-logged #pills-tabContent {
+  bottom: 7em;
+}
 
 .home-left-logged{
   max-width: 100%;
@@ -316,11 +320,24 @@ textarea:focus, input:focus{
 }
 }
 
-@media (max-height: 350px){
+@media (max-height: 400px){
   .home-right img {
     display: none;
   }
+  .home-logged #pills-tabContent {
+    bottom: 9em;
+  }
+
+
 }
+
+@media (max-height:450px) {
+
+  .home-logged #pills-tabContent {
+    bottom: 9em;
+  }
+}
+
 
 
 @media (max-width: 500px){

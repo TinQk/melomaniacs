@@ -430,17 +430,8 @@
 }
 
 
-@media (max-height: 550px){
-  .tab-content{
-    display: none;
-  }
-}
-
 @media (max-height: 370px){
   .like-button{
-    display: none;
-  }
-  .nav{
     display: none;
   }
 }

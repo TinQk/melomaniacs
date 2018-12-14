@@ -132,3 +132,15 @@
     }
   }
 }
+
+@media (max-width: 550px){
+  .comment {
+    width: auto;
+  }
+}
+
+@media (max-height: 310px){
+  .comment {
+    height: 35px;
+  }
+}

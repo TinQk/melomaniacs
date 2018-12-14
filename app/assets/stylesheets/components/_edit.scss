@@ -5,6 +5,7 @@
   align-items: center;
   height: 90%;
   color: #707070;
+  overflow: scroll;
 
   .edit-left ul{
     display: flex;
@@ -208,3 +209,14 @@
     }
   }
 }
+
+
+@media (max-width: 500px){
+    .edit-page {
+      flex-direction: column;
+    }
+
+    #pills-tab {
+      flex-direction: row;
+    }
+  }

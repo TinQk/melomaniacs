@@ -49,3 +49,24 @@ body{
     width: 90%;
   }
 }
+
+@media (min-width: 1400px) {
+
+  body {
+    zoom: 1.5;
+    -moz-transform: scale(1.5);
+    -moz-transform-origin: 0 0;
+}
+
+}
+
+
+@media (min-width: 2500px) {
+
+  body {
+    zoom: 3;
+    -moz-transform: scale(3);
+    -moz-transform-origin: 0 0;
+}
+
+}

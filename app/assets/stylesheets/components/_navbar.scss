@@ -14,19 +14,20 @@
   float: left;
   padding: 0 0 0 1em;
     img {
-    height: 50px;
+    height: 55px;
     width: auto;
   }
 }
 
 #header img{
-  height: 2em;
+  height: 1.8em;
   margin-bottom: 0.2em;
 }
 
 #header li{
   margin-top: 0.2em;
   margin-bottom: 0.2em;
+  font-size: 1.5em;
 }
 
 #header img:hover{
@@ -129,4 +130,8 @@
   .search, .discover {
     display: none;
   }
+}
+
+.search, .discover {
+  font-size: 2em;
 }

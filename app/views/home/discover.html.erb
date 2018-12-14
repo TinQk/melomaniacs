@@ -42,7 +42,7 @@
         <% if artist != nil && reco.include?(artist) == false %>
           <% reco << artist %>
           <% if Artist.find_by(name: artist) != nil %>
-            <%= i+1 %>. <%=  link_to (artist), artist_path(Artist.find_by(name: artist).id) %>
+            <%=  link_to (artist), artist_path(Artist.find_by(name: artist).id) %>
             <% i+=1 %>
             <br>
           <% end %>

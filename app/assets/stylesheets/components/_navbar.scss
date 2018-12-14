@@ -61,12 +61,14 @@
 
 #header li a button {
   color: #707070;
-  font-weight: normal;
+  font-weight: 300;
   cursor: pointer;
   background: rgba(0, 0, 0, 0);
   border-style: none;
+  font-size: 0.9em;
   height: 2em;
   margin-bottom: 0.2em;
+  margin-right: 2em;
 }
 
 #header li a button:focus{

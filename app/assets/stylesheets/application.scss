@@ -25,7 +25,7 @@ html {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-
+   position: fixed; 
 }
 
 body{
@@ -37,6 +37,7 @@ body{
    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.16);
    font-family: 'Work Sans', sans-serif;
    overflow: auto;
+
 }
 
 @media (min-width: 701px) and (max-width: 850px){

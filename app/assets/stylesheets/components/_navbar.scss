@@ -127,6 +127,13 @@
   }
 }
 
+@media screen and (max-height: 400px) {
+
+  #header {
+    height: 30px;
+  }
+}
+
 @media screen and (min-heigth: 600px) {
 
   .search, .discover {

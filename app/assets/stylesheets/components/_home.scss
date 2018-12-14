@@ -356,3 +356,32 @@ textarea:focus, input:focus{
     flex: 0 0 75%;
      max-width: 100%;
 }}
+
+
+@media (max-width: 700px){
+  #search-input-genres, #search-input-artists{
+    max-width: 400px;
+  }
+
+  ::placeholder {
+    font-size: 50%;
+  }
+
+}
+
+
+@media (max-width: 450px){
+  #search-input-genres, #search-input-artists{
+    max-width: 250px;
+  }
+
+  ::placeholder {
+    font-size: 30%;
+  }
+
+  body {
+    overflow: hidden;
+
+  }
+
+}

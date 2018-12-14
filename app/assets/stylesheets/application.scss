@@ -25,17 +25,19 @@ html {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-
+   position: fixed; 
 }
 
 body{
    margin: 1.3em;
    height: 93%;
+   min-height: 550px;
    width: 100%;
    background:rgba(255,255,255,0.98);
    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.16);
    font-family: 'Work Sans', sans-serif;
    overflow: auto;
+
 }
 
 @media (min-width: 701px) and (max-width: 850px){

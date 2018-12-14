@@ -361,6 +361,7 @@ textarea:focus, input:focus{
 @media (max-width: 700px){
   #search-input-genres, #search-input-artists{
     max-width: 400px;
+    position: relative;
   }
 
   ::placeholder {

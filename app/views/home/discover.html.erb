@@ -21,13 +21,11 @@
       <% if current_user.likes.all == nil then %>
         You haven't liked anything yet!
       <% end %>
-
       <% @user_likes.each_with_index do |like, i|%>
         <%= link_to (like.artist.name), artist_path(like.artist.id) %><br>
         <% if i==9 then break %>
         <% end %>
       <% end %>
-
     </div>
   </div>
 
@@ -35,12 +33,10 @@
   <div class= "show-box">
     <h2>Recommended <br>for you</h2>
     <div class= "show-box-inside">
-      <% @reco.each_with_index do |artist, i| %>
+      <% @reco.each do |artist| %>
         <% if Artist.find_by(name: artist) != nil %>
           <%=  link_to (artist), artist_path(Artist.find_by(name: artist).id) %>
           <br>
-        <% end %>
-        <% if i==10 then break %>
         <% end %>
       <% end %>
     </div>

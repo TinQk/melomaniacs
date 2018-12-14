@@ -13,7 +13,7 @@ class HomeController < ApplicationController
 	  	@duplicates << dupli.artist.name
 	  end
 
-      @user_likes.each_with_index do |like, x|
+      @user_likes.shuffle.each do |like|
         i = 1
       	artists = RSpotify::Artist.find(like.artist.spotify_id).related_artists
       	artist = artists[0].name
@@ -21,12 +21,15 @@ class HomeController < ApplicationController
           artist = artists[i].name
           i += 1
         end
-        if artist != nil && @reco.include?(artist) == false
+        if artist != nil && @reco.include?(artist) == false && Artist.find_by(name: artist) != nil
           @reco << artist
+          break if @reco.size >= 10
+          if @duplicates.include?(artists[i].name) == false && @reco.include?(artists[i].name) == false && artists[i] != nil && Artist.find_by(name: artists[i].name) != nil
+            @reco << artists[i].name
+            break if @reco.size >= 10
+          end
         end
-        break if x == 15
       end
-     
 	end
 end
 

@@ -197,7 +197,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  width: 600px;
+//  width: 600px;
   margin-top: 1em;
   overflow: auto;
 }
@@ -443,4 +443,21 @@
   .nav{
     display: none;
   }
+}
+
+
+@media (max-width: 550px){
+  .similar-artist-each{
+    width: 350px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 380px){
+  .similar-artist-each{
+      width: auto;
+      flex-direction: column;
+      align-items: center;
+  }
+
 }

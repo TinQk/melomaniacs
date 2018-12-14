@@ -127,6 +127,13 @@
   }
 }
 
+@media screen and (max-height: 400px) {
+
+  #header {
+    height: 30px;
+  }
+}
+
 @media screen and (min-heigth: 600px) {
 
   .search, .discover {
@@ -136,4 +143,24 @@
 
 .search, .discover {
   font-size: 2em;
+}
+
+@media (min-width: 1400px) {
+
+  #header {
+    zoom: 1.3;
+    -moz-transform: scale(1.3);
+    -moz-transform-origin: 0 0;
+}
+
+}
+
+@media (min-width: 2500px) {
+
+  #header {
+    zoom: 2.5;
+    -moz-transform: scale(2.5);
+    -moz-transform-origin: 0 0;
+}
+
 }

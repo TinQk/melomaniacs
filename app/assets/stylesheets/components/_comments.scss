@@ -1,0 +1,60 @@
+.new-comment{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  h2{
+    color: #7439C7;
+    font-weight: 700;
+    margin-bottom: 1em;
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+
+    textarea{
+      width: 100%;
+      background: white;
+      border: white;
+      border-radius: 25px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.16);
+      margin-bottom: 2em;
+    }
+
+    .submit{
+      background-color: rgba(255, 255, 255, 0);
+      color: #753AC6;
+      padding: 0.2em 1em;
+      border-radius: 21px;
+      border: solid #753AC6 2px;
+      font-weight: normal;
+      font-size: 0.9em;
+
+      moz-transition: all .4s ease-in-out;
+      -o-transition: all .4s ease-in-out;
+      -webkit-transition: all .4s ease-in-out;
+      transition: all .4s ease-in-out;
+    }
+
+    .submit:hover{
+      background-color: #753AC6;
+      color: white;
+      border: solid #753AC6 2px;
+
+      moz-transition: all .4s ease-in-out;
+      -o-transition: all .4s ease-in-out;
+      -webkit-transition: all .4s ease-in-out;
+      transition: all .4s ease-in-out;
+    }
+
+    .submit:focus{
+      outline: none;
+    }
+  }
+}

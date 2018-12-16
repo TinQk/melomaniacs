@@ -36,21 +36,6 @@
 
               </div>
             </div>
-
-            <div class= "show-box">
-              <h2>Recently <br>liked</h2>
-              <div class= "show-box-inside">
-                <% if current_user.likes.all == nil then %>
-                  You haven't liked anything yet!
-                <% end %>
-                <% array = []%>
-                <% current_user.likes.all.reverse.each_with_index do |like, i|%>
-                <% array << like %>
-                <%= i+1%>. <%= link_to (like.artist.name), artist_path(like.artist.id) %><br><br>
-                <% if i==4 then break %>
-                <% end %><% end %>
-              </div>
-            </div>
         </div>
       </div>
 

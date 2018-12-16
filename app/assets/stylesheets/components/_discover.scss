@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  flex-wrap: wrap;
 
   .show-box{
     background: #FFF;
@@ -10,7 +11,6 @@
 
     margin: 1em 2em;
     text-align: center;
-    height: 390px;
     min-width: 230px;
     max-width: 300px;
     overflow: hidden;
@@ -28,7 +28,7 @@
       padding: 2em;
       color: #fff;
       font-weight: bold;
-      text-align: left;
+      text-align: center;
       line-height: 1.5em;
       height: 100%;
       overflow-y: auto;
@@ -73,8 +73,74 @@
       a{
         color: #fff;
         font-weight: 400;
-
       }
     }
+    .show-box-inside-pink{
+      background-image: linear-gradient(to bottom right, #9B42A0, #9B42A0, #CB4C7A);
+      padding: 2em;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.5em;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .light-text{
+        font-weight: 300;
+      }
+      a{
+        color: #fff;
+        font-weight: 400;
+      }
+    }
+  }
+
+
+  .show-box-comment{
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.10);
+    background-image: linear-gradient(to bottom right, #9B42A0, #CB4C7A);
+
+    margin: 1em 2em;
+    text-align: center;
+    min-width: 300px;
+    overflow: hidden;
+
+    h2{
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.6em;
+      color: white;
+      padding: 1em;
+    }
+
+    .show-box-inside{
+      background: #FFF;
+      padding: 2em;
+      color: #404040;
+      text-align: right;
+      line-height: 1.5em;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+
+      a{
+        color: #7439C7;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@media (max-width: 550px){
+  .comment {
+    width: auto;
+  }
+}
+
+@media (max-height: 310px){
+  .comment {
+    height: 35px;
   }
 }

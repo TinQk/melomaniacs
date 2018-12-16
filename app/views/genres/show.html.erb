@@ -32,9 +32,9 @@
 
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <div class='genre-artist'>
-          <% @freq.size.times do |i| %>
-            <% if Genre.find(@freq.keys[i]).name != @genre.name && i < 11 %>
-              <%= button_to Genre.find(@freq.keys[i]).name, genre_path(@freq.keys[i]), method: :get, class:'genre-button' %>
+          <% @freq.each_with_index do |freq, i| %>
+            <% if freq[0] != @genre.id && i < 11 %>
+              <%= button_to Genre.find(freq[0]).name, genre_path(freq[0]), method: :get, class:'genre-button' %>
             <% end %>
           <% end %>
       </div>

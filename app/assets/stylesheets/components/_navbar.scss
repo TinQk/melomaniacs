@@ -1,7 +1,7 @@
 #header {
   background: white;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
-  height: 7%;
+  height: 8%;
   display: flex;
   align-items: center;
 }
@@ -12,20 +12,25 @@
 
 .logo-header{
   float: left;
+  padding: 0 0 0 1em;
+    img {
+    height: 55px;
+    width: auto;
+  }
 }
 
 #header img{
-  height: 2em;
+  height: 1.3em;
   margin-bottom: 0.2em;
 }
 
 #header li{
   margin-top: 0.2em;
   margin-bottom: 0.2em;
+  font-size: 1.2em;
 }
 
 #header img:hover{
-  opacity: 0.6;
   cursor: pointer;
   overflow: hidden;
 }
@@ -34,6 +39,7 @@
 #header ul{
   list-style-type: none;
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,12 +62,14 @@
 
 #header li a button {
   color: #707070;
-  font-weight: normal;
+  font-weight: 300;
   cursor: pointer;
   background: rgba(0, 0, 0, 0);
   border-style: none;
+  font-size: 0.8em;
   height: 2em;
   margin-bottom: 0.2em;
+  margin-right: 2em;
 }
 
 #header li a button:focus{
@@ -69,7 +77,7 @@
 }
 
 
-#header li a:hover{
+#header .login-links a:hover{
   color: #404040;
   font-weight: normal;
   font-size: 0.75em;
@@ -77,16 +85,31 @@
   text-decoration: none;
 }
 
-#header li a {
-  margin-right: 2em;
+
+
+#header .login-links a {
   color: #707070;
   font-weight: normal;
   font-size: 0.75em;
   cursor: pointer;
   background: rgba(0, 0, 0, 0);
   border-style: none;
-  padding: 1em 1em;
   vertical-align: middle;
+  height: 100%;
+  margin-right: 0.7em;
+}
+
+.login-links {
+  z-index: auto;
+}
+
+.icon-link img {
+  margin-right: 3em ;
+  opacity: 0.6;
+}
+
+.icon-link img:hover {
+  opacity: 0.8;
 }
 
 #header li a:focus{
@@ -97,14 +120,47 @@
   display: none;
 }
 
-@media screen and (max-width: 500px) {
-  .navbar-links{
+@media screen and (max-width: 600px) {
+
+  .search, .discover {
     display: none;
   }
 }
 
-@media screen and (min-heigth: 500px) {
-  .navbar-links{
+@media screen and (max-height: 400px) {
+
+  #header {
+    height: 30px;
+  }
+}
+
+@media screen and (min-heigth: 600px) {
+
+  .search, .discover {
     display: none;
   }
+}
+
+.search, .discover {
+  font-size: 2em;
+}
+
+@media (min-width: 1400px) {
+
+  #header {
+    zoom: 1.3;
+    -moz-transform: scale(1.3);
+    -moz-transform-origin: 0 0;
+}
+
+}
+
+@media (min-width: 2500px) {
+
+  #header {
+    zoom: 2.5;
+    -moz-transform: scale(2.5);
+    -moz-transform-origin: 0 0;
+}
+
 }

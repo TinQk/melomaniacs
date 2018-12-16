@@ -8,7 +8,6 @@
   font-family: 'Work Sans', sans-serif;
   overflow: auto;
   flex-wrap: wrap;
-
 }
 
 .home-logged{
@@ -16,17 +15,18 @@
   align-items: center;
   justify-content: center;
   height: 90%;
-  font-family: Helvetica;
+  font-family: 'Work Sans', sans-serif;
   overflow: auto;
   flex-wrap: wrap;
-
 }
 
 
 // IF NOT LOGGED IN
 .home-left{
   margin-left: 3em;
+  margin-right: 3em;
   max-width: 50%;
+  text-align: justify;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,9 +61,10 @@
 .home-right img{
   height:85%;
   position: absolute;
-  bottom: -0.1em;
-  right: -0.1em;
+  bottom: 0.5em;
+  right: 0.5em;
 }
+
 
 
 .home-button-primary{
@@ -130,9 +131,7 @@
 
 .home-logged{
  .container{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  //  padding-bottom: 6em;
   }
 
 .nav-pills {
@@ -177,7 +176,30 @@
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
 }
-}}
+}
+
+
+  .footer-phrase{
+    color: #6d1daf;
+    font-size: 0.8em;
+    text-align: center;
+
+    .link-text{
+      color: #707070;
+  //    z-index: 5;
+    }
+
+    img{
+      width: 1em;
+      margin-right: 0.1em;
+      margin-left: 0.3em;
+      margin-bottom: 0.2em;
+      opacity: 0.8;
+    }
+  }
+}
+
+
 
 #pills-tabContent {
   max-width: 100%;
@@ -189,13 +211,17 @@
   margin-right: 0.5em;
 }
 
-.home-logged #pills-tab{
+.home-logged #pills-tab {
   z-index: 3;
   font-size: 0.8em;
-  position: fixed;
-  top: 15em;
+//  position: fixed;
+  top: 3em;
 }
 
+
+.home-logged #pills-tabContent {
+  bottom: 7em;
+}
 
 .home-left-logged{
   max-width: 100%;
@@ -222,15 +248,36 @@
   font-family: 'Work Sans', sans-serif;
   font-weight: bold;
   color: #404040;
-  font-size: 3.5em;
+  font-size: 3em;
   text-align: center;
   border-bottom: solid #7439C7;
+  margin-bottom: 0.5em;
 
 }
 
+#search-input-artists:focus, #search-input-genres:focus {
+  transition: transform 0.5s ease;
+  transform: scale(1.1, 1.1);
+
+}
+
+#search-input-artists:not(:focus), #search-input-genres:not(:focus) {
+  transition: transform 0.5s ease;
+  transform: scale(1, 1);
+
+}
+
+
+.hit-instant-search {
+  // border: solid 2px #7439C7;
+
+}
+
+
 ::placeholder{
   color: #7439C7;
-  opacity: 1;
+  opacity: 0.5;
+
 
 }
 
@@ -241,7 +288,6 @@
 
 #artists-hits.col-sm-9, #genres-hits.col-sm-9{
   font-family: 'Work Sans', sans-serif;
-  font-weight: lighter;
   color: #707070;
   text-align: center;
   position: relative;
@@ -276,11 +322,24 @@ textarea:focus, input:focus{
 }
 }
 
-@media (max-height: 350px){
+@media (max-height: 400px){
   .home-right img {
     display: none;
   }
+  .home-logged #pills-tabContent {
+    bottom: 9em;
+  }
+
+
 }
+
+@media (max-height:450px) {
+
+  .home-logged #pills-tabContent {
+    bottom: 9em;
+  }
+}
+
 
 
 @media (max-width: 500px){
@@ -319,4 +378,42 @@ textarea:focus, input:focus{
 .col-sm-9 {
     flex: 0 0 75%;
      max-width: 100%;
-}}
+}
+
+}
+
+
+@media (max-width: 700px){
+  #search-input-genres, #search-input-artists{
+    max-width: 400px;
+
+  }
+
+  ::placeholder {
+    font-size: 50%;
+  }
+
+}
+
+
+@media (max-width: 450px){
+  #search-input-genres, #search-input-artists{
+    max-width: 250px;
+  }
+
+  ::placeholder {
+    font-size: 30%;
+  }
+
+  body {
+    overflow: hidden;
+
+  }
+
+}
+
+@media (max-height: 600px) {
+    .footer-phrase {
+      display: none;
+    }
+}

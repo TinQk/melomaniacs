@@ -149,8 +149,11 @@
 
   #header {
     zoom: 1.3;
+    /* commenté car mauvais affichage sur resolution 1900 px */
+    /*
     -moz-transform: scale(1.3);
     -moz-transform-origin: 0 0;
+    */
 }
 
 }

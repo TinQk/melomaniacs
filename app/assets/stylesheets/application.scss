@@ -55,8 +55,11 @@ body{
 
   body {
     zoom: 1.5;
+    /* commenté car mauvais affichage sur resolution 1900 px */
+    /*
     -moz-transform: scale(1.5);
     -moz-transform-origin: 0 0;
+    */
 }
 
 }

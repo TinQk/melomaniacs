@@ -26,7 +26,7 @@ This app is more complex than it seems. Here are all the things you'll find amon
 * Discover top 10 most liked artists on melomaniacs and last comments at a glance.
 
 ## 💿 HOW TO USE
-* Access the production version of this app here: *Spoiler alert: Down due to algolia's end of free contract*<br>
+* Access the production version of this app here: <span style="color:red">*Spoiler alert: Down due to algolia's end of free contract*</span><br>
 🔥🔥 https://melomaniacs.herokuapp.com/  🔥🔥
 
 * If you want to run it locally, `$ git clone` this repository, `bundle install`, `rails db:create`, `rails db:migrate` and run the db scrapper `Rails.new.perform` in your console. All that's left is running your server with `rails server`. You can then access it on localhost:3000 with your web browser.

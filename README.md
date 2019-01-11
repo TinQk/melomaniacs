@@ -2,6 +2,9 @@
 
 Melomaniacs is an app designed for music-lovers. You can access an extensive database of artists, give your opinion on them and discover new artists curated for you, everyday.
 
+Here is short video in french : https://www.youtube.com/watch?v=Lp5Y_Gfhwx4&t=  
+And here is the english one : https://www.youtube.com/watch?v=d31rmI48OSg&t
+
 ###
 
 ## 🎹 TEAM  

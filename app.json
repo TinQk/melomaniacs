@@ -1,0 +1,54 @@
+{
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ],
+  "env": {
+    "APPLICATION_ID": {
+      "required": true
+    },
+    "GMAIL_DOMAIN": {
+      "required": true
+    },
+    "GMAIL_PASSWORD": {
+      "required": true
+    },
+    "GMAIL_USERNAME": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true
+    },
+    "RAILS_MASTER_KEY": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "melomaniacs",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}

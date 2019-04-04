@@ -2,6 +2,9 @@
 
 Melomaniacs is an app designed for music-lovers. You can access an extensive database of artists, give your opinion on them and discover new artists curated for you, everyday.
 
+Here is a short presentation video in french : https://www.youtube.com/watch?v=Lp5Y_Gfhwx4&t=  
+And here is the english one : https://www.youtube.com/watch?v=d31rmI48OSg&t
+
 ###
 
 ## 🎹 TEAM  
@@ -23,7 +26,7 @@ This app is more complex than it seems. Here are all the things you'll find amon
 * Discover top 10 most liked artists on melomaniacs and last comments at a glance.
 
 ## 💿 HOW TO USE
-* Access the production version of this app here: *Spoiler alert: It looks like a million bucks*<br>
+* Access the production version of this app here: ***Spoiler alert: Down due to algolia's end of free contract***<br>
 🔥🔥 https://melomaniacs.herokuapp.com/  🔥🔥
 
 * If you want to run it locally, `$ git clone` this repository, `bundle install`, `rails db:create`, `rails db:migrate` and run the db scrapper `Rails.new.perform` in your console. All that's left is running your server with `rails server`. You can then access it on localhost:3000 with your web browser.

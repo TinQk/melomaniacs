@@ -22,10 +22,10 @@ artists = [{artist_id: 50, name: "Keith Hudson", spotify_id: "7a6In9UVdQx5TpBGLZ
 
 artists.each_with_index do |artist, i|
   a = Artist.create(
-    name: artist.name,
-    spotify_id: artist.spotify_id,
-    created_at: artist.created_at,
-    updated_at: artist.updated_at
+    name: artist[:name],
+    spotify_id: artist[:spotify_id],
+    created_at: artist[:created_at],
+    updated_at: artist[:updated_at]
   )
   p "Genre #{i + 1} created"
 

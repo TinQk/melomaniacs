@@ -1,4 +1,4 @@
-# Convertit une table en json pour Algolia et l'enregistre dans le dossier seed
+# Convertit une table en json et l'enregistre dans le dossier seed
 
 # Pour appeler ce service, effectuer la commande suivante :
 # Dbjson.new(Table).perform

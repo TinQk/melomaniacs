@@ -36,3 +36,9 @@ artists.each_with_index do |artist, i|
 end
 
 # Create users
+User.create(
+  username: "user",
+  email: "user@email.com",
+  password: "password"
+)
+p "User 'user' created : user@email.com, password"

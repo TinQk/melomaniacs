@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class ArtistsControllerTest < ActionDispatch::IntegrationTest
@@ -5,5 +7,4 @@ class ArtistsControllerTest < ActionDispatch::IntegrationTest
     get artists_show_url
     assert_response :success
   end
-
 end

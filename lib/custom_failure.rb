@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 class CustomFailure < Devise::FailureApp
   def redirect_url
     home_index_url
-
   end
 
   def respond
@@ -11,5 +12,4 @@ class CustomFailure < Devise::FailureApp
       redirect
     end
   end
-
 end

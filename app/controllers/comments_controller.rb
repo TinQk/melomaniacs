@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 
   def create
     result = comment_params
-    comment = Comment.create(result)
+    Comment.create(result)
     redirect_to(artist_path(params[:artist_id]))
   end
 

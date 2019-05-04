@@ -10,11 +10,10 @@ class Scrapping
   # Method that scraps genres and their URL into an hash
   def scrapping_genre(url)
     doc = Nokogiri::HTML(open(url))
-    genres = {}
 
     # To create our genre database + links
     doc.css("div.genre").each do |div|
-      genre = div.text.tr('»', '').chop
+      genre = div.text.tr('»', '').chop # hash
       id = Genre.create(name: genre).id
       link = 'http://everynoise.com/' + (div.css('a')[0]["href"])
       # scraps artists info

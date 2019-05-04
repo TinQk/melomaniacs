@@ -22,12 +22,12 @@ class HomeController < ApplicationController
         artist = artists[i].name
         i += 1
       end
-      next unless !artist.nil? && @reco.include?(artist) == false && Artist.find_by(name: artist) != nil
+      next unless !artist.nil? && @reco.include?(artist) == false && !Artist.find_by(name: artist).nil?
 
       @reco << artist
       break if @reco.size >= 10
 
-      if @duplicates.include?(artists[i].name) == false && @reco.include?(artists[i].name) == false && !artists[i].nil? && Artist.find_by(name: artists[i].name) != nil
+      if @duplicates.include?(artists[i].name) == false && @reco.include?(artists[i].name) == false && !artists[i].nil? && !Artist.find_by(name: artists[i].name).nil?
         @reco << artists[i].name
         break if @reco.size >= 10
       end

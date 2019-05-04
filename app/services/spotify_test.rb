@@ -5,7 +5,6 @@ class SpotifyTest
 
   def loop
     y = 0
-    i = []
     RSpotify.authenticate(Rails.application.credentials.spotify_client_id, Rails.application.credentials.spotify_client_secret)
     @artists = Artist.all[189_000..204_000]
     @artists.each do |artist|
@@ -13,7 +12,7 @@ class SpotifyTest
       artist.save
       y += 1
       puts y
-      if (y % 100) == 0
+      if (y % 100).zero?
         puts "waiting..."
         sleep(2.0)
       end

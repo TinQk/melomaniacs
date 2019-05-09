@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class LikeTest < ActiveSupport::TestCase
+class AutocompleteControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

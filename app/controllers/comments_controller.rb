@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
@@ -7,7 +9,7 @@ class CommentsController < ApplicationController
 
   def create
     result = comment_params
-    comment = Comment.create(result)
+    Comment.create(result)
     redirect_to(artist_path(params[:artist_id]))
   end
 
@@ -33,6 +35,6 @@ class CommentsController < ApplicationController
     result = params.require(:comment).permit(:content)
     result[:user_id] = current_user.id
     result[:artist_id] = params[:artist_id]
-    return result
+    result
   end
 end

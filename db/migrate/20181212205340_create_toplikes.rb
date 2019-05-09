@@ -1,8 +1,7 @@
+# frozen_string_literal: true
+
 class CreateToplikes < ActiveRecord::Migration[5.2]
   def change
-    create_table :toplikes do |t|
-
-      t.timestamps
-    end
+    create_table :toplikes, &:timestamps
   end
 end

@@ -25,8 +25,14 @@
                 <div class='container'>
                   <div class="row">
                     <div class="col-sm-16 col-sm-offset-3">
-                      <input type="text" id="search-input-artists"  placeholder="Search for artists" />
+                      <%= form_tag home_index_path, method: :get do %>
+                      <%= text_field_tag 'term',nil, placeholder: "Search for artists", autocomplete: :off, id:"search-input-artists", class:"my_form"%>
+                      <%= hidden_field_tag :type , "a" %>
+                      <% end %>
                     </div>
+                  </div>
+
+                  <div class="col-3 col-md-3 col-lg-3">
                   </div>
 
                     <div class="col-sm-3" id="facets">
@@ -62,11 +68,11 @@
         <div class='footer-phrase'>
           <%= link_to image_tag('search.png'), root_path, onclick: "window.location.href='/'", class: "icon-link"%> <%= link_to 'Search', root_path, onclick: "window.location.href='/'", class: "link-text"%> for genres and artists and like your favorites to find inspiration and recommendations under <%= link_to image_tag('compass.png'), discover_path,  class: "icon-link" %> <%= link_to "Discover", discover_path,  class: "link-text" %>.
         </div>
-        </div>
+      </div>
 
             <!--when not logged-->
 
-          <% else %>
+      <% else %>
       <div class= "home">
          <div class= 'home-left'>
             <h1>Sign up to discover new artists you're sure to love </h1>

@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :genres, only: [:show]
   resources :home, only: [:index]
   get '/discover', to: 'home#discover'
+
+  resources :autocomplete, only: [:index], format: 'json'
 end

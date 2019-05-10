@@ -1,96 +1,68 @@
+<div class='home-logged'>
+  <div class= 'home-right-logged'>
+    <%= image_tag("BasKey-Récupéré.png")%>
+  </div>
 
-          <% if user_signed_in? %>
-    <div class='home-logged'>
-          <div class= 'home-right-logged'>
-            <%= image_tag("BasKey-Récupéré.png")%>
+  <!-- tabs buttons-->
+  <div class="home-left-logged">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">ARTISTS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">GENRES</a>
+      </li>
+    </ul>
+
+
+    <div class="tab-content" id="pills-tabContent"> <!-- display tab -->
+
+      <!-- first tab -->
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+        <div class='container'>
+          <div class="row">
+            <div class="col-sm-16 col-sm-offset-3">
+              <%= form_tag home_index_path, method: :get do %>
+              <%= text_field_tag 'term',nil, placeholder: "Search for artists", autocomplete: :off, id:"search-input-artists", class:"artist_form"%>
+              <%= hidden_field_tag :type , "a" %>
+              <% end %>
+            </div>
           </div>
 
-          <!-- tabs-->
-          <div class="home-left-logged">
-          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">ARTISTS</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">GENRES</a>
-            </li>
-          </ul>
-
-
-          <div class="tab-content" id="pills-tabContent">
-
-            <!-- first tab when signed in-->
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-
-                <div class='container'>
-                  <div class="row">
-                    <div class="col-sm-16 col-sm-offset-3">
-                      <%= form_tag home_index_path, method: :get do %>
-                      <%= text_field_tag 'term',nil, placeholder: "Search for artists", autocomplete: :off, id:"search-input-artists", class:"artist_form"%>
-                      <%= hidden_field_tag :type , "a" %>
-                      <% end %>
-                    </div>
-                  </div>
-
-                  <div class="col-3 col-md-3 col-lg-3">
-                  </div>
-
-                    <div class="col-sm-3" id="facets">
-                      <div id="artists"></div>
-                    </div>
-                    <div class="col-sm-9" id="artists-hits"></div>
-                  </div>
-            </div>
-
-
-            <!-- second tab when signed in-->
-
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-              <div class= 'home-left-logged'>
-
-                <div class='container'>
-                  <div class="row">
-                    <div class="col-sm-16 col-sm-offset-3">
-                      <%= form_tag home_index_path, method: :get do %>
-                      <%= text_field_tag 'term',nil, placeholder: "Search for genres", autocomplete: :off, id:"search-input-genres", class:"genre_form"%>
-                      <%= hidden_field_tag :type , "a" %>
-                      <% end %>
-                    </div>
-
-                  </div>
-
-                    <div class="col-sm-3" id="facets">
-                      <div id="genres"></div>
-                    </div>
-                    <div class="col-sm-9" id="genres-hits"></div>
-                  </div>
-               </div>
-             </div>
-
-        </div>
-        <div class='footer-phrase'>
-          <%= link_to image_tag('search.png'), root_path, onclick: "window.location.href='/'", class: "icon-link"%> <%= link_to 'Search', root_path, onclick: "window.location.href='/'", class: "link-text"%> for genres and artists and like your favorites to find inspiration and recommendations under <%= link_to image_tag('compass.png'), discover_path,  class: "icon-link" %> <%= link_to "Discover", discover_path,  class: "link-text" %>.
+          <div class="col-sm-3" id="facets">
+            <div id="artists"></div>
+          </div>
+          <div class="col-sm-9" id="artists-hits"></div>
         </div>
       </div>
 
-            <!--when not logged-->
+      <!-- second tab -->
+      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <div class= 'home-left-logged'>
 
-      <% else %>
-      <div class= "home">
-         <div class= 'home-left'>
-            <h1>Sign up to discover new artists you're sure to love </h1>
-            <hr>
-            <p>Here at melomaniacs, we believe in the power of <strong>community</strong> to discover new things you’ll end up loving. We provide you with an <strong>extensive artists database</strong> and the opportunity to <strong>express your opinion</strong>. Our <strong>smart research and recommendation features</strong> allow you to find new things you’re sure to love.</p>
-            <div class= "home-buttons">
-              <button class='home-button-primary' data-toggle="modal" data-target="#signUpModal">Sign up</button><button class='home-button-secondary' data-toggle="modal" data-target="#logInModal">Log in</button>
+          <div class='container'>
+            <div class="row">
+              <div class="col-sm-16 col-sm-offset-3">
+                <%= form_tag home_index_path, method: :get do %>
+                <%= text_field_tag 'term',nil, placeholder: "Search for genres", autocomplete: :off, id:"search-input-genres", class:"genre_form"%>
+                <%= hidden_field_tag :type , "a" %>
+                <% end %>
+              </div>
             </div>
 
+            <div class="col-sm-3" id="facets">
+              <div id="genres"></div>
+            </div>
+            <div class="col-sm-9" id="genres-hits"></div>
           </div>
+        </div>
+      </div>
 
-          <div class= 'home-right'>
-            <%= image_tag("BasKey-background.png")%>
-          </div>
+    </div> <!-- /display tab -->
 
-          <% end %>
-
+    <div class='footer-phrase'>
+      <%= link_to image_tag('search.png'), root_path, onclick: "window.location.href='/'", class: "icon-link"%> <%= link_to 'Search', root_path, onclick: "window.location.href='/'", class: "link-text"%> for genres and artists and like your favorites to find inspiration and recommendations under <%= link_to image_tag('compass.png'), discover_path,  class: "icon-link" %> <%= link_to "Discover", discover_path,  class: "link-text" %>.
     </div>
+  </div>
+</div>

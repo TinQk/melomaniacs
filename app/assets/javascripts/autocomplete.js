@@ -8,12 +8,12 @@ $(document).ready(function () {
         method: 'GET',
         dataType: 'json',
         data: { what: 'artists', term: search },
-        success: function (data) {
+        success: function (result) {
           $('#artists-hits').empty();
-          var len = data['data'].length;
+          var len = result.data.length;
           for (var i = 0; i < len; i++) {
-            var id = data['data'][i]['id'];
-            var name = data['data'][i]['name'];
+            var id = result.data[i].id;
+            var name = result.data[i].name;
             if (len > 0) {
               $('#artists-hits').append('<a href="/artists/' + id + '"><li>' + name + '</li></a>');
             }
@@ -36,12 +36,12 @@ $(document).ready(function () {
         method: 'GET',
         dataType: 'json',
         data: { what: 'genres', term: search },
-        success: function (data) {
+        success: function (result) {
           $('#genres-hits').empty();
-          var len = data['data'].length;
+          var len = result.data.length;
           for (var i = 0; i < len; i++) {
-            var id = data['data'][i]['id'];
-            var name = data['data'][i]['name'];
+            var id = result.data[i].id;
+            var name = result.data[i].name;
             if (len > 0) {
               $('#genres-hits').append('<a href="/genres/' + id + '"><li>' + name + '</li></a>');
             }

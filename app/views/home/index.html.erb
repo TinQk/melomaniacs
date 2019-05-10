@@ -26,7 +26,7 @@
                   <div class="row">
                     <div class="col-sm-16 col-sm-offset-3">
                       <%= form_tag home_index_path, method: :get do %>
-                      <%= text_field_tag 'term',nil, placeholder: "Search for artists", autocomplete: :off, id:"search-input-artists", class:"my_form"%>
+                      <%= text_field_tag 'term',nil, placeholder: "Search for artists", autocomplete: :off, id:"search-input-artists", class:"artist_form"%>
                       <%= hidden_field_tag :type , "a" %>
                       <% end %>
                     </div>
@@ -51,7 +51,10 @@
                 <div class='container'>
                   <div class="row">
                     <div class="col-sm-16 col-sm-offset-3">
-                      <input type="text" id="search-input-genres"  placeholder="Search for genres" />
+                      <%= form_tag home_index_path, method: :get do %>
+                      <%= text_field_tag 'term',nil, placeholder: "Search for genres", autocomplete: :off, id:"search-input-genres", class:"genre_form"%>
+                      <%= hidden_field_tag :type , "a" %>
+                      <% end %>
                     </div>
 
                   </div>

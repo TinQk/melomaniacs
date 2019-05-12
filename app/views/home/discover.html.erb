@@ -6,11 +6,13 @@
 
 
       <div class= "show-box-inside">
-      <% if Like.all == nil then %>
-        No likes yet... Be the first!
-      <% end %>
-      <% 10.times do |i| %>
-        <%= link_to Artist.find(Toplike.all[i].id).name, artist_path(Toplike.all[i].id) %><br>
+      <% toplikes = TopLike.all rescue nil %>
+      <% if !toplikes %>
+        No likes yet... Be the first! (updated once a day)
+      <% else %>
+        <% 10.times do |i| %>
+          <%= link_to Artist.find(toplikes[i].id).name, artist_path(toplikes[i].id) %><br>
+        <% end %>
       <% end %>
     </div>
   </div>

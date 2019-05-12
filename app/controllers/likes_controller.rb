@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class LikesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_artist
   before_action :find_like, only: [:destroy]
 

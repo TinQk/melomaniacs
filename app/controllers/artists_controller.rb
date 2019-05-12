@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class ArtistsController < ApplicationController
-  before_action :authenticate_user!
-
   def show
     @artist = Artist.find(params[:id])
     @all = Artist.all

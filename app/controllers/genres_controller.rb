@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class GenresController < ApplicationController
-  before_action :authenticate_user!
-
   def show
     @reco = []
     @cover = []

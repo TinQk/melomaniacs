@@ -7,7 +7,8 @@ ruby '2.5.1'
 
 gem 'devise', '>= 4.6.0'
 gem 'dotenv-rails'
-gem 'nokogiri'
+gem "nokogiri", '>= 1.10.4'
+
 gem 'pg_search'
 
 gem 'bootstrap', '~> 4.3.1'
